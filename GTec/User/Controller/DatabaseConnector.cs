@@ -16,9 +16,19 @@ namespace GTec.User.Controller
             return new string[] { "Historische kilometer" };
         }
 
-        public Waypoint[] GetWaypoints(Route route)
+        public Waypoint[] GetWaypoints(string routeName)
         {
             return new Waypoint[] { new Waypoint(51, 4, false)};
+        }
+
+        public Account GetAccounts(){
+            //Probably gonna need revision
+            return new Account("Admin", "Admin");
+        }
+
+        public Route GetRoute(String routeName) 
+        {
+            return new Route(routeName, "default/sys.wav", GetWaypoints(routeName));
         }
     }
 }
