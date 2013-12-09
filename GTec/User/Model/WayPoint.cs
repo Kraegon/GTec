@@ -1,6 +1,6 @@
-﻿using GTec.View;
+﻿using GTec.User.View;
 
-namespace Model
+namespace GTec.User.Model
 {
     public class Waypoint : BaseClassForBindableProperties
     {
@@ -51,10 +51,15 @@ namespace Model
             this.longitude = longitude;
             this.visited = Visited;
         }
+        public Waypoint(double Latitude, double longitude)
+        {
+            this.latitude = Latitude;
+            this.longitude = longitude;
+        }
 
         public override string ToString()
         {
-            return "Latitude = " + latitude + ", " + "Longitude = " + longitude;
+            return "Waypoint> Latitude = " + latitude + ", " + "Longitude = " + longitude;
         }
     }
 }

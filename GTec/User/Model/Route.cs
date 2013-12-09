@@ -1,6 +1,6 @@
-﻿using GTec.View;
+﻿using GTec.User.View;
 
-namespace Model
+namespace GTec.User.Model
 {
     public class Route : BaseClassForBindableProperties
     {

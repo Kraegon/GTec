@@ -1,4 +1,4 @@
-﻿using GTec.View;
+﻿using GTec.User.View;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;

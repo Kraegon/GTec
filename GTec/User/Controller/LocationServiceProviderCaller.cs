@@ -1,10 +1,10 @@
-﻿using GTec.View;
-using Model;
+﻿using GTec.User.View;
+using GTec.User.Model;
 using System;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 
-namespace GTec.Controller
+namespace GTec.User.Controller
 {
     /// <summary>
     /// Updates the CurrentLocation and for convenience also a string version of this, CurrentLocationString. Both can be bound to.

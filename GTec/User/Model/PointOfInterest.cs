@@ -1,5 +1,6 @@
-﻿
-namespace Model
+﻿using GTec.User.View;
+
+namespace GTec.User.Model
 {
     public class PointOfInterest : Waypoint
     {

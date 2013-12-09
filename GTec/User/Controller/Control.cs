@@ -1,8 +1,8 @@
-﻿using GTec.View;
+﻿using GTec.User.View;
 using System.Collections.Generic;
 using Windows.UI.Xaml;
 
-namespace GTec.Controller
+namespace GTec.User.Controller
 {
     public class Control : BaseClassForBindableProperties
     {
