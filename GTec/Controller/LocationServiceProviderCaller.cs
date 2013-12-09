@@ -1,74 +1,91 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using GTec.View;
+using Model;
+using System;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
-using Windows.Foundation;
-using Windows.System.Threading;
 
-namespace Controller
+namespace GTec.Controller
 {
-    public class LocationServiceProviderCaller
+    /// <summary>
+    /// Updates the CurrentLocation and for convenience also a string version of this, CurrentLocationString. Both can be bound to.
+    /// </summary>
+    public class LocationServiceProviderCaller : BaseClassForBindableProperties
     {
-        public class Location
+        /// <summary>
+        /// The backing for the properties.
+        /// </summary>
+        private Waypoint currentLocation = new Waypoint(666.666, 777.777, true);
+        private string currentLocationString = "Error";
+        private bool isRequestingLocation = true;
+
+        /// <summary>
+        /// The properties which you can bind to.
+        /// </summary>
+        public Waypoint CurrentLocation
         {
-            public double Latitude;
-            public double Longitude;
-
-            public Location(double Latitude, double Longitude)
+            get { return currentLocation; }
+            set
             {
-                this.Latitude = Latitude;
-                this.Longitude = Longitude;
+                if (currentLocation == value) return;
+                currentLocation = value;
+                OnPropertyChanged("CurrentLocation");
             }
-
-            public override string ToString()
+        }
+        public string CurrentLocationString
+        {
+            get { return currentLocationString; }
+            set
             {
-                return "Latitude = " + Latitude + ", " + "Longitude = " + Longitude;
+                if (currentLocationString == value) return;
+                currentLocationString = value;
+                OnPropertyChanged("CurrentLocationString");
+            }
+        }
+        public bool IsRequestingLocation
+        {
+            get { return isRequestingLocation; }
+            set
+            {
+                if (isRequestingLocation == value) return;
+                isRequestingLocation = value;
+                OnPropertyChanged("IsRequestingLocation");
             }
         }
 
-        public static Location currentLocation = new Location(666.666, 777.777);
+        /// <summary>
+        /// The required fields for this class.
+        /// </summary>
         private Geolocator geoLocation = new Geolocator();
         private TimeSpan delay = TimeSpan.FromSeconds(1);
-        private bool isRequestingLocation = true;
 
         public LocationServiceProviderCaller()
         {
-            //geoLocation.DesiredAccuracyInMeters = 1;
             geoLocation.DesiredAccuracy = PositionAccuracy.High;
-            getLocation();
-
-            IAsyncAction asyncAction = Windows.System.Threading.ThreadPool.RunAsync(
-                async (workItem) =>
-                {
-                    while (true)
-                    {
-                        if(isRequestingLocation)
-                            getLocation();
-
-                        await Task.Delay(delay);
-
-                        System.Diagnostics.Debug.WriteLine(currentLocation);
-                    }
-                });
+            new TaskFactory().StartNew(updateLocationLoop);
         }
+        private async void updateLocationLoop()
+        {
+            while (true)
+            {
+                if (isRequestingLocation)
+                    getLocation();
 
-        public async void getLocation()
+                await Task.Delay(delay);
+            }
+        }
+        private async void getLocation()
         {
             try
             {
                 Geoposition position = await geoLocation.GetGeopositionAsync();
 
-                lock (currentLocation)
-                {
-                    currentLocation.Latitude = position.Coordinate.Point.Position.Latitude;
-                    currentLocation.Longitude = position.Coordinate.Point.Position.Longitude;
-                }
+                currentLocation.Latitude = position.Coordinate.Point.Position.Latitude;
+                currentLocation.Longitude = position.Coordinate.Point.Position.Longitude;
+                CurrentLocationString = currentLocation.ToString();
             }
             catch
             {
-                isRequestingLocation = false;
+                IsRequestingLocation = false;
             }
         }
     }

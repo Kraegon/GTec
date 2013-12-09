@@ -27344,11 +27344,6 @@
 					<Value>App.xbf</Value>
 				</Candidate>
 			</NamedResource>
-			<NamedResource name="MainPage.xbf" uri="ms-resource://42992c55-4c6d-43be-9822-52a2bcf7d37a/Files/MainPage.xbf">
-				<Candidate type="Path">
-					<Value>MainPage.xbf</Value>
-				</Candidate>
-			</NamedResource>
 			<ResourceMapSubtree name="Assets">
 				<NamedResource name="Logo.png" uri="ms-resource://42992c55-4c6d-43be-9822-52a2bcf7d37a/Files/Assets/Logo.png">
 					<Candidate qualifiers="Scale-100" isDefault="true" type="Path">
@@ -27758,6 +27753,13 @@
 						</Candidate>
 					</NamedResource>
 				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="View">
+				<NamedResource name="MainPage.xbf" uri="ms-resource://42992c55-4c6d-43be-9822-52a2bcf7d37a/Files/View/MainPage.xbf">
+					<Candidate type="Path">
+						<Value>View\MainPage.xbf</Value>
+					</Candidate>
+				</NamedResource>
 			</ResourceMapSubtree>
 		</ResourceMapSubtree>
 	</ResourceMap>

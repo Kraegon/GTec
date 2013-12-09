@@ -1,23 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Model
 {
-    public class PointOfInterest : WayPoint
+    public class PointOfInterest : Waypoint
     {
-        public string Name;
-        public string Information;
-        public string ImagePath;
+        /// <summary>
+        /// The backing for the properties.
+        /// </summary>
+        private string name;
+        private string information;
+        private string imagePath;        
+        
+        /// <summary>
+        /// The properties which you can bind to.
+        /// </summary>
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (name == value) return;
+                name = value;
+                OnPropertyChanged("Name");
+            }
+        }
+        public string Information
+        {
+            get { return information; }
+            set
+            {
+                if (information == value) return;
+                information = value;
+                OnPropertyChanged("Information");
+            }
+        }
+        public string ImagePath
+        {
+            get { return imagePath; }
+            set
+            {
+                if (imagePath == value) return;
+                imagePath = value;
+                OnPropertyChanged("ImagePath");
+            }
+        }
 
         public PointOfInterest(long Latitude, long Longitude, bool Visited, string Name, string Information, string ImagePath)
             : base(Latitude, Longitude, Visited)
         {
-            this.Name = Name;
-            this.Information = Information;
-            this.ImagePath = ImagePath;
+            this.name = Name;
+            this.information = Information;
+            this.imagePath = ImagePath;
         }
     }
 }

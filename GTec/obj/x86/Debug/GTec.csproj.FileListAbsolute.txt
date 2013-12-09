@@ -1,73 +1,37 @@
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\App.xbf
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\MainPage.xbf
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\GTec.exe
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\GTec.pdb
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\resources.pri
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\AppxManifest.xml
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\GTec.build.appxrecipe
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\Bing.Maps.winmd
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\Bing.Maps.xml
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\App.g.i.cs
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\App.g.cs
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\MainPage.g.i.cs
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\MainPage.g.cs
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\XamlTypeInfo.g.cs
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\XamlSaveStateFile.xml
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\App.xaml
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\MainPage.xaml
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\App.xbf
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\MainPage.xbf
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\Bing.Maps\Themes\Generic.xbf
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\GTec.exe
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\GTec.pdb
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\GTec.csproj.GenerateResource.Cache
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\priconfig.xml
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\priconfig.xml.intermediate
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\layout.resfiles
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\layout.resfiles.intermediate
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\resources.resfiles
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\resources.resfiles.intermediate
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\pri.resfiles
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\pri.resfiles.intermediate
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\qualifiers.txt
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\qualifiers.txt.intermediate
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\resources.pri.xml
-c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\ProjectArchitectures.txt
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\bin\x86\Debug\App.xbf
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\bin\x86\Debug\MainPage.xbf
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\bin\x86\Debug\GTec.exe
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\bin\x86\Debug\GTec.pdb
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\bin\x86\Debug\resources.pri
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\bin\x86\Debug\AppxManifest.xml
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\bin\x86\Debug\GTec.build.appxrecipe
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\bin\x86\Debug\Bing.Maps.winmd
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\bin\x86\Debug\Bing.Maps.xml
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\App.g.i.cs
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\App.g.cs
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\MainPage.g.i.cs
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\MainPage.g.cs
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\XamlTypeInfo.g.cs
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\App.xaml
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\MainPage.xaml
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\App.xbf
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\MainPage.xbf
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\XamlSaveStateFile.xml
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\Bing.Maps\Themes\Generic.xbf
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\GTec.exe
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\GTec.pdb
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\GTec.csproj.GenerateResource.Cache
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\priconfig.xml
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\priconfig.xml.intermediate
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\layout.resfiles
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\layout.resfiles.intermediate
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\resources.resfiles
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\resources.resfiles.intermediate
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\pri.resfiles
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\pri.resfiles.intermediate
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\qualifiers.txt
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\qualifiers.txt.intermediate
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\App.xbf
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\GTec.exe
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\GTec.pdb
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\resources.pri
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\AppxManifest.xml
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\GTec.build.appxrecipe
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\Bing.Maps.winmd
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\Bing.Maps.xml
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\App.g.i.cs
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\App.g.cs
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\XamlTypeInfo.g.cs
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\XamlSaveStateFile.xml
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\App.xaml
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\App.xbf
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\GTec.exe
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\GTec.pdb
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\GTec.csproj.GenerateResource.Cache
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\priconfig.xml
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\priconfig.xml.intermediate
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\layout.resfiles
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\layout.resfiles.intermediate
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\resources.resfiles
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\resources.resfiles.intermediate
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\pri.resfiles
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\pri.resfiles.intermediate
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\qualifiers.txt
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\qualifiers.txt.intermediate
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\resources.pri.xml
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\Bing.Maps\Themes\Generic.xbf
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\View\MainPage.xbf
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\View\MainPage.g.i.cs
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\View\MainPage.g.cs
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\View\MainPage.xaml
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\obj\x86\Debug\View\MainPage.xbf

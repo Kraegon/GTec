@@ -1,1 +1,1 @@
-C:\Users\Igor\Dropbox\23TI2.2A4\GTec\GTec\GTec.csproj;x86
+C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\GTec.csproj;x86

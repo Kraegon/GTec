@@ -1,21 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using GTec.View;
 
 namespace Model
 {
-    public class WayPoint
+    public class Waypoint : BaseClassForBindableProperties
     {
-        public long Latitude;
-        public long Longitude;
-        public bool Visited;
+        /// <summary>
+        /// The backing for the properties.
+        /// </summary>
+        private double latitude;
+        private double longitude;
+        private bool visited;
 
-        public WayPoint(long Latitude, long Longitude, bool Visited)
+        /// <summary>
+        /// The properties which you can bind to.
+        /// </summary>
+        public double Latitude
         {
-            this.Latitude = Latitude;
-            this.Longitude = Longitude;
-            this.Visited = Visited;
+            get { return latitude; }
+            set
+            {
+                if (latitude == value) return;
+                latitude = value;
+                OnPropertyChanged("Latitude");
+            }
+        }
+        public double Longitude
+        {
+            get { return longitude; }
+            set
+            {
+                if (longitude == value) return;
+                longitude = value;
+                OnPropertyChanged("Longitude");
+            }
+        }
+        public bool Visited
+        {
+            get { return visited; }
+            set
+            {
+                if (visited == value) return;
+                visited = value;
+                OnPropertyChanged("Visited");
+            }
+        }
+
+        public Waypoint(double Latitude, double longitude, bool Visited)
+        {
+            this.latitude = Latitude;
+            this.longitude = longitude;
+            this.visited = Visited;
+        }
+
+        public override string ToString()
+        {
+            return "Latitude = " + latitude + ", " + "Longitude = " + longitude;
         }
     }
 }

@@ -7,7 +7,7 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="42992c55-4c6d-43be-9822-52a2bcf7d37a" Publisher="CN=Thom Trignol" Version="1.0.0.0" ProcessorArchitecture="x86" />
+  <Identity Name="42992c55-4c6d-43be-9822-52a2bcf7d37a" Publisher="CN=Igor" Version="1.0.0.0" ProcessorArchitecture="x86" />
   <Properties>
     <DisplayName>GTec</DisplayName>
     <PublisherDisplayName>Thom Trignol</PublisherDisplayName>

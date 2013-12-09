@@ -6,24 +6,24 @@
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>42992c55-4c6d-43be-9822-52a2bcf7d37a</PackageIdentityName>
-    <RegisteredManifestChecksum>2E76A1B916B1CB956512302A5AAB4B05AF0F60CF4351A4F54B992257E935313D</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>42992c55-4c6d-43be-9822-52a2bcf7d37a_1.0.0.0_x86__wb3xhtx405mda</RegisteredPackageMoniker>
-    <RegisteredUserModeAppID>42992c55-4c6d-43be-9822-52a2bcf7d37a_wb3xhtx405mda!App</RegisteredUserModeAppID>
+    <RegisteredManifestChecksum>D2D6B77EDB7910D8FF188A19A73D169B77638319DF70AA36A5389E2EDB617098</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>42992c55-4c6d-43be-9822-52a2bcf7d37a_1.0.0.0_x86__2tcx84wpk73at</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>42992c55-4c6d-43be-9822-52a2bcf7d37a_2tcx84wpk73at!App</RegisteredUserModeAppID>
     <RegisteredPackageID>42992c55-4c6d-43be-9822-52a2bcf7d37a</RegisteredPackageID>
-    <RegisteredPackagePublisher>CN=Thom Trignol</RegisteredPackagePublisher>
+    <RegisteredPackagePublisher>CN=Igor</RegisteredPackagePublisher>
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-12-04T21:48:16.152</Modified>
+      <Modified>2013-12-08T01:44:11.294</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\GTec.exe">
+    <AppxPackagedFile Include="C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\GTec.exe">
       <PackagePath>GTec.exe</PackagePath>
-      <Modified>2013-12-04T21:52:36.272</Modified>
+      <Modified>2013-12-08T02:57:46.724</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Thom Trignol\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
@@ -337,41 +337,41 @@
       <PackagePath>Bing.Maps\UnifiedStyle.MapStyle</PackagePath>
       <Modified>2013-12-04T00:55:47.646</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2013-04-26T14:12:22.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2013-04-26T14:12:22.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2013-04-26T14:12:22.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2013-04-26T14:12:22.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2013-12-04T21:48:13.689</Modified>
+      <Modified>2013-12-07T08:17:49.486</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\MainPage.xbf">
-      <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2013-12-04T21:48:13.690</Modified>
+    <AppxPackagedFile Include="C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\View\MainPage.xbf">
+      <PackagePath>View\MainPage.xbf</PackagePath>
+      <Modified>2013-12-08T02:57:46.241</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf">
+    <AppxPackagedFile Include="C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf">
       <PackagePath>Bing.Maps\Themes\Generic.xbf</PackagePath>
-      <Modified>2013-12-04T21:52:35.997</Modified>
+      <Modified>2013-12-08T02:57:46.360</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Thom Trignol\Documents\Visual Studio 2013\Projects\GTec\GTec\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-12-04T21:48:14.817</Modified>
+      <Modified>2013-12-08T01:44:10.369</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
