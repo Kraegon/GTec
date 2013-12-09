@@ -6,8 +6,8 @@
     <RemoteDebugEnabled>true</RemoteDebugEnabled>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <RemoteDebugMachine>169.254.104.76:1009 (Avans-01)</RemoteDebugMachine>
-    <UseAuthentication>True</UseAuthentication>
+    <RemoteDebugMachine>145.102.70.254:4019</RemoteDebugMachine>
+    <UseAuthentication>False</UseAuthentication>
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <UseSimulator>True</UseSimulator>
   </PropertyGroup>

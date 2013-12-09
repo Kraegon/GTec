@@ -61,6 +61,7 @@ namespace GTec.Controller
         public LocationServiceProviderCaller()
         {
             geoLocation.DesiredAccuracy = PositionAccuracy.High;
+            getLocation();
             new TaskFactory().StartNew(updateLocationLoop);
         }
         private async void updateLocationLoop()

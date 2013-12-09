@@ -65,13 +65,16 @@ namespace GTec.GTec_XamlTypeInfo
                 global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForType(type);
                 if (libXamlType != null)
                 {
-                    xamlType = libXamlType;
+                    if(libXamlType.IsConstructible || xamlType == null)
+                    {
+                        xamlType = libXamlType;
+                    }
                 }
             }
             if (xamlType != null)
             {
                 _xamlTypeCacheByName.Add(xamlType.FullName, xamlType);
-                _xamlTypeCacheByType.Add(type, xamlType);
+                _xamlTypeCacheByType.Add(xamlType.UnderlyingType, xamlType);
             }
             return xamlType;
         }
@@ -98,12 +101,15 @@ namespace GTec.GTec_XamlTypeInfo
                 global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForName(typeName);
                 if (libXamlType != null)
                 {
-                    xamlType = libXamlType;
+                    if(libXamlType.IsConstructible || xamlType == null)
+                    {
+                        xamlType = libXamlType;
+                    }
                 }
             }
             if (xamlType != null)
             {
-                _xamlTypeCacheByName.Add(typeName, xamlType);
+                _xamlTypeCacheByName.Add(xamlType.FullName, xamlType);
                 _xamlTypeCacheByType.Add(xamlType.UnderlyingType, xamlType);
             }
             return xamlType;
