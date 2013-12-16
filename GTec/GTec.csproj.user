@@ -9,6 +9,6 @@
     <RemoteDebugMachine>145.102.70.254:4019</RemoteDebugMachine>
     <UseAuthentication>False</UseAuthentication>
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
-    <UseSimulator>True</UseSimulator>
+    <UseSimulator>False</UseSimulator>
   </PropertyGroup>
 </Project>

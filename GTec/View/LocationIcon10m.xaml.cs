@@ -12,24 +12,20 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Windows.Devices.Geolocation;
-using System.Threading;
-using System.Threading.Tasks;
-using Bing.Maps;
+using GTec.View;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace GTec.View
+namespace GTec
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class LocationIcon10m
     {
-        public MainPage()
+        public LocationIcon10m()
         {
-            this.InitializeComponent();
+            //this.InitializeComponent();
         }
-
     }
 }

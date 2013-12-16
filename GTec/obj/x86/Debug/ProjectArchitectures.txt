@@ -1,1 +1,1 @@
-D:\Windows 8 projects\v4\GTec\GTec\GTec.csproj;x86
+C:\Users\Vincent\Documents\Project\GTec\GTec\GTec.csproj;x86

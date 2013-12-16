@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>BASILISK-XV</Machine>
-    <WindowsUser>Kraegon</WindowsUser>
+    <Machine>VINCENT-LT</Machine>
+    <WindowsUser>Vincent</WindowsUser>
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>42992c55-4c6d-43be-9822-52a2bcf7d37b</PackageIdentityName>
-    <RegisteredManifestChecksum>A8BE1FF7A3D4F1B7FA5497ED4190423CE61535AD7E6D19BFD8BEA302F2174DDE</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>F323A64FA8EA06CA2DF79F99C13862CE9D7EDE37FB05A1B40E181EB178C9AD5C</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>42992c55-4c6d-43be-9822-52a2bcf7d37b_1.0.0.0_x86__2tcx84wpk73at</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>42992c55-4c6d-43be-9822-52a2bcf7d37b_2tcx84wpk73at!App</RegisteredUserModeAppID>
     <RegisteredPackageID>42992c55-4c6d-43be-9822-52a2bcf7d37b</RegisteredPackageID>
@@ -14,364 +14,380 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="D:\Windows 8 projects\v4\GTec\GTec\bin\x86\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Vincent\Documents\Project\GTec\GTec\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-12-09T11:01:32.939</Modified>
+      <Modified>2013-12-12T13:40:39.726</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="D:\Windows 8 projects\v4\GTec\GTec\bin\x86\Debug\GTec.exe">
+    <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\bin\x86\Debug\GTec.exe">
       <PackagePath>GTec.exe</PackagePath>
-      <Modified>2013-12-09T11:01:31.076</Modified>
+      <Modified>2013-12-16T10:22:20.257</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
-      <Modified>2013-11-22T10:47:46.254</Modified>
+      <Modified>2013-11-22T11:08:09.909</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\debug\x86\Bing.Maps.dll">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\debug\x86\Bing.Maps.dll">
       <PackagePath>Bing.Maps.dll</PackagePath>
-      <Modified>2013-11-22T10:47:45.979</Modified>
+      <Modified>2013-11-22T11:08:09.675</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Font\Bing_Maps_Symbol.ttf">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Font\Bing_Maps_Symbol.ttf">
       <PackagePath>Bing.Maps\Font\Bing_Maps_Symbol.ttf</PackagePath>
-      <Modified>2013-11-22T10:47:45.327</Modified>
+      <Modified>2013-11-22T11:08:08.691</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Blocked_Regions_01.png">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Blocked_Regions_01.png">
       <PackagePath>Bing.Maps\Blocked_Regions_01.png</PackagePath>
-      <Modified>2013-11-22T10:47:45.290</Modified>
+      <Modified>2013-11-22T11:08:08.659</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\circleImage-noalpha.png">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\circleImage-noalpha.png">
       <PackagePath>Bing.Maps\circleImage-noalpha.png</PackagePath>
-      <Modified>2013-11-22T10:47:45.291</Modified>
+      <Modified>2013-11-22T11:08:08.659</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\circleImage.png">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\circleImage.png">
       <PackagePath>Bing.Maps\circleImage.png</PackagePath>
-      <Modified>2013-11-22T10:47:45.293</Modified>
+      <Modified>2013-11-22T11:08:08.675</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\dashedImage.png">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\dashedImage.png">
       <PackagePath>Bing.Maps\dashedImage.png</PackagePath>
-      <Modified>2013-11-22T10:47:45.297</Modified>
+      <Modified>2013-11-22T11:08:08.675</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\BuildingShaderXYZN-downlevel.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\BuildingShaderXYZN-downlevel.ps">
       <PackagePath>Bing.Maps\Shaders\BuildingShaderXYZN-downlevel.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.395</Modified>
+      <Modified>2013-11-22T11:08:08.800</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\BuildingShaderXYZN.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\BuildingShaderXYZN.ps">
       <PackagePath>Bing.Maps\Shaders\BuildingShaderXYZN.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.399</Modified>
+      <Modified>2013-11-22T11:08:08.800</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXY-downlevel.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXY-downlevel.ps">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXY-downlevel.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.403</Modified>
+      <Modified>2013-11-22T11:08:08.816</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXY.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXY.ps">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXY.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.406</Modified>
+      <Modified>2013-11-22T11:08:08.816</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-Compressed-downlevel.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-Compressed-downlevel.ps">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYC-Compressed-downlevel.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.410</Modified>
+      <Modified>2013-11-22T11:08:08.831</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-Compressed.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-Compressed.ps">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYC-Compressed.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.414</Modified>
+      <Modified>2013-11-22T11:08:08.831</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-downlevel.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-downlevel.ps">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYC-downlevel.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.417</Modified>
+      <Modified>2013-11-22T11:08:08.847</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC.ps">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYC.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.420</Modified>
+      <Modified>2013-11-22T11:08:08.847</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUV-downlevel.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUV-downlevel.ps">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYUV-downlevel.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.425</Modified>
+      <Modified>2013-11-22T11:08:08.863</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUV.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUV.ps">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYUV.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.429</Modified>
+      <Modified>2013-11-22T11:08:08.863</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUVUVC-downlevel.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUVUVC-downlevel.ps">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYUVUVC-downlevel.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.434</Modified>
+      <Modified>2013-11-22T11:08:08.878</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUVUVC.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUVUVC.ps">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYUVUVC.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.438</Modified>
+      <Modified>2013-11-22T11:08:08.878</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZW-downlevel.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZW-downlevel.ps">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYZW-downlevel.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.442</Modified>
+      <Modified>2013-11-22T11:08:08.894</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZW.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZW.ps">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYZW.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.445</Modified>
+      <Modified>2013-11-22T11:08:08.894</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZWUV-downlevel.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZWUV-downlevel.ps">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYZWUV-downlevel.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.449</Modified>
+      <Modified>2013-11-22T11:08:08.894</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZWUV.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZWUV.ps">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYZWUV.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.454</Modified>
+      <Modified>2013-11-22T11:08:08.909</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\LineShaderXYNMC-downlevel.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\LineShaderXYNMC-downlevel.ps">
       <PackagePath>Bing.Maps\Shaders\LineShaderXYNMC-downlevel.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.458</Modified>
+      <Modified>2013-11-22T11:08:08.909</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\LineShaderXYNMC.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\LineShaderXYNMC.ps">
       <PackagePath>Bing.Maps\Shaders\LineShaderXYNMC.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.462</Modified>
+      <Modified>2013-11-22T11:08:08.925</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\TextRenderingShader-downlevel.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\TextRenderingShader-downlevel.ps">
       <PackagePath>Bing.Maps\Shaders\TextRenderingShader-downlevel.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.466</Modified>
+      <Modified>2013-11-22T11:08:08.925</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\TextRenderingShader.ps">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\TextRenderingShader.ps">
       <PackagePath>Bing.Maps\Shaders\TextRenderingShader.ps</PackagePath>
-      <Modified>2013-11-22T10:47:45.477</Modified>
+      <Modified>2013-11-22T11:08:08.956</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\BuildingShaderXYZN-downlevel.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\BuildingShaderXYZN-downlevel.vs">
       <PackagePath>Bing.Maps\Shaders\BuildingShaderXYZN-downlevel.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.397</Modified>
+      <Modified>2013-11-22T11:08:08.800</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\BuildingShaderXYZN.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\BuildingShaderXYZN.vs">
       <PackagePath>Bing.Maps\Shaders\BuildingShaderXYZN.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.401</Modified>
+      <Modified>2013-11-22T11:08:08.816</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXY-downlevel.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXY-downlevel.vs">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXY-downlevel.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.405</Modified>
+      <Modified>2013-11-22T11:08:08.816</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXY.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXY.vs">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXY.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.408</Modified>
+      <Modified>2013-11-22T11:08:08.831</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-Compressed-downlevel.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-Compressed-downlevel.vs">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYC-Compressed-downlevel.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.412</Modified>
+      <Modified>2013-11-22T11:08:08.831</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-Compressed.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-Compressed.vs">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYC-Compressed.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.416</Modified>
+      <Modified>2013-11-22T11:08:08.847</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-downlevel.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC-downlevel.vs">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYC-downlevel.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.420</Modified>
+      <Modified>2013-11-22T11:08:08.847</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYC.vs">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYC.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.423</Modified>
+      <Modified>2013-11-22T11:08:08.847</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUV-downlevel.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUV-downlevel.vs">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYUV-downlevel.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.427</Modified>
+      <Modified>2013-11-22T11:08:08.863</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUV.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUV.vs">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYUV.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.431</Modified>
+      <Modified>2013-11-22T11:08:08.863</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUVUVC-downlevel.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUVUVC-downlevel.vs">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYUVUVC-downlevel.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.436</Modified>
+      <Modified>2013-11-22T11:08:08.878</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUVUVC.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYUVUVC.vs">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYUVUVC.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.440</Modified>
+      <Modified>2013-11-22T11:08:08.878</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZW-downlevel.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZW-downlevel.vs">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYZW-downlevel.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.444</Modified>
+      <Modified>2013-11-22T11:08:08.894</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZW.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZW.vs">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYZW.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.447</Modified>
+      <Modified>2013-11-22T11:08:08.894</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZWUV-downlevel.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZWUV-downlevel.vs">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYZWUV-downlevel.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.451</Modified>
+      <Modified>2013-11-22T11:08:08.909</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZWUV.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\DefaultShaderXYZWUV.vs">
       <PackagePath>Bing.Maps\Shaders\DefaultShaderXYZWUV.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.456</Modified>
+      <Modified>2013-11-22T11:08:08.909</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\LineShaderXYNMC-downlevel.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\LineShaderXYNMC-downlevel.vs">
       <PackagePath>Bing.Maps\Shaders\LineShaderXYNMC-downlevel.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.460</Modified>
+      <Modified>2013-11-22T11:08:08.925</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\LineShaderXYNMC.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\LineShaderXYNMC.vs">
       <PackagePath>Bing.Maps\Shaders\LineShaderXYNMC.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.464</Modified>
+      <Modified>2013-11-22T11:08:08.925</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\TextRenderingShader-downlevel.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\TextRenderingShader-downlevel.vs">
       <PackagePath>Bing.Maps\Shaders\TextRenderingShader-downlevel.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.468</Modified>
+      <Modified>2013-11-22T11:08:08.941</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\TextRenderingShader.vs">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shaders\TextRenderingShader.vs">
       <PackagePath>Bing.Maps\Shaders\TextRenderingShader.vs</PackagePath>
-      <Modified>2013-11-22T10:47:45.480</Modified>
+      <Modified>2013-11-22T11:08:08.956</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\CMF.ont">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\CMF.ont">
       <PackagePath>Bing.Maps\CMF.ont</PackagePath>
-      <Modified>2013-11-22T10:47:45.295</Modified>
+      <Modified>2013-11-22T11:08:08.675</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\LandmarkSchema.ont">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\LandmarkSchema.ont">
       <PackagePath>Bing.Maps\LandmarkSchema.ont</PackagePath>
-      <Modified>2013-11-22T10:47:45.372</Modified>
+      <Modified>2013-11-22T11:08:08.753</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Schema.ont">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Schema.ont">
       <PackagePath>Bing.Maps\Schema.ont</PackagePath>
-      <Modified>2013-11-22T10:47:45.392</Modified>
+      <Modified>2013-11-22T11:08:08.800</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\VenueMapsSchema.ont">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\VenueMapsSchema.ont">
       <PackagePath>Bing.Maps\VenueMapsSchema.ont</PackagePath>
-      <Modified>2013-11-22T10:47:45.640</Modified>
+      <Modified>2013-11-22T11:08:09.097</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\EnglishEntityNames.hlx">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\EnglishEntityNames.hlx">
       <PackagePath>Bing.Maps\EnglishEntityNames.hlx</PackagePath>
-      <Modified>2013-11-22T10:47:45.299</Modified>
+      <Modified>2013-11-22T11:08:08.675</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\EntityLookup.hlx">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\EntityLookup.hlx">
       <PackagePath>Bing.Maps\EntityLookup.hlx</PackagePath>
-      <Modified>2013-11-22T10:47:45.301</Modified>
+      <Modified>2013-11-22T11:08:08.675</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\EntityNameLength.hlx">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\EntityNameLength.hlx">
       <PackagePath>Bing.Maps\EntityNameLength.hlx</PackagePath>
-      <Modified>2013-11-22T10:47:45.323</Modified>
+      <Modified>2013-11-22T11:08:08.691</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\GermanicEntityNames.hlx">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\GermanicEntityNames.hlx">
       <PackagePath>Bing.Maps\GermanicEntityNames.hlx</PackagePath>
-      <Modified>2013-11-22T10:47:45.339</Modified>
+      <Modified>2013-11-22T11:08:08.722</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\InvariantEntityNames.hlx">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\InvariantEntityNames.hlx">
       <PackagePath>Bing.Maps\InvariantEntityNames.hlx</PackagePath>
-      <Modified>2013-11-22T10:47:45.370</Modified>
+      <Modified>2013-11-22T11:08:08.753</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\LatinEntityNames.hlx">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\LatinEntityNames.hlx">
       <PackagePath>Bing.Maps\LatinEntityNames.hlx</PackagePath>
-      <Modified>2013-11-22T10:47:45.374</Modified>
+      <Modified>2013-11-22T11:08:08.769</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\NameCount.hlx">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\NameCount.hlx">
       <PackagePath>Bing.Maps\NameCount.hlx</PackagePath>
-      <Modified>2013-11-22T10:47:45.378</Modified>
+      <Modified>2013-11-22T11:08:08.769</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\NameRoleLcid.hlx">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\NameRoleLcid.hlx">
       <PackagePath>Bing.Maps\NameRoleLcid.hlx</PackagePath>
-      <Modified>2013-11-22T10:47:45.380</Modified>
+      <Modified>2013-11-22T11:08:08.769</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\ScandinavianEntityNames.hlx">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\ScandinavianEntityNames.hlx">
       <PackagePath>Bing.Maps\ScandinavianEntityNames.hlx</PackagePath>
-      <Modified>2013-11-22T10:47:45.392</Modified>
+      <Modified>2013-11-22T11:08:08.784</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shields202.hlx">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shields202.hlx">
       <PackagePath>Bing.Maps\Shields202.hlx</PackagePath>
-      <Modified>2013-11-22T10:47:45.482</Modified>
+      <Modified>2013-11-22T11:08:08.956</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shields244.hlx">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shields244.hlx">
       <PackagePath>Bing.Maps\Shields244.hlx</PackagePath>
-      <Modified>2013-11-22T10:47:45.484</Modified>
+      <Modified>2013-11-22T11:08:08.972</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shields39.hlx">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Shields39.hlx">
       <PackagePath>Bing.Maps\Shields39.hlx</PackagePath>
-      <Modified>2013-11-22T10:47:45.486</Modified>
+      <Modified>2013-11-22T11:08:08.972</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\SlavicEntityNames.hlx">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\SlavicEntityNames.hlx">
       <PackagePath>Bing.Maps\SlavicEntityNames.hlx</PackagePath>
-      <Modified>2013-11-22T10:47:45.489</Modified>
+      <Modified>2013-11-22T11:08:08.972</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Streets202.hlx">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Streets202.hlx">
       <PackagePath>Bing.Maps\Streets202.hlx</PackagePath>
-      <Modified>2013-11-22T10:47:45.491</Modified>
+      <Modified>2013-11-22T11:08:08.972</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Streets244.hlx">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Streets244.hlx">
       <PackagePath>Bing.Maps\Streets244.hlx</PackagePath>
-      <Modified>2013-11-22T10:47:45.492</Modified>
+      <Modified>2013-11-22T11:08:08.972</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Streets39.hlx">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Streets39.hlx">
       <PackagePath>Bing.Maps\Streets39.hlx</PackagePath>
-      <Modified>2013-11-22T10:47:45.494</Modified>
+      <Modified>2013-11-22T11:08:08.972</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Themes\Generic.xaml">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\Themes\Generic.xaml">
       <PackagePath>Bing.Maps\Themes\Generic.xaml</PackagePath>
-      <Modified>2013-11-22T10:47:45.510</Modified>
+      <Modified>2013-11-22T11:08:08.987</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\h0.tile">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\h0.tile">
       <PackagePath>Bing.Maps\h0.tile</PackagePath>
-      <Modified>2013-11-22T10:47:45.359</Modified>
+      <Modified>2013-11-22T11:08:08.753</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\h1.tile">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\h1.tile">
       <PackagePath>Bing.Maps\h1.tile</PackagePath>
-      <Modified>2013-11-22T10:47:45.362</Modified>
+      <Modified>2013-11-22T11:08:08.753</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\h2.tile">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\h2.tile">
       <PackagePath>Bing.Maps\h2.tile</PackagePath>
-      <Modified>2013-11-22T10:47:45.365</Modified>
+      <Modified>2013-11-22T11:08:08.753</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\h3.tile">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\h3.tile">
       <PackagePath>Bing.Maps\h3.tile</PackagePath>
-      <Modified>2013-11-22T10:47:45.368</Modified>
+      <Modified>2013-11-22T11:08:08.753</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\r0.tile">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\r0.tile">
       <PackagePath>Bing.Maps\r0.tile</PackagePath>
-      <Modified>2013-11-22T10:47:45.382</Modified>
+      <Modified>2013-11-22T11:08:08.769</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\r1.tile">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\r1.tile">
       <PackagePath>Bing.Maps\r1.tile</PackagePath>
-      <Modified>2013-11-22T10:47:45.385</Modified>
+      <Modified>2013-11-22T11:08:08.784</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\r2.tile">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\r2.tile">
       <PackagePath>Bing.Maps\r2.tile</PackagePath>
-      <Modified>2013-11-22T10:47:45.387</Modified>
+      <Modified>2013-11-22T11:08:08.784</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\r3.tile">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\r3.tile">
       <PackagePath>Bing.Maps\r3.tile</PackagePath>
-      <Modified>2013-11-22T10:47:45.390</Modified>
+      <Modified>2013-11-22T11:08:08.784</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\map.config">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\map.config">
       <PackagePath>Bing.Maps\map.config</PackagePath>
-      <Modified>2013-11-22T10:47:45.376</Modified>
+      <Modified>2013-11-22T11:08:08.769</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\UnifiedStyle.MapStyle">
+    <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\CommonConfiguration\neutral\Bing.Maps\UnifiedStyle.MapStyle">
       <PackagePath>Bing.Maps\UnifiedStyle.MapStyle</PackagePath>
-      <Modified>2013-11-22T10:47:45.639</Modified>
+      <Modified>2013-11-22T11:08:09.097</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Windows 8 projects\v4\GTec\GTec\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-04-26T14:12:22.000</Modified>
+      <Modified>2013-12-09T13:38:53.685</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Windows 8 projects\v4\GTec\GTec\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\Assets\Netherlands-flag.png">
+      <PackagePath>Assets\Netherlands-flag.png</PackagePath>
+      <Modified>2013-12-12T13:29:21.745</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-04-26T14:12:22.000</Modified>
+      <Modified>2013-12-09T13:38:53.685</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Windows 8 projects\v4\GTec\GTec\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-04-26T14:12:22.000</Modified>
+      <Modified>2013-12-09T13:38:53.685</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Windows 8 projects\v4\GTec\GTec\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-04-26T14:12:22.000</Modified>
+      <Modified>2013-12-09T13:38:53.685</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Windows 8 projects\v4\GTec\GTec\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\Assets\UK_flag.png">
+      <PackagePath>Assets\UK_flag.png</PackagePath>
+      <Modified>2013-12-12T13:29:41.132</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2013-12-07T08:17:49.000</Modified>
+      <Modified>2013-12-12T13:24:22.562</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Windows 8 projects\v4\GTec\GTec\bin\x86\Debug\View\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\bin\x86\Debug\View\LocationIcon100m.xbf">
+      <PackagePath>View\LocationIcon100m.xbf</PackagePath>
+      <Modified>2013-12-12T13:24:22.562</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\bin\x86\Debug\View\LocationIcon10m.xbf">
+      <PackagePath>View\LocationIcon10m.xbf</PackagePath>
+      <Modified>2013-12-12T13:24:22.562</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\bin\x86\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
-      <Modified>2013-12-08T02:58:13.000</Modified>
+      <Modified>2013-12-12T13:47:02.416</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Windows 8 projects\v4\GTec\GTec\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf">
+    <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf">
       <PackagePath>Bing.Maps\Themes\Generic.xbf</PackagePath>
-      <Modified>2013-12-09T11:01:30.755</Modified>
+      <Modified>2013-12-16T10:18:49.625</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Windows 8 projects\v4\GTec\GTec\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-12-09T11:01:32.022</Modified>
+      <Modified>2013-12-12T13:40:39.316</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
