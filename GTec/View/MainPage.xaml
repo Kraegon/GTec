@@ -8,18 +8,18 @@
     x:Class="GTec.View.MainPage"
     mc:Ignorable="d">
 
-    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="Grid" Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
 
         <!--Map-->
         <Maps:Map x:Name="Map" Margin="0,0,0,0" Credentials="AhhXSGWDz7R4OukENWURcSjvIMM3iEt1UDu4rd_px1FyjcIAGkin7Mjx77w9k-6p"/>
 
         <!--Rightcontent-->
-        <Border BorderBrush="White" CornerRadius="12,12,12,12" BorderThickness="4,4,4,4" Margin="0,10,10,0" Width="208" Height="210" HorizontalAlignment="Right" VerticalAlignment="Top">
+        <Border BorderBrush="White" CornerRadius="12,12,12,12" BorderThickness="4,4,4,4" Margin="0,10,10,0" Width="308" Height="210" HorizontalAlignment="Right" VerticalAlignment="Top">
             <!--Border background-->
             <Border.Background>
                 <SolidColorBrush Color="#FFFFFF" Opacity=".6"/>
             </Border.Background>
-            <StackPanel Width="200" Height="300" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <StackPanel Width="300" Height="300" HorizontalAlignment="Right" VerticalAlignment="Top">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -28,19 +28,19 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <ComboBox Grid.Row="0" Grid.Column="0" Width="200" Height="100">
+                    <ComboBox SelectedIndex="0" Grid.Row="0" Grid.Column="0" Width="225" Height="100">
                             <ComboBoxItem>
-                            <StackPanel>
-                                <Image Stretch="Fill" Source="Assets/Netherlands_flag.png" Width="200" Height="100"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Stretch="Fill" Source="/Assets/Netherlands_flag.png" Width="200" Height="100"/>
                             </StackPanel>
                             </ComboBoxItem>
-                        <ComboBoxItem>
+                            <ComboBoxItem>
                             <StackPanel Orientation="Horizontal">
-                        <Image Stretch="Fill" Source="Assets/UK_flag.png" Width="200" Height="100"/>
-                                </StackPanel>
-                            </ComboBoxItem>
+                                <Image Stretch="Fill" Source="/Assets/UK_flag.png" Width="200" Height="100"/>
+                            </StackPanel>
+                        </ComboBoxItem>
                     </ComboBox>
-                    <Button Grid.Row="1" Grid.Column="0" Width="200" Height="100" Background="Black" FontSize="40">Help</Button>
+                    <Button Grid.Row="1" Grid.Column="0" Width="225" Height="100" Background="Black" FontSize="40">Help</Button>
                 </Grid>
             </StackPanel>
         </Border>

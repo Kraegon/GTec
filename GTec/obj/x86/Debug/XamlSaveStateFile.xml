@@ -1,6 +1,6 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\vincent\documents\project\gtec\gtec\obj\x86\debug\intermediatexaml\gtec.exe" HashGuid="f9c2bb6e-5a1c-2b6f-b24b-efb819ab9c96" />
+    <LocalAssembly PathName="c:\users\vincent\documents\project\gtec\gtec\obj\x86\debug\intermediatexaml\gtec.exe" HashGuid="0e182656-01eb-73c8-71b2-b1635ea8348c" />
     <ReferenceAssembly PathName="c:\users\vincent\appdata\local\microsoft sdks\windows\v8.1\extensionsdks\bing.maps.xaml\1.313.0825.0\references\commonconfiguration\neutral\bing.maps.winmd" HashGuid="dcdce9e5-521a-6d20-3956-9df814dff813" />
     <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windows\v8.1\extensionsdks\microsoft.vclibs\12.0\references\commonconfiguration\neutral\platform.winmd" HashGuid="58b6b6d1-928e-9908-9804-eb460e5e101b" />
   </ReferenceAssemblyList>

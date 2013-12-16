@@ -17,13 +17,13 @@
     <AppXManifest Include="C:\Users\Vincent\Documents\Project\GTec\GTec\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-12-12T13:40:39.726</Modified>
+      <Modified>2013-12-16T11:07:58.277</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\bin\x86\Debug\GTec.exe">
       <PackagePath>GTec.exe</PackagePath>
-      <Modified>2013-12-16T10:22:20.257</Modified>
+      <Modified>2013-12-16T11:07:57.184</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Vincent\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
@@ -367,27 +367,27 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2013-12-12T13:24:22.562</Modified>
+      <Modified>2013-12-16T11:07:56.855</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\bin\x86\Debug\View\LocationIcon100m.xbf">
       <PackagePath>View\LocationIcon100m.xbf</PackagePath>
-      <Modified>2013-12-12T13:24:22.562</Modified>
+      <Modified>2013-12-16T11:07:56.855</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\bin\x86\Debug\View\LocationIcon10m.xbf">
       <PackagePath>View\LocationIcon10m.xbf</PackagePath>
-      <Modified>2013-12-12T13:24:22.562</Modified>
+      <Modified>2013-12-16T11:07:56.855</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\bin\x86\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
-      <Modified>2013-12-12T13:47:02.416</Modified>
+      <Modified>2013-12-16T11:07:56.855</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf">
       <PackagePath>Bing.Maps\Themes\Generic.xbf</PackagePath>
-      <Modified>2013-12-16T10:18:49.625</Modified>
+      <Modified>2013-12-16T11:07:56.934</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Vincent\Documents\Project\GTec\GTec\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-12-12T13:40:39.316</Modified>
+      <Modified>2013-12-16T11:07:57.699</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
