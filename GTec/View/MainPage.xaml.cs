@@ -17,6 +17,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Bing.Maps;
 using Model;
+using Windows.UI.ApplicationSettings;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -30,12 +32,41 @@ namespace GTec.View
         public MainPage()
         {
             this.InitializeComponent();
+            AuthenticationFlyout login = new AuthenticationFlyout();
+            login.ShowIndependent();
+            SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
+            fillMapWithPointsOfInterest(new Route("yay3", "yay.wav", new Waypoint[]{ new PointOfInterest(50,50,true,"yay","yay2","yay.png")}));
 
             //Start position and zoomlevel.
             Map.Center = new Location(51.58458, 4.77464);
             Map.ZoomLevel = 12.0;
+        }
 
-            fillMapWithPointsOfInterest(new Route("yay3", "yay.wav", new Waypoint[]{ new PointOfInterest(50,50,true,"yay","yay2","yay.png")}));
+        void onSettingsCommand(IUICommand command)
+        {
+            SettingsCommand settingsCommand = (SettingsCommand)command;
+            switch (settingsCommand.Id as string)
+            {
+                case "auth":
+                    new AuthenticationFlyout().ShowIndependent();
+                    break;
+                default:
+                    new AuthenticationFlyout().ShowIndependent();
+                    break;
+            }
+        }
+
+        void onCommandsRequested(SettingsPane settingsPane, SettingsPaneCommandsRequestedEventArgs eventArgs)
+        {
+            UICommandInvokedHandler handler = new UICommandInvokedHandler(onSettingsCommand);
+            SettingsCommand authenticateCommand = new SettingsCommand("auth", "Authenticate", handler);
+            eventArgs.Request.ApplicationCommands.Add(authenticateCommand);
+        }
+
+        public void OpenAuthenticationFlyout()
+        {
+            AuthenticationFlyout login = new AuthenticationFlyout();
+            login.ShowIndependent();
         }
 
         private void fillMapWithPointsOfInterest(Route currentRoute) { 
