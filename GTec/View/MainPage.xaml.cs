@@ -30,12 +30,12 @@ namespace GTec.View
         public MainPage()
         {
             this.InitializeComponent();
-            fillMapWithPointsOfInterest(new Route("yay3", "yay.wav", new Waypoint[]{ new PointOfInterest(50,50,true,"yay","yay2","yay.png")}));
-        }
 
-        private void CloseInfobox_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Grid.Visibility = Visibility.Collapsed;
+            //Start position and zoomlevel.
+            Map.Center = new Location(51.58458, 4.77464);
+            Map.ZoomLevel = 12.0;
+
+            fillMapWithPointsOfInterest(new Route("yay3", "yay.wav", new Waypoint[]{ new PointOfInterest(50,50,true,"yay","yay2","yay.png")}));
         }
 
         private void fillMapWithPointsOfInterest(Route currentRoute) { 
@@ -54,30 +54,15 @@ namespace GTec.View
             }
         }
 
-        public class Metadata
+        //Zoom in/out buttons
+        public void max_Click(object sender, RoutedEventArgs e)
         {
-            public string Title { get; set; }
-            public string Description { get; set; }
+            Map.ZoomLevel += 0.2f;
         }
 
-        private void PinTapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void min_Click(object sender, RoutedEventArgs e)
         {
-            Pushpin p = sender as Pushpin;
-            Metadata m = (Metadata)p.Tag;
-
-            //Ensure there is content to be displayed before modifying the infobox control
-            if (!String.IsNullOrEmpty(m.Title) || !String.IsNullOrEmpty(m.Description))
-            {
-                Grid.DataContext = m;
-
-                Grid.Visibility = Visibility.Visible;
-
-                MapLayer.SetPosition(Grid, MapLayer.GetPosition(p));
-            }
-            else
-            {
-                Grid.Visibility = Visibility.Collapsed;
-            }
+            Map.ZoomLevel -= 0.2f;
         }
     }
 }
