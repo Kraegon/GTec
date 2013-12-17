@@ -43,6 +43,7 @@
                     <Button Grid.Row="1" Grid.Column="0" Width="225" Height="100" Background="Black" FontSize="40">Help</Button>
                 </Grid>
             </StackPanel>
+                        
         </Border>
     </Grid>
 </Page>
