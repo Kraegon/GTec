@@ -115,6 +115,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AuthenticationFlyout.xaml.cs">
+      <DependentUpon>AuthenticationFlyout.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\BaseClassForBindableProperties.cs" />
     <Compile Include="Controller\Control.cs" />
     <Compile Include="View\LocationIcon100m.xaml.cs">
@@ -139,7 +142,10 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\AGS_logo.png" />
     <Content Include="Assets\Logo.scale-100.png" />
+    <Content Include="Assets\Max.png" />
+    <Content Include="Assets\Min.png" />
     <Content Include="Assets\Netherlands_flag.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
@@ -151,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\AuthenticationFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LocationIcon100m.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

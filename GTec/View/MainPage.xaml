@@ -11,15 +11,45 @@
     <Grid x:Name="Grid" Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
 
         <!--Map-->
-        <Maps:Map x:Name="Map" Margin="0,0,0,0" Credentials="AhhXSGWDz7R4OukENWURcSjvIMM3iEt1UDu4rd_px1FyjcIAGkin7Mjx77w9k-6p"/>
+        <Maps:Map x:Name="Map" ShowNavigationBar="False" Margin="0,0,0,0" Credentials="AhhXSGWDz7R4OukENWURcSjvIMM3iEt1UDu4rd_px1FyjcIAGkin7Mjx77w9k-6p"/>
 
+        <!--Logo-->
+        <Image HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" Stretch="Uniform" Source="/Assets/ags_logo.png" Margin="10,10,10,10"/>
+
+        <!--Zoom buttons-->
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Width="80" Height="120" Margin="0,380,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Button x:Name="max" Grid.Row="0" Grid.Column="0" Width="60" Height="60" Click="max_Click">
+                    <!--Button background-->
+                    <Button.Background>
+                        <SolidColorBrush Color="#FFFFFF" Opacity=".6"/>
+                    </Button.Background>
+                    <Image Stretch="Uniform" Source="/Assets/max.png"/>
+                </Button>
+                <Button x:Name="min" Grid.Row="1" Grid.Column="0" Width="60" Height="60" Click="min_Click">
+                    <!--Button background-->
+                    <Button.Background>
+                        <SolidColorBrush Color="#FFFFFF" Opacity=".6"/>
+                    </Button.Background>
+                    <Image Stretch="Uniform" Source="/Assets/min.png"/>
+                </Button>
+            </Grid>
+        </StackPanel>
+        
         <!--Rightcontent-->
-        <Border BorderBrush="White" CornerRadius="12,12,12,12" BorderThickness="4,4,4,4" Margin="0,10,10,0" Width="308" Height="210" HorizontalAlignment="Right" VerticalAlignment="Top">
+        <Border BorderBrush="White" CornerRadius="12,12,12,12" BorderThickness="4,4,4,4" Margin="0,10,10,0" Width="232" Height="210" HorizontalAlignment="Right" VerticalAlignment="Top">
             <!--Border background-->
             <Border.Background>
                 <SolidColorBrush Color="#FFFFFF" Opacity=".6"/>
             </Border.Background>
-            <StackPanel Width="300" Height="300" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <StackPanel Width="225" Height="300" HorizontalAlignment="Right" VerticalAlignment="Top">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -29,7 +59,7 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <ComboBox SelectedIndex="0" Grid.Row="0" Grid.Column="0" Width="225" Height="100">
-                            <ComboBoxItem>
+                        <ComboBoxItem>
                             <StackPanel Orientation="Horizontal">
                                 <Image Stretch="Fill" Source="/Assets/Netherlands_flag.png" Width="200" Height="100"/>
                             </StackPanel>
@@ -43,6 +73,7 @@
                     <Button Grid.Row="1" Grid.Column="0" Width="225" Height="100" Background="Black" FontSize="40">Help</Button>
                 </Grid>
             </StackPanel>
+                        
         </Border>
     </Grid>
 </Page>
