@@ -1,4 +1,5 @@
 ﻿using GTec.User.View;
+using System.Collections.Generic;
 
 namespace GTec.User.Model
 {
@@ -9,7 +10,7 @@ namespace GTec.User.Model
         /// </summary>
         private string name;
         private string systemSoundPath;
-        private Waypoint[] wayPoints;
+        private List<Waypoint> wayPoints;
 
         /// <summary>
         /// The properties which you can bind to.
@@ -34,7 +35,7 @@ namespace GTec.User.Model
                 OnPropertyChanged("SystemSoundPath");
             }
         }
-        public Waypoint[] WayPoints
+        public List<Waypoint> WayPoints
         {
             get { return wayPoints; }
             set
@@ -45,11 +46,11 @@ namespace GTec.User.Model
             }
         }
 
-        public Route(string Name, string SystemSoundPath, Waypoint[] wayPoints)
+        public Route(string Name, string SystemSoundPath, List<Waypoint> waypoints)
         {
             this.name = Name;
             this.systemSoundPath = SystemSoundPath;
-            this.wayPoints = wayPoints;
+            this.wayPoints = waypoints;
         }
     }
 }

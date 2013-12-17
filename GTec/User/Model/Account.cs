@@ -39,5 +39,10 @@ namespace GTec.User.Model
             this.gebruikersnaam = gebruikersnaam;
             this.password = password;
         }
+        public Account()
+        {
+            this.gebruikersnaam = "John";
+            this.password = "Doe";
+        }
     }
 }

@@ -45,7 +45,7 @@ namespace GTec.User.Model
             }
         }
 
-        public PointOfInterest(long Latitude, long Longitude, bool Visited, string Name, string Information, string ImagePath)
+        public PointOfInterest(double Latitude, double Longitude, bool Visited, string Name, string Information, string ImagePath)
             : base(Latitude, Longitude, Visited)
         {
             this.name = Name;

@@ -22,6 +22,7 @@ namespace GTec
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            TestClass.RunTest();
         }
 
         /// <summary>

@@ -55,6 +55,13 @@ namespace GTec.User.Model
         {
             this.latitude = Latitude;
             this.longitude = longitude;
+            this.visited = false;
+        }
+        public Waypoint()
+        {
+            this.latitude = -1;
+            this.Longitude = -1;
+            this.visited = false;
         }
 
         public override string ToString()

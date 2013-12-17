@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="SQLite\SQLite.cs" />
     <Compile Include="SQLite\SQLiteAsync.cs" />
+    <Compile Include="TestClass.cs" />
     <Compile Include="User\Controller\DatabaseConnector.cs" />
     <Compile Include="User\View\BaseClassForBindableProperties.cs" />
     <Compile Include="User\Controller\Control.cs" />
