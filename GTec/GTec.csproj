@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AGS_logo.png" />
+    <Content Include="Assets\background.png" />
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\Max.png" />
     <Content Include="Assets\Min.png" />
