@@ -6,6 +6,17 @@ namespace GTec.User.Controller
 {
     public class Control : BaseClassForBindableProperties
     {
+        private static Control Instance = new Control();
+        private static User.Model.Account CurrentAccount = null;
+
+        public static Control GetInstance()
+        {
+            return Instance;
+        }
+
+        public Control()
+        { }
+
         /// <summary>
         /// Available for the UIThread to make properties update themselves on bind.
         /// </summary>
@@ -28,6 +39,20 @@ namespace GTec.User.Controller
                 locationProvider = value;
                 OnPropertyChanged("LocationProvider");
             }
+        }
+
+        public static void SetCurrentAccount(User.Model.Account a)
+        { CurrentAccount = a; }
+
+        public static User.Model.Account GetCurrentAccount()
+        { return CurrentAccount; }
+
+        public static bool IsAdminLoggedIn()
+        {
+            if (CurrentAccount != null)
+                return true;
+            else
+                return false;
         }
     }
 }
