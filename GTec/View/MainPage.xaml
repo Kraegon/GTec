@@ -70,7 +70,7 @@
                             </StackPanel>
                         </ComboBoxItem>
                     </ComboBox>
-                    <Button Grid.Row="1" Grid.Column="0" Width="225" Height="100" Background="Black" FontSize="40">Help</Button>
+                    <Button x:Name="help" Grid.Row="1" Grid.Column="0" Width="225" Height="100" Background="Black" FontSize="40" Click="Help_Click">Help</Button>
                 </Grid>
             </StackPanel>
                         

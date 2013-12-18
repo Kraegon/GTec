@@ -7,15 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     IconSource="Assets/SmallLogo.scale-100.png"
-    Title="Authentication"
+    Title="Authenticatie"
     d:DesignWidth="346">
 
     <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Width="240">
         <StackPanel Style="{StaticResource SettingsFlyoutSectionStyle}">
-            <TextBlock FontSize="20" Text="Username" HorizontalAlignment="Stretch"/>
+            <TextBlock FontSize="20" Text="Gebruikersnaam" HorizontalAlignment="Stretch"/>
             <TextBox x:Name="UsernameText" FontSize="16" Margin="0,20,0,20" HorizontalAlignment="Stretch"/>
-            <TextBlock FontSize="20" Text="Password" HorizontalAlignment="Stretch"/>
-            <TextBox x:Name="PasswordText" FontSize="16" Margin="0,20,0,0" HorizontalAlignment="Stretch"/>
+            <TextBlock FontSize="20" Text="Wachtwoord" HorizontalAlignment="Stretch"/>
+            <PasswordBox x:Name="PasswordText" FontSize="16" Margin="0,20,0,0" HorizontalAlignment="Stretch"/>
             <Button x:Name="OKLoginButton" Margin="0,20,0,0" FontSize="20" Content="OK" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="OKLoginButton_Click"/>
         </StackPanel>
     </StackPanel>

@@ -32,8 +32,12 @@ namespace GTec.View
         public MainPage()
         {
             this.InitializeComponent();
+
+            //Authentication
             AuthenticationFlyout login = new AuthenticationFlyout();
             login.ShowIndependent();
+
+            //Map locations
             SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
             fillMapWithPointsOfInterest(new Route("yay3", "yay.wav", new Waypoint[]{ new PointOfInterest(50,50,true,"yay","yay2","yay.png")}));
 
@@ -59,7 +63,7 @@ namespace GTec.View
         void onCommandsRequested(SettingsPane settingsPane, SettingsPaneCommandsRequestedEventArgs eventArgs)
         {
             UICommandInvokedHandler handler = new UICommandInvokedHandler(onSettingsCommand);
-            SettingsCommand authenticateCommand = new SettingsCommand("auth", "Authenticate", handler);
+            SettingsCommand authenticateCommand = new SettingsCommand("auth", "Authenticatie", handler);
             eventArgs.Request.ApplicationCommands.Add(authenticateCommand);
         }
 
@@ -70,8 +74,7 @@ namespace GTec.View
         }
 
         private void fillMapWithPointsOfInterest(Route currentRoute) { 
-            //PushpinOptions pushpinOptions = new PushpinOptions(); 
-            //pushpinOptions.icon = "PointOfInterest.png"; 
+
             foreach (PointOfInterest pointOfInterest in currentRoute.WayPoints) { 
                 Pushpin pushpin = new Pushpin();
 
@@ -83,10 +86,11 @@ namespace GTec.View
                 MapLayer.SetPosition(pushpin, new Location(pointOfInterest.Latitude, pointOfInterest.Longitude));
                 Map.Children.Add(pushpin); 
             }
+
         }
 
         //Zoom in/out buttons
-        public void max_Click(object sender, RoutedEventArgs e)
+        private void max_Click(object sender, RoutedEventArgs e)
         {
             Map.ZoomLevel += 0.2f;
         }
@@ -95,5 +99,11 @@ namespace GTec.View
         {
             Map.ZoomLevel -= 0.2f;
         }
+
+        private void Help_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(HelpPage));
+        }
+
     }
 }

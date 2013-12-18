@@ -120,6 +120,9 @@
     </Compile>
     <Compile Include="View\BaseClassForBindableProperties.cs" />
     <Compile Include="Controller\Control.cs" />
+    <Compile Include="View\HelpPage.xaml.cs">
+      <DependentUpon>HelpPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LocationIcon100m.xaml.cs">
       <DependentUpon>LocationIcon100m.xaml</DependentUpon>
     </Compile>
@@ -158,6 +161,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="View\AuthenticationFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HelpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
