@@ -16,7 +16,7 @@ namespace GTec.User.View
         {
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler == null) return;
-            foreach (UIElement uiElement in Control.ThreadsToNotify)
+            foreach (UIElement uiElement in Control.GetInstance().ThreadsToNotify)
             {
                 await uiElement.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {

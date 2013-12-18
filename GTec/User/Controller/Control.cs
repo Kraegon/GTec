@@ -7,7 +7,6 @@ namespace GTec.User.Controller
     public class Control : BaseClassForBindableProperties
     {
         private static Control Instance = new Control();
-        private static User.Model.Account CurrentAccount = null;
 
         public static Control GetInstance()
         {
@@ -20,13 +19,14 @@ namespace GTec.User.Controller
         /// <summary>
         /// Available for the UIThread to make properties update themselves on bind.
         /// </summary>
-        public static List<UIElement> ThreadsToNotify = new List<UIElement>();
+        public List<UIElement> ThreadsToNotify = new List<UIElement>();
 
         /// <summary>
         /// The backing for the properties.
         /// </summary>
         private Controller.LocationServiceProviderCaller locationProvider = new LocationServiceProviderCaller();
-            
+        private DatabaseConnector databaseConnector = new DatabaseConnector();
+
         /// <summary>
         /// The properties which you can bind to.
         /// </summary>
@@ -40,19 +40,15 @@ namespace GTec.User.Controller
                 OnPropertyChanged("LocationProvider");
             }
         }
-
-        public static void SetCurrentAccount(User.Model.Account a)
-        { CurrentAccount = a; }
-
-        public static User.Model.Account GetCurrentAccount()
-        { return CurrentAccount; }
-
-        public static bool IsAdminLoggedIn()
+        public DatabaseConnector DatabaseConnnector
         {
-            if (CurrentAccount != null)
-                return true;
-            else
-                return false;
+            get { return databaseConnector; }
+            set
+            {
+                if (databaseConnector == value) return;
+                databaseConnector = value;
+                OnPropertyChanged("DatabaseConnnector");
+            }
         }
     }
 }

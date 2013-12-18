@@ -9,7 +9,7 @@ using System.IO;
 
 namespace GTec.User.Controller
 {
-    class DatabaseConnector
+    public class DatabaseConnector
     {
         //Singleton
         private static DatabaseConnector instance;

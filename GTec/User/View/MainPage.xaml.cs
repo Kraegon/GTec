@@ -35,6 +35,8 @@ namespace GTec.User.View
         {
             this.InitializeComponent();
 
+            Controller.Control.GetInstance().ThreadsToNotify.Add(this);
+
             //Authentication
             AuthenticationFlyout login = new AuthenticationFlyout();
             login.ShowIndependent();

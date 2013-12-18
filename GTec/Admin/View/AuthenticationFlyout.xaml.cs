@@ -33,7 +33,7 @@ namespace GTec.User.View
             {
                 if (a.Gebruikersnaam.Equals(authentication.Item1) && a.Password.Equals(authentication.Item2))
                 {
-                    User.Controller.Control.SetCurrentAccount(a);
+                    User.Controller.Control.GetInstance().DatabaseConnnector.CurrentUser = a;
                     await new MessageDialog("Succesfully logged in as " + a.Gebruikersnaam + "!").ShowAsync();
                     this.Hide();
                     return;
