@@ -1,4 +1,4 @@
-﻿using GTec.View;
+﻿using GTec.User.View;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -22,6 +22,7 @@ namespace GTec
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            TestClass.RunTest();
         }
 
         /// <summary>
