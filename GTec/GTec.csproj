@@ -121,6 +121,7 @@
     <Compile Include="Admin\View\AuthenticationFlyout.xaml.cs">
       <DependentUpon>AuthenticationFlyout.xaml</DependentUpon>
     </Compile>
+    <Compile Include="User\Controller\LanguageManager.cs" />
     <Compile Include="User\View\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>

@@ -49,25 +49,17 @@ namespace GTec.User.Controller
             var result = await Database.ExecuteScalarAsync<String>("Select Gebruikersnaam From Account WHERE Gebruikersnaam = ? AND Password = ?", new object[] { "Admin", "Admin" });
             if(result == null)
                 await Database.InsertAsync(new Account("Admin", "Admin"));
+
+            //DEBUG
+            List<Waypoint> list = await GetAllWaypoints();
+            foreach(Waypoint w in list)
+                await DeleteWaypoint(w);
         }
 
         public async Task<List<string>> GetRouteNamesAsync()
         {
             List<DatabaseRoute> result = await Database.QueryAsync<DatabaseRoute>("SELECT Name FROM DatabaseRoute");
             return result.Select(x => x.Name).ToList();
-        }
-
-        private async Task<List<Waypoint>> GetAssociatedWaypointsAsync(string routeName)
-        {
-            int routeID = Database.ExecuteScalarAsync<int>("SELECT \"RouteID\" FROM \"DatabaseRoute\" WHERE \"Name\" = ?", new object[]{ routeName }).Result;
-            List<RouteBind> waypointsID = await Database.QueryAsync<RouteBind>("SELECT \"WaypointID\" FROM \"RouteBinds\" WHERE \"RouteID\" = ?", new object[] {routeID});
-            List<Waypoint> retVal = new List<Waypoint>();
-            foreach(RouteBind r in waypointsID)
-            {
-                List<DatabasePOI> temp = await Database.QueryAsync<DatabasePOI>("SELECT * FROM DatabasePOI WHERE WaypointID = ?", new object[]{ r.WaypointID });
-                retVal.Add(DatabasePOI.ToWaypoint(temp[0]));
-            }
-            return retVal;
         }
 
         public async Task<List<Account>> GetAccountsAsync()
@@ -120,12 +112,38 @@ namespace GTec.User.Controller
                 await Database.ExecuteAsync("DELETE FROM RouteBinds WHERE RouteID = ?", new object[] { r.RouteID }); //Destroy bindings, even though the waypoints are still there.
             }
         }
+        public async Task DeleteWaypoint(Waypoint waypoint)
+        {
+            await DeleteWaypoint(waypoint.Latitude, waypoint.Longitude);
+        }
 
-        private async Task<int> SaveWaypoint(Waypoint waypoint)
+        public async Task DeleteWaypoint(double latitude, double longitude)
+        {
+            List<DatabasePOI> toDelete = Database.QueryAsync<DatabasePOI>("SELECT \"Latitude\", \"Longitude\", \"WaypointID\" FROM \"DatabasePOI\" WHERE \"Latitude\" = ? AND \"Longitude\" = ?", new object[] { latitude, longitude }).Result;
+            foreach (DatabasePOI w in toDelete)
+            {
+                await Database.ExecuteAsync("DELETE FROM DatabasePOI WHERE WaypointID = ?", new object[] { w.WaypointID });
+            }
+        }
+        public async Task<List<Waypoint>> GetAllWaypoints()
+        {
+            List<DatabasePOI> raw = await Database.QueryAsync<DatabasePOI>("SELECT * FROM DatabasePOI");
+            List<Waypoint> retVal = new List<Waypoint>();
+            foreach (DatabasePOI w in raw)
+            {
+                if (w.Name != null)
+                    retVal.Add(new PointOfInterest(w.Latitude, w.Longitude, false,
+                                               w.Name, w.Information, w.ImagePath));
+                else
+                    retVal.Add(new Waypoint(w.Latitude, w.Longitude));
+            }
+            return retVal;
+        }
+        public async Task<int> SaveWaypoint(Waypoint waypoint)
         {
             //If the exact coordinates are already used, disregard.
-            Waypoint exists = await Database.ExecuteScalarAsync<Waypoint>("SELECT \"Latitude\", \"Longitude\" FROM \"DatabasePOI\" WHERE \"Latitude\" = ? AND \"Longitude\" = ?", new object[] { waypoint.Latitude, waypoint.Longitude});
-            if(exists != null)
+            List<DatabasePOI> exists = await Database.QueryAsync<DatabasePOI>("SELECT \"Latitude\", \"Longitude\" FROM \"DatabasePOI\" WHERE \"Latitude\" = ? AND \"Longitude\" = ?", new object[] { waypoint.Latitude, waypoint.Longitude});
+            if(exists.Count != 0)
                 return 0;
             DatabasePOI forDatabase;
             //Otherwises insert as Point Of Interest (Contains metadata)
@@ -140,6 +158,22 @@ namespace GTec.User.Controller
             await Database.InsertAsync(forDatabase);
             return forDatabase.WaypointID;
         }
+
+        private async Task<List<Waypoint>> getAssociatedWaypointsAsync(string routeName)
+        {
+            int routeID = Database.ExecuteScalarAsync<int>("SELECT \"RouteID\" FROM \"DatabaseRoute\" WHERE \"Name\" = ?", new object[] { routeName }).Result;
+            List<RouteBind> waypointsID = await Database.QueryAsync<RouteBind>("SELECT \"WaypointID\" FROM \"RouteBinds\" WHERE \"RouteID\" = ?", new object[] { routeID });
+            List<Waypoint> retVal = new List<Waypoint>();
+            foreach (RouteBind r in waypointsID)
+            {
+                List<DatabasePOI> temp = await Database.QueryAsync<DatabasePOI>("SELECT * FROM DatabasePOI WHERE WaypointID = ?", new object[] { r.WaypointID });
+                retVal.Add(DatabasePOI.ToWaypoint(temp[0]));
+            }
+            return retVal;
+        }
+
+        
+
         private int generateRouteID()
         {
             //Dirty. But atleast it's safe.
@@ -186,7 +220,7 @@ namespace GTec.User.Controller
             }
             public static Route ToRoute(DatabaseRoute toConvert)
             {
-                return new Route(toConvert.Name, toConvert.SystemSoundPath, DatabaseConnector.INSTANCE.GetAssociatedWaypointsAsync(toConvert.Name).Result);
+                return new Route(toConvert.Name, toConvert.SystemSoundPath, DatabaseConnector.INSTANCE.getAssociatedWaypointsAsync(toConvert.Name).Result);
             }
         }
         /// <summary>
