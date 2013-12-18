@@ -49,9 +49,6 @@ namespace GTec.User.Controller
             var result = await Database.ExecuteScalarAsync<String>("Select Gebruikersnaam From Account WHERE Gebruikersnaam = ? AND Password = ?", new object[] { "Admin", "Admin" });
             if(result == null)
                 await Database.InsertAsync(new Account("Admin", "Admin"));
-
-            //For debug purposes
-            CurrentUser = GetAccountsAsync().Result[0];
         }
 
         public async Task<List<string>> GetRouteNamesAsync()
@@ -88,7 +85,7 @@ namespace GTec.User.Controller
             bool IsSuccesful = true;
             //If the name is used, disregard
             List<int> IsTaken = await Database.QueryAsync<int>("SELECT RouteID FROM DatabaseRoute WHERE Name = ?", new object[] { route.Name });
-            if (IsTaken[0] == 0)
+            if (IsTaken.Count != 0)
                 return false; //IsSuccesful = false;
             //Otherwise insert it.
             DatabaseRoute forDatabase = DatabaseRoute.ToDatabaseRoute(route);
@@ -116,16 +113,19 @@ namespace GTec.User.Controller
 
         public async Task DeleteRouteAsync(string routeName)
         {
-            int routeID = await Database.ExecuteAsync("SELECT \"RouteID\" FROM \"DatabaseRoute\" WHERE \"Name\" = ?", new object[] { routeName });
-            await Database.ExecuteAsync("DELETE FROM DatabaseRoute WHERE Name = ?", new object[] { routeName }); //WAYPOINTS PERSIST
-            await Database.ExecuteAsync("DELETE FROM RouteBindings WHERE RouteID = ?", new object[] { routeID }); //Destroy bindings, even though the waypoints are still there.
+            List<DatabaseRoute> toDelete = Database.QueryAsync<DatabaseRoute>("SELECT \"RouteID\" FROM \"DatabaseRoute\" WHERE \"Name\" = ?", new object[] { routeName }).Result;
+            await Database.ExecuteAsync("DELETE FROM DatabaseRoute WHERE Name = ?", new object[] { routeName }); //WAYPOINTS PERSIST            
+            foreach(DatabaseRoute r in toDelete)
+            {
+                await Database.ExecuteAsync("DELETE FROM RouteBinds WHERE RouteID = ?", new object[] { r.RouteID }); //Destroy bindings, even though the waypoints are still there.
+            }
         }
 
         private async Task<int> SaveWaypoint(Waypoint waypoint)
         {
             //If the exact coordinates are already used, disregard.
             Waypoint exists = await Database.ExecuteScalarAsync<Waypoint>("SELECT \"Latitude\", \"Longitude\" FROM \"DatabasePOI\" WHERE \"Latitude\" = ? AND \"Longitude\" = ?", new object[] { waypoint.Latitude, waypoint.Longitude});
-            if(exists == null)
+            if(exists != null)
                 return 0;
             DatabasePOI forDatabase;
             //Otherwises insert as Point Of Interest (Contains metadata)

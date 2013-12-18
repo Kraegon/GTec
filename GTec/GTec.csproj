@@ -115,20 +115,19 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\View\Stub.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AuthenticationFlyout.xaml.cs">
+    <Compile Include="Admin\View\AuthenticationFlyout.xaml.cs">
       <DependentUpon>AuthenticationFlyout.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\HelpPage.xaml.cs">
+    <Compile Include="User\View\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LocationIcon100m.xaml.cs">
+    <Compile Include="User\View\LocationIcon100m.xaml.cs">
       <DependentUpon>LocationIcon100m.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LocationIcon10m.xaml.cs">
+    <Compile Include="User\View\LocationIcon10m.xaml.cs">
       <DependentUpon>LocationIcon10m.xaml</DependentUpon>
     </Compile>
     <Compile Include="SQLite\SQLite.cs" />
@@ -168,19 +167,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\AuthenticationFlyout.xaml">
+    <Page Include="Admin\View\AuthenticationFlyout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\HelpPage.xaml">
+    <Page Include="User\View\HelpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LocationIcon100m.xaml">
+    <Page Include="User\View\LocationIcon100m.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LocationIcon10m.xaml">
+    <Page Include="User\View\LocationIcon10m.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,26 +13,21 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
+// The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace GTec.View
+namespace GTec.User.View
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class HelpPage : Page
+    public sealed partial class AuthenticationFlyout : SettingsFlyout
     {
-        public HelpPage()
+        public AuthenticationFlyout()
         {
             this.InitializeComponent();
         }
 
-        private void goBack(object sender, TappedRoutedEventArgs e)
+        private void OKLoginButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Frame.CanGoBack)
-            {
-                Frame.GoBack();
-            }
+            Tuple<string, string> authentication = new Tuple<string, string>(UsernameText.Text, PasswordText.Password);
+            //Check for accountzz and give user access to database
         }
     }
 }

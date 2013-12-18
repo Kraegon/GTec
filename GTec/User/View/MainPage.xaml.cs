@@ -17,7 +17,8 @@ using Windows.Devices.Geolocation;
 using System.Threading;
 using System.Threading.Tasks;
 using Bing.Maps;
-using Model;
+using GTec.User.Model;
+using GTec.User.View;
 using Windows.UI.ApplicationSettings;
 using Windows.UI.Popups;
 
@@ -40,7 +41,7 @@ namespace GTec.User.View
 
             //Map locations
             SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
-            fillMapWithPointsOfInterest(new Route("yay3", "yay.wav", new Waypoint[]{ new PointOfInterest(50,50,true,"yay","yay2","yay.png")}));
+            //fillMapWithPointsOfInterest(new Route("yay3", "yay.wav", new Waypoint[]{ new PointOfInterest(50,50,true,"yay","yay2","yay.png")}));
 
             //Start position and zoomlevel.
             Map.Center = new Location(51.58458, 4.77464);

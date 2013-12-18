@@ -7,7 +7,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Maps="using:Bing.Maps"
-    x:Class="GTec.View.MainPage"
     mc:Ignorable="d">
 
     <Grid x:Name="Grid" Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
