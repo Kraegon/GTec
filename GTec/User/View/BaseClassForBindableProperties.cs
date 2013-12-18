@@ -1,10 +1,10 @@
-﻿using GTec.Controller;
+﻿using GTec.User.Controller;
 using System;
 using System.ComponentModel;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 
-namespace GTec.View
+namespace GTec.User.View
 {
     public class BaseClassForBindableProperties : INotifyPropertyChanged
     {

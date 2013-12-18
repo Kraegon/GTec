@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GTec.User.Controller;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,7 +23,7 @@ using Windows.UI.Popups;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace GTec.View
+namespace GTec.User.View
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.

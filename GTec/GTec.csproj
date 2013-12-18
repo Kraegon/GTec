@@ -110,16 +110,18 @@
     <SDKReference Include="Microsoft.VCLibs, version=12.0">
       <Name>Microsoft Visual C++ 2013 Runtime Package for Windows</Name>
     </SDKReference>
+    <SDKReference Include="SQLite.WinRT81, Version=3.8.2">
+      <Name>SQLite for Windows Runtime %28Windows 8.1%29</Name>
+    </SDKReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\View\Stub.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AuthenticationFlyout.xaml.cs">
       <DependentUpon>AuthenticationFlyout.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\BaseClassForBindableProperties.cs" />
-    <Compile Include="Controller\Control.cs" />
     <Compile Include="View\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>
@@ -129,15 +131,21 @@
     <Compile Include="View\LocationIcon10m.xaml.cs">
       <DependentUpon>LocationIcon10m.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainPage.xaml.cs">
+    <Compile Include="SQLite\SQLite.cs" />
+    <Compile Include="SQLite\SQLiteAsync.cs" />
+    <Compile Include="TestClass.cs" />
+    <Compile Include="User\Controller\DatabaseConnector.cs" />
+    <Compile Include="User\View\BaseClassForBindableProperties.cs" />
+    <Compile Include="User\Controller\Control.cs" />
+    <Compile Include="User\View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controller\LocationServiceProviderCaller.cs" />
-    <Compile Include="Model\Account.cs" />
-    <Compile Include="Model\PointOfInterest.cs" />
-    <Compile Include="Model\Route.cs" />
-    <Compile Include="Model\WayPoint.cs" />
+    <Compile Include="User\Controller\LocationServiceProviderCaller.cs" />
+    <Compile Include="User\Model\Account.cs" />
+    <Compile Include="User\Model\PointOfInterest.cs" />
+    <Compile Include="User\Model\Route.cs" />
+    <Compile Include="User\Model\WayPoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -176,14 +184,16 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainPage.xaml">
+    <Page Include="User\View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="GTec_TemporaryKey.pfx" />
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>

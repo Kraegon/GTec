@@ -1,6 +1,6 @@
-﻿using GTec.View;
+﻿using GTec.User.View;
 
-namespace Model
+namespace GTec.User.Model
 {
     public class Account : BaseClassForBindableProperties
     {
@@ -38,6 +38,11 @@ namespace Model
         {
             this.gebruikersnaam = gebruikersnaam;
             this.password = password;
+        }
+        public Account()
+        {
+            this.gebruikersnaam = "John";
+            this.password = "Doe";
         }
     }
 }
