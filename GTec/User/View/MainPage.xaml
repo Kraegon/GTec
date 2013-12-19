@@ -59,7 +59,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <ComboBox SelectedIndex="0" Grid.Row="0" Grid.Column="0" Width="225" Height="100">
+                    <ComboBox SelectedIndex="0" Grid.Row="0" Grid.Column="0" Width="225" Height="100" SelectionChanged="ComboBox_SelectionChanged">
                         <ComboBoxItem>
                             <StackPanel Orientation="Horizontal">
                                 <Image Stretch="Fill" Source="/Assets/Netherlands_flag.png" Width="200" Height="100"/>
