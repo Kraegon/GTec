@@ -11,7 +11,7 @@
 
         <!--Nav panel-->
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Margin="0,0,0,0" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-            <Button x:Name="goBackward" Tapped="goBack" Margin="20,20,20,20">Terug</Button>
+            <Button Margin="20" Click="goBackward_Click">Terug</Button>
         </StackPanel>
 
         <!--Information panel-->

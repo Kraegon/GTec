@@ -7,43 +7,55 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
+    <Grid>
+        <!--Background image-->
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/background.png" AlignmentY="Top" AlignmentX="Center"/>
+        </Grid.Background>
+
         <!--New location-->
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="350" Background="Gray" Margin="10">
-            <Grid Margin="10,50">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" Width="200" Height="25">Naam:</TextBlock>
-                    <TextBlock Grid.Row="1" Grid.Column="0" Width="200" Height="25">Longitude:</TextBlock>
-                    <TextBlock Grid.Row="2" Grid.Column="0" Width="200" Height="25">Latitude:</TextBlock>
-                    <TextBlock Grid.Row="3" Grid.Column="0" Width="200" Height="25">Padnaam afbeelding:</TextBlock>
-                    <TextBlock Grid.Row="4" Grid.Column="0" Width="200" Height="25">Padnaam geluid:</TextBlock>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="350" Margin="10">
+            <!--Stackpanel background-->
+            <StackPanel.Background>
+                <SolidColorBrush Color="#006993" Opacity=".5"/>
+            </StackPanel.Background>
+            <Button Margin="20,15" x:Name="goBackward" Click="goBackward_Click">Terug</Button>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Naam:</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Longitude:</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Latitude:</TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam afbeelding:</TextBlock>
+                <TextBlock Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam geluid:</TextBlock>
 
-                    <TextBox Grid.Row="0" Grid.Column="1" Width="280" Height="25"></TextBox>
-                    <TextBox Grid.Row="1" Grid.Column="2" Width="280" Height="25"></TextBox>
-                    <TextBox Grid.Row="2" Grid.Column="3" Width="280" Height="25"></TextBox>
-                    <TextBox Grid.Row="3" Grid.Column="4" Width="280" Height="25"></TextBox>
-                    <TextBox Grid.Row="4" Grid.Column="5" Width="280" Height="25"></TextBox>
+                <TextBox Grid.Row="0" Grid.Column="1" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
+                <TextBox Grid.Row="1" Grid.Column="2" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="3" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
+                <TextBox Grid.Row="3" Grid.Column="4" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
+                <TextBox Grid.Row="4" Grid.Column="5" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
 
-                    <Button Grid.Row="5" Grid.Column="1">Toevoegen</Button>
-                </Grid>
-                
-            </StackPanel>
+                <Button Grid.Row="5" Grid.Column="1" FontSize="18" HorizontalAlignment="Left">Toevoegen</Button>
+            </Grid>
+        </StackPanel>
 
         <!--Choose route-->
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="390" Background="Gray" Margin="10,370,10,10">
-            <Grid Margin="10">
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="390" Margin="10,370,10,10">
+            <!--Stackpanel background-->
+            <StackPanel.Background>
+                <SolidColorBrush Color="#006993" Opacity=".6"/>
+            </StackPanel.Background>
+            <Grid Margin="10,20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
@@ -59,26 +71,235 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Width="200" Height="25">Kies route:</TextBlock>
-                <ComboBox Grid.Row="0" Grid.Column="1" Width="280" Height="25"></ComboBox>
-                
-                <TextBlock Grid.Row="1" Grid.Column="0" Width="200" Height="25">Afbeelding:</TextBlock>
-                <Image Grid.Row="1" HorizontalAlignment="Left" Grid.Column="1" Width="80" Height="80"></Image>
-                
-                <TextBlock Grid.Row="2" Grid.Column="0" Width="200" Height="25">Naam:</TextBlock>
-                <TextBlock Grid.Row="3" Grid.Column="0" Width="200" Height="25">Longitude:</TextBlock>
-                <TextBlock Grid.Row="4" Grid.Column="0" Width="200" Height="25">Latitude:</TextBlock>
-                <TextBlock Grid.Row="5" Grid.Column="0" Width="200" Height="25">Padnaam afbeelding:</TextBlock>
-                <TextBlock Grid.Row="6" Grid.Column="0" Width="200" Height="25">Padnaam geluid:</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Kies route:</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Afbeelding:</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Naam:</TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Longitude:</TextBlock>
+                <TextBlock Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Latitude:</TextBlock>
+                <TextBlock Grid.Row="5" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam afbeelding:</TextBlock>
+                <TextBlock Grid.Row="6" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam geluid:</TextBlock>
 
-                <Button Grid.Row="7" Grid.Column="0">Geluid afspelen</Button>
-                <Button Grid.Row="7" Grid.Column="1">Toevoegen</Button>
+                <ComboBox Grid.Row="0" Grid.Column="1" Width="260" Height="30" HorizontalAlignment="Left" Margin="5"></ComboBox>
+                <Image Grid.Row="1" Grid.Column="1" Width="80" Height="80" HorizontalAlignment="Left" Margin="5"></Image>
+                <TextBlock Grid.Row="2" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                <TextBlock Grid.Row="4" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                <TextBlock Grid.Row="5" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                <TextBlock Grid.Row="6" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+
+                <Button Grid.Row="7" Grid.Column="0" FontSize="18" HorizontalAlignment="Left">Geluid afspelen</Button>
+                <Button Grid.Row="7" Grid.Column="1" FontSize="18" HorizontalAlignment="Left">Toevoegen</Button>
             </Grid>
         </StackPanel>
 
-        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Width="835" Height="750" Background="Gray" Margin="10,10,10,10">
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Width="835" Height="750" Margin="10,10,10,10">
+            <!--Stackpanel background-->
+            <StackPanel.Background>
+                <SolidColorBrush Color="#006993" Opacity=".4"/>
+            </StackPanel.Background>
+            <ListBox x:Name="officeListBox" Height="680" Margin="10" Foreground="White">
+                <StackPanel Width="770" Height="200" Margin="10">
+                    <!--Stackpanel background-->
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="#004499" Opacity=".4"/>
+                    </StackPanel.Background>
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <!--Image and sound-->
+                        <StackPanel Grid.Row="0" Grid.Column="0" Width="200">
+                            <Image Width="80" Height="80" HorizontalAlignment="Center" Margin="5"></Image>
+                            <Button FontSize="18" HorizontalAlignment="Center" Margin="5">Geluid afspelen</Button>
+                        </StackPanel>
+                        <!--Route-->
+                        <Grid Grid.Row="0" Grid.Column="1" Width="460">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Naam:</TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Longitude:</TextBlock>
+                            <TextBlock Grid.Row="2" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Latitude:</TextBlock>
+                            <TextBlock Grid.Row="3" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam afbeelding:</TextBlock>
+                            <TextBlock Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam geluid:</TextBlock>
+                            
+                            <TextBlock Grid.Row="0" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                            <TextBlock Grid.Row="4" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                        </Grid>
+                        <!--Remove-->
+                        <StackPanel Width="85" Grid.Row="0" Grid.Column="2">
+                            <Button HorizontalAlignment="Right" VerticalAlignment="Top">X</Button>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Width="770" Height="200" Margin="10">
+                    <!--Stackpanel background-->
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="#004499" Opacity=".4"/>
+                    </StackPanel.Background>
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <!--Image and sound-->
+                        <StackPanel Grid.Row="0" Grid.Column="0" Width="200">
+                            <Image Width="80" Height="80" HorizontalAlignment="Center" Margin="5"></Image>
+                            <Button FontSize="18" HorizontalAlignment="Center" Margin="5">Geluid afspelen</Button>
+                        </StackPanel>
+                        <!--Route-->
+                        <Grid Grid.Row="0" Grid.Column="1" Width="460">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Naam:</TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Longitude:</TextBlock>
+                            <TextBlock Grid.Row="2" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Latitude:</TextBlock>
+                            <TextBlock Grid.Row="3" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam afbeelding:</TextBlock>
+                            <TextBlock Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam geluid:</TextBlock>
 
-            <Button></Button>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                            <TextBlock Grid.Row="4" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                        </Grid>
+                        <!--Remove-->
+                        <StackPanel Width="85" Grid.Row="0" Grid.Column="2">
+                            <Button HorizontalAlignment="Right" VerticalAlignment="Top">X</Button>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Width="770" Height="200" Margin="10">
+                    <!--Stackpanel background-->
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="#004499" Opacity=".4"/>
+                    </StackPanel.Background>
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <!--Image and sound-->
+                        <StackPanel Grid.Row="0" Grid.Column="0" Width="200">
+                            <Image Width="80" Height="80" HorizontalAlignment="Center" Margin="5"></Image>
+                            <Button FontSize="18" HorizontalAlignment="Center" Margin="5">Geluid afspelen</Button>
+                        </StackPanel>
+                        <!--Route-->
+                        <Grid Grid.Row="0" Grid.Column="1" Width="460">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Naam:</TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Longitude:</TextBlock>
+                            <TextBlock Grid.Row="2" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Latitude:</TextBlock>
+                            <TextBlock Grid.Row="3" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam afbeelding:</TextBlock>
+                            <TextBlock Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam geluid:</TextBlock>
+
+                            <TextBlock Grid.Row="0" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                            <TextBlock Grid.Row="4" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                        </Grid>
+                        <!--Remove-->
+                        <StackPanel Width="85" Grid.Row="0" Grid.Column="2">
+                            <Button HorizontalAlignment="Right" VerticalAlignment="Top">X</Button>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Width="770" Height="200" Margin="10">
+                    <!--Stackpanel background-->
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="#004499" Opacity=".4"/>
+                    </StackPanel.Background>
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <!--Image and sound-->
+                        <StackPanel Grid.Row="0" Grid.Column="0" Width="200">
+                            <Image Width="80" Height="80" HorizontalAlignment="Center" Margin="5"></Image>
+                            <Button FontSize="18" HorizontalAlignment="Center" Margin="5">Geluid afspelen</Button>
+                        </StackPanel>
+                        <!--Route-->
+                        <Grid Grid.Row="0" Grid.Column="1" Width="460">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Naam:</TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Longitude:</TextBlock>
+                            <TextBlock Grid.Row="2" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Latitude:</TextBlock>
+                            <TextBlock Grid.Row="3" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam afbeelding:</TextBlock>
+                            <TextBlock Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam geluid:</TextBlock>
+
+                            <TextBlock Grid.Row="0" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                            <TextBlock Grid.Row="4" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                        </Grid>
+                        <!--Remove-->
+                        <StackPanel Width="85" Grid.Row="0" Grid.Column="2">
+                            <Button HorizontalAlignment="Right" VerticalAlignment="Top">X</Button>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </ListBox>
+            <Button FontSize="18" HorizontalAlignment="Center">Route opslaan</Button>
         </StackPanel>
 
     </Grid>
