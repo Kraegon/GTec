@@ -50,10 +50,7 @@ namespace GTec.User.Controller
             if(result == null)
                 await Database.InsertAsync(new Account("Admin", "Admin"));
 
-            //DEBUG
-            List<Waypoint> list = await GetAllWaypoints();
-            foreach(Waypoint w in list)
-                await DeleteWaypoint(w);
+            Route route = await GetRouteAsync("HKtest");
         }
 
         public async Task<List<string>> GetRouteNamesAsync()
@@ -67,9 +64,13 @@ namespace GTec.User.Controller
             return await Database.QueryAsync<Account>("SELECT * FROM Account"); //Why can't everything be like this. Jeez.
         }
 
-        public Route GetRoute(String routeName) 
+        public async Task<Route> GetRouteAsync(String routeName) 
         {
-            return DatabaseRoute.ToRoute(Database.QueryAsync<DatabaseRoute>("SELECT * FROM DatabaseRoute WHERE Name = ?", new object[] { routeName }).Result[0]);
+            List<DatabaseRoute> results = await Database.QueryAsync<DatabaseRoute>("SELECT * FROM DatabaseRoute WHERE Name = ?", new object[] { routeName });
+            if(results.Count == 0)
+                return null;
+            else
+                return DatabaseRoute.ToRoute(results[0]);
         }
 
         public async Task<bool> SaveRouteAsync(Route route)
@@ -162,11 +163,11 @@ namespace GTec.User.Controller
         private async Task<List<Waypoint>> getAssociatedWaypointsAsync(string routeName)
         {
             int routeID = Database.ExecuteScalarAsync<int>("SELECT \"RouteID\" FROM \"DatabaseRoute\" WHERE \"Name\" = ?", new object[] { routeName }).Result;
-            List<RouteBind> waypointsID = await Database.QueryAsync<RouteBind>("SELECT \"WaypointID\" FROM \"RouteBinds\" WHERE \"RouteID\" = ?", new object[] { routeID });
+            List<RouteBind> waypointsID = Database.QueryAsync<RouteBind>("SELECT \"WaypointID\" FROM \"RouteBinds\" WHERE \"RouteID\" = ?", new object[] { routeID }).Result;
             List<Waypoint> retVal = new List<Waypoint>();
             foreach (RouteBind r in waypointsID)
             {
-                List<DatabasePOI> temp = await Database.QueryAsync<DatabasePOI>("SELECT * FROM DatabasePOI WHERE WaypointID = ?", new object[] { r.WaypointID });
+                List<DatabasePOI> temp = Database.QueryAsync<DatabasePOI>("SELECT * FROM DatabasePOI WHERE WaypointID = ?", new object[] { r.WaypointID }).Result;
                 retVal.Add(DatabasePOI.ToWaypoint(temp[0]));
             }
             return retVal;

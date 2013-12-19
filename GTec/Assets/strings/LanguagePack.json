@@ -1,0 +1,24 @@
+{ "stringRef" :
+   {
+    "helpButton" :
+            {
+                "en" : "help",
+                "nl" : "help"
+            },
+    "authenticateButton" :
+            {
+                "en" : "Admin log in",
+                "nl" : "Admin log in"
+            },
+    "helpText1" :
+            {
+                "en" : "This will contain help",
+                "nl" : "Hier komt hulp te staan"
+            },
+    "helpText2" :
+            {
+                "en" : "This will also contain help",
+                "nl" : "Hier komt ook hulp te staan"
+            }
+   }
+}

@@ -20,6 +20,9 @@
     <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\packages\Newtonsoft.Json.5.0.8\lib\netcore45\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\debug\x86\Bing.Maps.dll">
       <PackagePath>Bing.Maps.dll</PackagePath>
     </AppxPackagedFile>
@@ -284,6 +287,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\Assets\UK_flag.png">
       <PackagePath>Assets\UK_flag.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\Assets\strings\LanguagePack.json">
+      <PackagePath>Assets\strings\LanguagePack.json</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
