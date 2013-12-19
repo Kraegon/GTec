@@ -23,6 +23,13 @@ namespace GTec.User.View
         public AuthenticationFlyout()
         {
             this.InitializeComponent();
+            if (User.Controller.Control.GetInstance().DatabaseConnnector.CurrentUser != null)
+            {
+                PasswordText.IsEnabled = false;
+                UsernameText.IsEnabled = false;
+                OKLoginButton.IsEnabled = false;
+                MessageTextBlock.Text = "Already logged in as " + User.Controller.Control.GetInstance().DatabaseConnnector.CurrentUser.Gebruikersnaam + "!";
+            }
         }
 
         private async void OKLoginButton_Click(object sender, RoutedEventArgs e)

@@ -37,10 +37,6 @@ namespace GTec.User.View
 
             Controller.Control.GetInstance().ThreadsToNotify.Add(this);
 
-            //Authentication
-            AuthenticationFlyout login = new AuthenticationFlyout();
-            login.ShowIndependent();
-
             //Map locations
             SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
             //fillMapWithPointsOfInterest(new Route("yay3", "yay.wav", new Waypoint[]{ new PointOfInterest(50,50,true,"yay","yay2","yay.png")}));
@@ -56,10 +52,10 @@ namespace GTec.User.View
             switch (settingsCommand.Id as string)
             {
                 case "auth":
-                    new AuthenticationFlyout().ShowIndependent();
+                    OpenAuthenticationFlyout();
                     break;
                 default:
-                    new AuthenticationFlyout().ShowIndependent();
+                    OpenAuthenticationFlyout();
                     break;
             }
         }
@@ -68,13 +64,13 @@ namespace GTec.User.View
         {
             UICommandInvokedHandler handler = new UICommandInvokedHandler(onSettingsCommand);
             SettingsCommand authenticateCommand = new SettingsCommand("auth", "Authenticatie", handler);
+            eventArgs.Request.ApplicationCommands.Clear();
             eventArgs.Request.ApplicationCommands.Add(authenticateCommand);
         }
 
         public void OpenAuthenticationFlyout()
         {
-            AuthenticationFlyout login = new AuthenticationFlyout();
-            login.ShowIndependent();
+            new AuthenticationFlyout().ShowIndependent();
         }
 
         private void fillMapWithPointsOfInterest(Route currentRoute) { 
