@@ -31,19 +31,58 @@ namespace GTec.User.View
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        MapLayer layer;
+
         public MainPage()
         {
             this.InitializeComponent();
 
             Controller.Control.GetInstance().ThreadsToNotify.Add(this);
+            SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
+            layer = MainLayer;
 
             //Map locations
-            SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
-            //fillMapWithPointsOfInterest(new Route("yay3", "yay.wav", new Waypoint[]{ new PointOfInterest(50,50,true,"yay","yay2","yay.png")}));
+            Route TestRoute = new Route("Seattle - The Route", "yay.wav", new List<Waypoint> { new PointOfInterest(47.6035, -122.3294, true, "Seattle", "Seattle is in the state of Washington. Lorem ipsum dolor, lorem isum dolor, Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.", "ms-appx:///Assets/Seattle_Image.png") });
+            AddPointsOfInterest(TestRoute);
 
             //Start position and zoomlevel.
             Map.Center = new Location(51.58458, 4.77464);
-            Map.ZoomLevel = 12.0;
+            Map.ZoomLevel = 4.0;
+        }
+
+        private void AddPointsOfInterest(Route currentRoute)
+        {
+            foreach (PointOfInterest pointOfInterest in currentRoute.WayPoints)
+                AddPushpin(pointOfInterest);
+        }
+
+        private void AddPushpin(PointOfInterest poi)
+        {
+            Pushpin pp = new Pushpin()
+            { 
+                Tag = new InfoBoxData() { Title = poi.Name, Description = poi.Information, ImagePath = poi.ImagePath } 
+            };
+            SolidColorBrush brush = new SolidColorBrush();
+            brush.Color = Windows.UI.Colors.Blue;
+            pp.Background = brush;
+
+            MapLayer.SetPosition(pp, new Location(poi.Latitude, poi.Longitude));
+            pp.Tapped += PinTapped;
+            layer.Children.Add(pp);
+        }
+
+        private void PinTapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            Pushpin pp = sender as Pushpin;
+            InfoBoxData ibd = (InfoBoxData)pp.Tag;
+            InfoBox box = new InfoBox();
+            box.AddData(ibd);
+            layer.Children.Add(box);
+
+            if (!String.IsNullOrEmpty(ibd.Title) || !String.IsNullOrEmpty(ibd.Description))          
+                MapLayer.SetPosition(box, MapLayer.GetPosition(pp));
+            else
+                box.Visibility = Visibility.Collapsed;
         }
 
         void onSettingsCommand(IUICommand command)
@@ -73,22 +112,6 @@ namespace GTec.User.View
             new AuthenticationFlyout().ShowIndependent();
         }
 
-        private void fillMapWithPointsOfInterest(Route currentRoute) { 
-
-            foreach (PointOfInterest pointOfInterest in currentRoute.WayPoints) { 
-                Pushpin pushpin = new Pushpin();
-
-                SolidColorBrush brush = new SolidColorBrush();
-                brush.Color = Windows.UI.Colors.Blue;
-                pushpin.Background = brush;
-
-                pushpin.Text = pointOfInterest.Name; 
-                MapLayer.SetPosition(pushpin, new Location(pointOfInterest.Latitude, pointOfInterest.Longitude));
-                Map.Children.Add(pushpin); 
-            }
-
-        }
-
         //Zoom in/out buttons
         private void max_Click(object sender, RoutedEventArgs e)
         {
@@ -105,5 +128,11 @@ namespace GTec.User.View
             Frame.Navigate(typeof(HelpPage));
         }
 
+        public struct InfoBoxData
+        {
+            public string Title;
+            public string Description;
+            public string ImagePath;
+        }
     }
 }

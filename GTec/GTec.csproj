@@ -125,6 +125,9 @@
     <Compile Include="User\View\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="User\View\InfoBox.xaml.cs">
+      <DependentUpon>InfoBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User\View\LocationIcon100m.xaml.cs">
       <DependentUpon>LocationIcon100m.xaml</DependentUpon>
     </Compile>
@@ -159,6 +162,7 @@
     <Content Include="Assets\Max.png" />
     <Content Include="Assets\Min.png" />
     <Content Include="Assets\Netherlands_flag.png" />
+    <Content Include="Assets\Seattle_Image.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
@@ -174,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="User\View\HelpPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User\View\InfoBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

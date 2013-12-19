@@ -12,7 +12,11 @@
     <Grid x:Name="Grid" Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
 
         <!--Map-->
-        <Maps:Map x:Name="Map" ShowNavigationBar="False" Margin="0,0,0,0" Credentials="AhhXSGWDz7R4OukENWURcSjvIMM3iEt1UDu4rd_px1FyjcIAGkin7Mjx77w9k-6p"/>
+        <Maps:Map x:Name="Map" ShowNavigationBar="False" Margin="0,0,0,0" Credentials="AhhXSGWDz7R4OukENWURcSjvIMM3iEt1UDu4rd_px1FyjcIAGkin7Mjx77w9k-6p">
+            <Maps:Map.Children>
+                <Maps:MapLayer Name="MainLayer"/>
+            </Maps:Map.Children>
+        </Maps:Map>
 
         <!--Logo-->
         <Image HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" Stretch="Uniform" Source="/Assets/ags_logo.png" Margin="10,10,10,10"/>
