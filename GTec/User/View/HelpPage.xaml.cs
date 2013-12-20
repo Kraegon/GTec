@@ -27,7 +27,7 @@ namespace GTec.User.View
             this.InitializeComponent();
         }
 
-        private void goBack(object sender, TappedRoutedEventArgs e)
+        private void goBackward_Click(object sender, RoutedEventArgs e)
         {
             if (Frame.CanGoBack)
             {

@@ -1,0 +1,38 @@
+﻿Merge branch 'master' of https://github.com/Kraegon/GTec
+
+Conflicts:
+	GTec.v12.suo
+	GTec/View/MainPage.xaml.cs
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 3 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#   (use "git commit" to conclude merge)
+#
+# Changes to be committed:
+#
+#	modified:   GTec.v12.suo
+#	new file:   GTec/Assets/AGS_logo (Groot).png
+#	modified:   GTec/Assets/Netherlands_flag.png
+#	modified:   GTec/Assets/SplashScreen.scale-100.png
+#	new file:   GTec/Assets/VVV_logo.png
+#	new file:   GTec/Assets/ags_logo.png
+#	new file:   GTec/Assets/max.png
+#	new file:   GTec/Assets/min.png
+#	modified:   GTec/GTec.csproj
+#	modified:   GTec/Package.appxmanifest
+#	modified:   GTec/View/MainPage.xaml
+#	modified:   GTec/View/MainPage.xaml.cs
+#
+

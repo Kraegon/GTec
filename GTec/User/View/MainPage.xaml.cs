@@ -36,6 +36,8 @@ namespace GTec.User.View
         {
             this.InitializeComponent();
 
+            Controller.Control.GetInstance().ThreadsToNotify.Add(this);
+
             //Authentication
             AuthenticationFlyout login = new AuthenticationFlyout();
             login.ShowIndependent();
@@ -89,7 +91,6 @@ namespace GTec.User.View
                 MapLayer.SetPosition(pushpin, new Location(pointOfInterest.Latitude, pointOfInterest.Longitude));
                 Map.Children.Add(pushpin); 
             }
-
         }
 
         //Zoom in/out buttons
