@@ -4,7 +4,7 @@
     <RemoteDebugMachine>169.254.104.76:1009 (Avans-01)</RemoteDebugMachine>
     <UseAuthentication>True</UseAuthentication>
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
-    <UseSimulator>True</UseSimulator>
+    <UseSimulator>False</UseSimulator>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <RemoteDebugMachine>145.102.71.107:4018</RemoteDebugMachine>

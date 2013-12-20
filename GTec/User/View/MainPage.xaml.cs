@@ -21,6 +21,7 @@ using GTec.User.Model;
 using GTec.User.View;
 using Windows.UI.ApplicationSettings;
 using Windows.UI.Popups;
+using GTec.Admin.View;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -275,7 +276,6 @@ namespace GTec.User.View
                 MapLayer.SetPosition(pushpin, new Location(pointOfInterest.Latitude, pointOfInterest.Longitude));
                 Map.Children.Add(pushpin); 
             }
-
         }
 
         //Zoom in/out buttons

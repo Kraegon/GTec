@@ -115,6 +115,9 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\View\AdminPage.xaml.cs">
+      <DependentUpon>AdminPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -157,6 +160,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AGS_logo.png" />
+    <Content Include="Assets\background.png" />
+    <Content Include="Assets\background2.png" />
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\Max.png" />
     <Content Include="Assets\Min.png" />
@@ -171,6 +176,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Admin\View\AdminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Admin\View\AuthenticationFlyout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
