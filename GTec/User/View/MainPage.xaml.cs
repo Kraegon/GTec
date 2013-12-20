@@ -172,11 +172,11 @@ namespace GTec.User.View
             GTec.User.Controller.Control.GetInstance().PointOfInterestList = convertToWaypointList(wayPoints);
             dm.Waypoints = wayPoints;
 
-#if DEBUG
-            GTec.User.Controller.Control.GetInstance().PointOfInterestList[0].Visited = true;
-            GTec.User.Controller.Control.GetInstance().PointOfInterestList[1].Visited = true;
-            GTec.User.Controller.Control.GetInstance().PointOfInterestList[2].Visited = true;
-#endif
+//#if DEBUG
+//            GTec.User.Controller.Control.GetInstance().PointOfInterestList[0].Visited = true;
+//            GTec.User.Controller.Control.GetInstance().PointOfInterestList[1].Visited = true;
+//            GTec.User.Controller.Control.GetInstance().PointOfInterestList[2].Visited = true;
+//#endif
 
             dm.RequestOptions.RouteMode = Bing.Maps.Directions.RouteModeOption.Walking;
             dm.RenderOptions.WaypointPushpinOptions.PushpinTemplate = new ControlTemplate();
