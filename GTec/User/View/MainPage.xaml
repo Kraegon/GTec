@@ -12,8 +12,12 @@
     <Grid x:Name="Grid" Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
 
         <!--Map-->
-        <Maps:Map x:Name="Map" ShowNavigationBar="False" Margin="0,0,0,0" Credentials="AhhXSGWDz7R4OukENWURcSjvIMM3iEt1UDu4rd_px1FyjcIAGkin7Mjx77w9k-6p"/>
+        <Maps:Map x:Name="Map" ShowNavigationBar="False" Margin="19,0,-19,0" Credentials="AhhXSGWDz7R4OukENWURcSjvIMM3iEt1UDu4rd_px1FyjcIAGkin7Mjx77w9k-6p"/>
 
+        <Canvas x:Name="locationIcon">
+            <Ellipse Height="20" Width="20" Margin="-10,-10" Fill="Orange" ></Ellipse>
+            <Ellipse Height="10" Width="10" Margin="-5,-5" Fill="AntiqueWhite"></Ellipse>
+        </Canvas>
         <!--Logo-->
         <Image HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" Stretch="Uniform" Source="/Assets/ags_logo.png" Margin="10,10,10,10"/>
 

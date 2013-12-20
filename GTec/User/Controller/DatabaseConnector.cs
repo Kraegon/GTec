@@ -30,14 +30,14 @@ namespace GTec.User.Controller
         public Account CurrentUser; //Neccessary? Do we do this here?
         SQLiteAsyncConnection Database;
 
-        public DatabaseConnector()
+        private DatabaseConnector()
         {
             ConnectionInit();
         }
         /// <summary>
         /// Initialise the Database connection and creates tables/default values if not existant.
         /// </summary>
-        public async void ConnectionInit()
+        private async void ConnectionInit()
         {
             //Connection init
             var dbPath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
@@ -51,9 +51,9 @@ namespace GTec.User.Controller
                 await Database.InsertAsync(new Account("Admin", "Admin"));
 
             //DEBUG
-            List<Waypoint> list = await GetAllWaypoints();
-            foreach(Waypoint w in list)
-                await DeleteWaypoint(w);
+            //List<Waypoint> list = await GetAllWaypoints();
+            //foreach(Waypoint w in list)
+            //    await DeleteWaypoint(w);
         }
 
         public async Task<List<string>> GetRouteNamesAsync()
@@ -67,9 +67,13 @@ namespace GTec.User.Controller
             return await Database.QueryAsync<Account>("SELECT * FROM Account"); //Why can't everything be like this. Jeez.
         }
 
-        public Route GetRoute(String routeName) 
+        public async Task<Route> GetRouteAsync(String routeName)
         {
-            return DatabaseRoute.ToRoute(Database.QueryAsync<DatabaseRoute>("SELECT * FROM DatabaseRoute WHERE Name = ?", new object[] { routeName }).Result[0]);
+            List<DatabaseRoute> results = await Database.QueryAsync<DatabaseRoute>("SELECT * FROM DatabaseRoute WHERE Name = ?", new object[] { routeName });
+            if (results.Count == 0)
+                return null;
+            else
+                return DatabaseRoute.ToRoute(results[0]);
         }
 
         public async Task<bool> SaveRouteAsync(Route route)
@@ -144,7 +148,7 @@ namespace GTec.User.Controller
             //If the exact coordinates are already used, disregard.
             List<DatabasePOI> exists = await Database.QueryAsync<DatabasePOI>("SELECT \"Latitude\", \"Longitude\" FROM \"DatabasePOI\" WHERE \"Latitude\" = ? AND \"Longitude\" = ?", new object[] { waypoint.Latitude, waypoint.Longitude});
             if(exists.Count != 0)
-                return 0;
+                return exists[0].WaypointID;
             DatabasePOI forDatabase;
             //Otherwises insert as Point Of Interest (Contains metadata)
             if(waypoint is PointOfInterest){
@@ -161,12 +165,13 @@ namespace GTec.User.Controller
 
         private async Task<List<Waypoint>> getAssociatedWaypointsAsync(string routeName)
         {
-            int routeID = Database.ExecuteScalarAsync<int>("SELECT \"RouteID\" FROM \"DatabaseRoute\" WHERE \"Name\" = ?", new object[] { routeName }).Result;
-            List<RouteBind> waypointsID = await Database.QueryAsync<RouteBind>("SELECT \"WaypointID\" FROM \"RouteBinds\" WHERE \"RouteID\" = ?", new object[] { routeID });
+            List<DatabaseRoute> databaseRoutes = Database.QueryAsync<DatabaseRoute>("SELECT * FROM \"DatabaseRoute\" WHERE \"Name\" = ?", new object[] { routeName }).Result;
+            int routeID = databaseRoutes[0].RouteID;
+            List<RouteBind> waypointsID = Database.QueryAsync<RouteBind>("SELECT * FROM \"RouteBinds\" WHERE \"RouteID\" = ?", new object[] { routeID }).Result;
             List<Waypoint> retVal = new List<Waypoint>();
             foreach (RouteBind r in waypointsID)
             {
-                List<DatabasePOI> temp = await Database.QueryAsync<DatabasePOI>("SELECT * FROM DatabasePOI WHERE WaypointID = ?", new object[] { r.WaypointID });
+                List<DatabasePOI> temp = Database.QueryAsync<DatabasePOI>("SELECT * FROM \"DatabasePOI\" WHERE \"WaypointID\" = ?", new object[] { r.WaypointID }).Result;
                 retVal.Add(DatabasePOI.ToWaypoint(temp[0]));
             }
             return retVal;

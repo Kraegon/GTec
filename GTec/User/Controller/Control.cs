@@ -1,4 +1,5 @@
-﻿using GTec.User.View;
+﻿using GTec.User.Model;
+using GTec.User.View;
 using System.Collections.Generic;
 using Windows.UI.Xaml;
 
@@ -25,7 +26,8 @@ namespace GTec.User.Controller
         /// The backing for the properties.
         /// </summary>
         private Controller.LocationServiceProviderCaller locationProvider = new LocationServiceProviderCaller();
-        private DatabaseConnector databaseConnector = new DatabaseConnector();
+        private DatabaseConnector databaseConnector = DatabaseConnector.INSTANCE;
+        private List<PointOfInterest> pointOfInterestList = new List<PointOfInterest>();
 
         /// <summary>
         /// The properties which you can bind to.
@@ -48,6 +50,16 @@ namespace GTec.User.Controller
                 if (databaseConnector == value) return;
                 databaseConnector = value;
                 OnPropertyChanged("DatabaseConnnector");
+            }
+        }
+        public List<PointOfInterest> PointOfInterestList
+        {
+            get { return pointOfInterestList; }
+            set
+            {
+                if (pointOfInterestList == value) return;
+                pointOfInterestList = value;
+                OnPropertyChanged("PointOfInterestList");
             }
         }
     }

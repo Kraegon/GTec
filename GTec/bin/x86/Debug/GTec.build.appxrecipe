@@ -291,6 +291,9 @@
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\Admin\View\AuthenticationFlyout.xbf">
       <PackagePath>Admin\View\AuthenticationFlyout.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\User\View\UserIcon.xbf">
+      <PackagePath>User\View\UserIcon.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\User\View\HelpPage.xbf">
       <PackagePath>User\View\HelpPage.xbf</PackagePath>
     </AppxPackagedFile>
