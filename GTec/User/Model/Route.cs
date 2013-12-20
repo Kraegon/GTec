@@ -52,5 +52,7 @@ namespace GTec.User.Model
             this.systemSoundPath = SystemSoundPath;
             this.wayPoints = waypoints;
         }
+
+        public Route() { wayPoints = new List<Waypoint>(); }
     }
 }

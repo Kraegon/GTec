@@ -27,7 +27,7 @@ namespace GTec.User.Controller
         /// </summary>
         private Controller.LocationServiceProviderCaller locationProvider = new LocationServiceProviderCaller();
         private DatabaseConnector databaseConnector = DatabaseConnector.INSTANCE;
-        private List<PointOfInterest> pointOfInterestList = new List<PointOfInterest>();
+        private Route currentRoute = new Route();
 
         /// <summary>
         /// The properties which you can bind to.
@@ -52,14 +52,14 @@ namespace GTec.User.Controller
                 OnPropertyChanged("DatabaseConnnector");
             }
         }
-        public List<PointOfInterest> PointOfInterestList
+        public Route CurrentRoute
         {
-            get { return pointOfInterestList; }
+            get { return currentRoute; }
             set
             {
-                if (pointOfInterestList == value) return;
-                pointOfInterestList = value;
-                OnPropertyChanged("PointOfInterestList");
+                if (currentRoute == value) return;
+                currentRoute = value;
+                OnPropertyChanged("CurrentRoute");
             }
         }
     }

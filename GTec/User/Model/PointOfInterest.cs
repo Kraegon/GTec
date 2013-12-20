@@ -9,7 +9,8 @@ namespace GTec.User.Model
         /// </summary>
         private string name;
         private string information;
-        private string imagePath;        
+        private string imagePath;
+        private string soundPath;
         
         /// <summary>
         /// The properties which you can bind to.
@@ -44,13 +45,24 @@ namespace GTec.User.Model
                 OnPropertyChanged("ImagePath");
             }
         }
+        public string SoundPath
+        {
+            get { return soundPath; }
+            set
+            {
+                if (soundPath == value) return;
+                soundPath = value;
+                OnPropertyChanged("SoundPath");
+            }
+        }
 
-        public PointOfInterest(double Latitude, double Longitude, bool Visited, string Name, string Information, string ImagePath)
+        public PointOfInterest(double Latitude, double Longitude, bool Visited, string Name, string Information, string ImagePath, string SoundPath)
             : base(Latitude, Longitude, Visited)
         {
             this.name = Name;
             this.information = Information;
             this.imagePath = ImagePath;
+            this.soundPath = SoundPath;
         }
     }
 }

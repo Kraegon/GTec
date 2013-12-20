@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GTec.User.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -33,6 +34,11 @@ namespace GTec.Admin.View
             {
                 Frame.GoBack();
             }
+        }
+
+        private void AddNewWayPointToRoute_Button_Click(object sender, RoutedEventArgs e)
+        {
+            //new PointOfInterest(Latitude.Text,Longitude.Text,false,)
         }
     }
 }

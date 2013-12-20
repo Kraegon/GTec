@@ -33,11 +33,11 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Naam:</TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Longitude:</TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Latitude:</TextBlock>
-                <TextBlock Grid.Row="3" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam afbeelding:</TextBlock>
-                <TextBlock Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam geluid:</TextBlock>
+                <TextBlock x:Name="Name" Grid.Row="0" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Naam:</TextBlock>
+                <TextBlock x:Name="Longitude" Grid.Row="1" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Longitude:</TextBlock>
+                <TextBlock x:Name="Latitude" Grid.Row="2" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Latitude:</TextBlock>
+                <TextBlock x:Name="ImagePath" Grid.Row="3" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam afbeelding:</TextBlock>
+                <TextBlock x:Name="SoundPath" Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam geluid:</TextBlock>
 
                 <TextBox Grid.Row="0" Grid.Column="1" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
                 <TextBox Grid.Row="1" Grid.Column="2" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
@@ -45,7 +45,7 @@
                 <TextBox Grid.Row="3" Grid.Column="4" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
                 <TextBox Grid.Row="4" Grid.Column="5" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
 
-                <Button Grid.Row="5" Grid.Column="1" FontSize="18" HorizontalAlignment="Left">Toevoegen</Button>
+                <Button Grid.Row="5" Grid.Column="1" FontSize="18" Click="AddNewWayPointToRoute_Button_Click" HorizontalAlignment="Left">Toevoegen</Button>
             </Grid>
         </StackPanel>
 

@@ -23,13 +23,13 @@ namespace GTec.Admin.View
         public AuthenticationFlyout()
         {
             this.InitializeComponent();
-            if (User.Controller.Control.GetInstance().DatabaseConnnector.CurrentUser != null)
-            {
-                PasswordText.IsEnabled = false;
-                UsernameText.IsEnabled = false;
-                OKLoginButton.IsEnabled = false;
-                MessageTextBlock.Text = "Already logged in as " + User.Controller.Control.GetInstance().DatabaseConnnector.CurrentUser.Gebruikersnaam + "!";
-            }
+            //if (User.Controller.Control.GetInstance().DatabaseConnnector.CurrentUser != null)
+            //{
+                //PasswordText.IsEnabled = false;
+                //UsernameText.IsEnabled = false;
+                //OKLoginButton.IsEnabled = false;
+                //MessageTextBlock.Text = "Already logged in as " + User.Controller.Control.GetInstance().DatabaseConnnector.CurrentUser.Gebruikersnaam + "!";
+            //}
         }
 
         private async void OKLoginButton_Click(object sender, RoutedEventArgs e)
@@ -38,13 +38,14 @@ namespace GTec.Admin.View
             List<User.Model.Account> accounts = await User.Controller.DatabaseConnector.INSTANCE.GetAccountsAsync();
             foreach (User.Model.Account a in accounts)
             {
-                if (a.Gebruikersnaam.Equals(authentication.Item1) && a.Password.Equals(authentication.Item2))
-                {
-                    User.Controller.Control.GetInstance().DatabaseConnnector.CurrentUser = a;
+                //if (a.Gebruikersnaam.Equals(authentication.Item1) && a.Password.Equals(authentication.Item2))
+                //{
+                    //User.Controller.Control.GetInstance().DatabaseConnnector.CurrentUser = a;
                     await new MessageDialog("Succesfully logged in as " + a.Gebruikersnaam + "!").ShowAsync();
                     this.Hide();
+                    (GTec.User.Controller.Control.GetInstance().ThreadsToNotify[0] as User.View.MainPage).Frame.Navigate(typeof(AdminPage));
                     return;
-                }
+                //}
             }
             MessageTextBlock.Text = "Incorrect credentials!";
         }

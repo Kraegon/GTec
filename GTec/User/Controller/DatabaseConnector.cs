@@ -26,8 +26,6 @@ namespace GTec.User.Controller
             }
         }
        
-        //Attributes
-        public Account CurrentUser; //Neccessary? Do we do this here?
         SQLiteAsyncConnection Database;
 
         private DatabaseConnector()
@@ -53,7 +51,7 @@ namespace GTec.User.Controller
 
         public async Task<List<string>> GetRouteNamesAsync()
         {
-            List<DatabaseRoute> result = await Database.QueryAsync<DatabaseRoute>("SELECT Name FROM DatabaseRoute");
+            List<DatabaseRoute> result = await Database.QueryAsync<DatabaseRoute>("SELECT Name FROM DatabaseRoute WHERE RouteID NOT 999");
             return result.Select(x => x.Name).ToList();
         }
 
@@ -97,6 +95,34 @@ namespace GTec.User.Controller
             return IsSuccesful;
         }
 
+        public async Task<bool> SaveCurrentRouteAsync(Route route)
+        {
+            bool IsSuccesful = true;
+            DatabaseRoute forDatabase = DatabaseRoute.ToDatabaseRoute(route);
+            forDatabase.RouteID = 999; //Set to reserved ID
+            await Database.InsertAsync(forDatabase);
+            foreach (Waypoint w in route.WayPoints)
+            {
+                int existingID = await Database.ExecuteScalarAsync<int>("SELECT WaypointID FROM DatabasePOI WHERE Latitude = ? AND Longitude = ?", new object[] { w.Latitude, w.Longitude });
+                await Database.ExecuteAsync("INSERT INTO RouteBinds VALUES(?, ?)", new object[] { forDatabase.RouteID, existingID });
+            }
+            return IsSuccesful;
+        }
+
+        public async Task<Route> GetCurrentRoute()
+        {
+            List<DatabaseRoute> results = await Database.QueryAsync<DatabaseRoute>("SELECT * FROM DatabaseRoute WHERE RouteID = 999");
+            if (results.Count == 0)
+                return null;
+            else
+                return DatabaseRoute.ToRoute(results[0]);
+        }
+        public async Task DeleteCurrentRoute()
+        {
+            await Database.ExecuteAsync("DELETE FROM DatabaseRoute WHERE RouteID = 999");
+            await Database.ExecuteAsync("DELETE FORM RouteBinds WHERE RouteID = 999");
+        }
+
         public async Task DeleteRouteAsync(Route route)
         {
             await DeleteRouteAsync(route.Name);
@@ -132,7 +158,7 @@ namespace GTec.User.Controller
             {
                 if (w.Name != null)
                     retVal.Add(new PointOfInterest(w.Latitude, w.Longitude, false,
-                                               w.Name, w.Information, w.ImagePath));
+                                               w.Name, w.Information, w.ImagePath, w.SoundPath));
                 else
                     retVal.Add(new Waypoint(w.Latitude, w.Longitude));
             }
@@ -188,7 +214,9 @@ namespace GTec.User.Controller
             if (Database.ExecuteScalarAsync<int>("SELECT * FROM DatabaseRoute", new object[] { }) == null)
                 retVal = 1;
             else
-                retVal = Database.ExecuteScalarAsync<int>("SELECT RouteID FROM DatabaseRoute ORDER BY RouteID DESC").Result + 1;           
+                retVal = Database.ExecuteScalarAsync<int>("SELECT RouteID FROM DatabaseRoute ORDER BY RouteID DESC").Result + 1;
+            if (retVal == 999)
+                retVal = 1000;
             return retVal;
         }
 
@@ -241,6 +269,7 @@ namespace GTec.User.Controller
             public string Name{get; set;}
             public string Information{get; set;}
             public string ImagePath{get; set;}
+            public string SoundPath { get; set; }
 
             public DatabasePOI()
             {
@@ -252,7 +281,7 @@ namespace GTec.User.Controller
                 this.Longitude = longitude;
                 this.WaypointID = waypointID;
             }
-            public DatabasePOI(double latitude, double longitude, int waypointID, string name, string information, string imagePath)
+            public DatabasePOI(double latitude, double longitude, int waypointID, string name, string information, string imagePath, string soundPath)
             {
                 this.Latitude = latitude;
                 this.Longitude = longitude;
@@ -260,6 +289,7 @@ namespace GTec.User.Controller
                 this.Name = name;
                 this.Information = information;
                 this.ImagePath = imagePath;
+                this.SoundPath = soundPath;
             }
             public static DatabasePOI ToDatabasePOI(Waypoint toConvert)
             {
@@ -268,13 +298,13 @@ namespace GTec.User.Controller
             public static DatabasePOI ToDatabasePOI(PointOfInterest toConvert)
             {
                 return new DatabasePOI(toConvert.Latitude, toConvert.Longitude, DatabaseConnector.INSTANCE.generateWaypointID(),
-                                        toConvert.Name, toConvert.Information, toConvert.ImagePath);
+                                        toConvert.Name, toConvert.Information, toConvert.ImagePath, toConvert.SoundPath);
             }
             public static Waypoint ToWaypoint(DatabasePOI toConvert)
             {
                 if (toConvert.Name != null)
                     return new PointOfInterest(toConvert.Latitude, toConvert.Longitude, false,
-                                               toConvert.Name, toConvert.Information, toConvert.ImagePath);
+                                               toConvert.Name, toConvert.Information, toConvert.ImagePath,toConvert.SoundPath);
                 else
                     return new Waypoint(toConvert.Latitude, toConvert.Longitude);
             }
