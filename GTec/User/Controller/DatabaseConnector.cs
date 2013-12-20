@@ -30,14 +30,14 @@ namespace GTec.User.Controller
         public Account CurrentUser; //Neccessary? Do we do this here?
         SQLiteAsyncConnection Database;
 
-        public DatabaseConnector()
+        private DatabaseConnector()
         {
             ConnectionInit();
         }
         /// <summary>
         /// Initialise the Database connection and creates tables/default values if not existant.
         /// </summary>
-        public async void ConnectionInit()
+        private async void ConnectionInit()
         {
             //Connection init
             var dbPath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
@@ -49,8 +49,6 @@ namespace GTec.User.Controller
             var result = await Database.ExecuteScalarAsync<String>("Select Gebruikersnaam From Account WHERE Gebruikersnaam = ? AND Password = ?", new object[] { "Admin", "Admin" });
             if(result == null)
                 await Database.InsertAsync(new Account("Admin", "Admin"));
-
-            Route route = await GetRouteAsync("HKtest");
         }
 
         public async Task<List<string>> GetRouteNamesAsync()
@@ -64,10 +62,10 @@ namespace GTec.User.Controller
             return await Database.QueryAsync<Account>("SELECT * FROM Account"); //Why can't everything be like this. Jeez.
         }
 
-        public async Task<Route> GetRouteAsync(String routeName) 
+        public async Task<Route> GetRouteAsync(String routeName)
         {
             List<DatabaseRoute> results = await Database.QueryAsync<DatabaseRoute>("SELECT * FROM DatabaseRoute WHERE Name = ?", new object[] { routeName });
-            if(results.Count == 0)
+            if (results.Count == 0)
                 return null;
             else
                 return DatabaseRoute.ToRoute(results[0]);
@@ -145,7 +143,7 @@ namespace GTec.User.Controller
             //If the exact coordinates are already used, disregard.
             List<DatabasePOI> exists = await Database.QueryAsync<DatabasePOI>("SELECT \"Latitude\", \"Longitude\" FROM \"DatabasePOI\" WHERE \"Latitude\" = ? AND \"Longitude\" = ?", new object[] { waypoint.Latitude, waypoint.Longitude});
             if(exists.Count != 0)
-                return 0;
+                return exists[0].WaypointID;
             DatabasePOI forDatabase;
             //Otherwises insert as Point Of Interest (Contains metadata)
             if(waypoint is PointOfInterest){
@@ -168,6 +166,14 @@ namespace GTec.User.Controller
             foreach (RouteBind r in waypointsID)
             {
                 List<DatabasePOI> temp = Database.QueryAsync<DatabasePOI>("SELECT * FROM DatabasePOI WHERE WaypointID = ?", new object[] { r.WaypointID }).Result;
+/*           List<DatabaseRoute> databaseRoutes = Database.QueryAsync<DatabaseRoute>("SELECT * FROM \"DatabaseRoute\" WHERE \"Name\" = ?", new object[] { routeName }).Result;
+            int routeID = databaseRoutes[0].RouteID;
+            List<RouteBind> waypointsID = Database.QueryAsync<RouteBind>("SELECT * FROM \"RouteBinds\" WHERE \"RouteID\" = ?", new object[] { routeID }).Result;
+            List<Waypoint> retVal = new List<Waypoint>();
+            foreach (RouteBind r in waypointsID)
+            {
+                List<DatabasePOI> temp = Database.QueryAsync<DatabasePOI>("SELECT * FROM \"DatabasePOI\" WHERE \"WaypointID\" = ?", new object[] { r.WaypointID }).Result;
+*/
                 retVal.Add(DatabasePOI.ToWaypoint(temp[0]));
             }
             return retVal;

@@ -16,8 +16,12 @@
             <Maps:Map.Children>
                 <Maps:MapLayer Name="MainLayer"/>
             </Maps:Map.Children>
-        </Maps:Map>
+            </Maps:Map>
 
+            <Canvas x:Name="locationIcon">
+            <Ellipse Height="20" Width="20" Margin="-10,-10" Fill="Orange" ></Ellipse>
+            <Ellipse Height="10" Width="10" Margin="-5,-5" Fill="AntiqueWhite"></Ellipse>
+        </Canvas>
         <!--Logo-->
         <Image HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" Stretch="Uniform" Source="/Assets/ags_logo.png" Margin="10,10,10,10"/>
 
