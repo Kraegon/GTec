@@ -257,6 +257,12 @@
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\Assets\AGS_logo.png">
       <PackagePath>Assets\AGS_logo.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\Assets\background.png">
+      <PackagePath>Assets\background.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\Assets\background2.png">
+      <PackagePath>Assets\background2.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
@@ -287,6 +293,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\Admin\View\AdminPage.xbf">
+      <PackagePath>Admin\View\AdminPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\Admin\View\AuthenticationFlyout.xbf">
       <PackagePath>Admin\View\AuthenticationFlyout.xbf</PackagePath>

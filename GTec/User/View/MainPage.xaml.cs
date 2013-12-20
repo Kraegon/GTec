@@ -48,6 +48,9 @@ namespace GTec.User.View
             dTimer.Interval = new TimeSpan(1000);
             dTimer.Tick += delegate
             {
+                MapLayer.SetPosition(icon, new Location(
+                        GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Latitude,
+                        GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude));
                 showTraversedRoute();
             };
 
@@ -172,12 +175,6 @@ namespace GTec.User.View
 
             GTec.User.Controller.Control.GetInstance().PointOfInterestList = convertToWaypointList(wayPoints);
             dm.Waypoints = wayPoints;
-
-//#if DEBUG
-//            GTec.User.Controller.Control.GetInstance().PointOfInterestList[0].Visited = true;
-//            GTec.User.Controller.Control.GetInstance().PointOfInterestList[1].Visited = true;
-//            GTec.User.Controller.Control.GetInstance().PointOfInterestList[2].Visited = true;
-//#endif
 
             dm.RequestOptions.RouteMode = Bing.Maps.Directions.RouteModeOption.Walking;
             dm.RenderOptions.WaypointPushpinOptions.PushpinTemplate = new ControlTemplate();
