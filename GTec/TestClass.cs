@@ -10,10 +10,13 @@ namespace GTec
 {
     class TestClass
     {
-        public static void RunTest()
+        public async static void RunTest()
         {
             //Testing procedure
-            DatabaseConnector instance = DatabaseConnector.INSTANCE;
+            LanguageManager m = new LanguageManager();
+            string s = await m.GetTextAsync("helpText1");
+            m.CurrentLanguage = Language.English;
+            string s2 = await m.GetTextAsync("helpText2");
         }
     }
 }

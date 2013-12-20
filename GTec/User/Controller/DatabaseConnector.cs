@@ -49,11 +49,6 @@ namespace GTec.User.Controller
             var result = await Database.ExecuteScalarAsync<String>("Select Gebruikersnaam From Account WHERE Gebruikersnaam = ? AND Password = ?", new object[] { "Admin", "Admin" });
             if(result == null)
                 await Database.InsertAsync(new Account("Admin", "Admin"));
-
-            //DEBUG
-            //List<Waypoint> list = await GetAllWaypoints();
-            //foreach(Waypoint w in list)
-            //    await DeleteWaypoint(w);
         }
 
         public async Task<List<string>> GetRouteNamesAsync()
@@ -165,13 +160,20 @@ namespace GTec.User.Controller
 
         private async Task<List<Waypoint>> getAssociatedWaypointsAsync(string routeName)
         {
-            List<DatabaseRoute> databaseRoutes = Database.QueryAsync<DatabaseRoute>("SELECT * FROM \"DatabaseRoute\" WHERE \"Name\" = ?", new object[] { routeName }).Result;
+            int routeID = Database.ExecuteScalarAsync<int>("SELECT \"RouteID\" FROM \"DatabaseRoute\" WHERE \"Name\" = ?", new object[] { routeName }).Result;
+            List<RouteBind> waypointsID = Database.QueryAsync<RouteBind>("SELECT \"WaypointID\" FROM \"RouteBinds\" WHERE \"RouteID\" = ?", new object[] { routeID }).Result;
+            List<Waypoint> retVal = new List<Waypoint>();
+            foreach (RouteBind r in waypointsID)
+            {
+                List<DatabasePOI> temp = Database.QueryAsync<DatabasePOI>("SELECT * FROM DatabasePOI WHERE WaypointID = ?", new object[] { r.WaypointID }).Result;
+/*           List<DatabaseRoute> databaseRoutes = Database.QueryAsync<DatabaseRoute>("SELECT * FROM \"DatabaseRoute\" WHERE \"Name\" = ?", new object[] { routeName }).Result;
             int routeID = databaseRoutes[0].RouteID;
             List<RouteBind> waypointsID = Database.QueryAsync<RouteBind>("SELECT * FROM \"RouteBinds\" WHERE \"RouteID\" = ?", new object[] { routeID }).Result;
             List<Waypoint> retVal = new List<Waypoint>();
             foreach (RouteBind r in waypointsID)
             {
                 List<DatabasePOI> temp = Database.QueryAsync<DatabasePOI>("SELECT * FROM \"DatabasePOI\" WHERE \"WaypointID\" = ?", new object[] { r.WaypointID }).Result;
+*/
                 retVal.Add(DatabasePOI.ToWaypoint(temp[0]));
             }
             return retVal;

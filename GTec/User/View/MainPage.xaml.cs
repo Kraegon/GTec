@@ -32,35 +32,88 @@ namespace GTec.User.View
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        MapLayer layer;
         DispatcherTimer dTimer = new DispatcherTimer();
         UserIcon icon = new UserIcon(); 
         Bing.Maps.Directions.RouteResponse traveresedRouteResponse;
 
-        public MainPage()
+          public MainPage()
+          {
+  
+              this.InitializeComponent();
+  
+              Map.DirectionsRenderOptions.AutoUpdateMapView = false;
+  
+              Map.Children.Add(icon);
+              
+              dTimer.Interval = new TimeSpan(1000);
+              dTimer.Tick += delegate
+              {
+                  MapLayer.SetPosition(icon, new Location(
+                      GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Latitude,
+                      GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude));
+                  showTraversedRoute();
+              };
+  
+              Controller.Control.GetInstance().ThreadsToNotify.Add(this);
+  
+              //Authentication
+              AuthenticationFlyout login = new AuthenticationFlyout();
+              login.ShowIndependent();
+  
+              //Map locations
+              SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
+             //fillMapWithPointsOfInterest(new Route("yay3", "yay.wav", new Waypoint[]{ new PointOfInterest(50,50,true,"yay","yay2","yay.png")}));
+  
+              standardRoute();
+  
+              while(GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude == 777.777)
+                  Task.Delay(5);
+  
+              //Start position and zoomlevel.
+              Map.Center = new Location(51.58458, 4.77464);
+              Map.ZoomLevel = 12.0;
+              Map.Center = new Location(
+                      GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Latitude,
+                      GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude);
+  
+              Map.ZoomLevel = 17.0;
+              dTimer.Start();
+          }
+
+        private void AddPointsOfInterest(Route currentRoute)
         {
+            foreach (PointOfInterest pointOfInterest in currentRoute.WayPoints)
+                AddPushpin(pointOfInterest);
+        }
 
-            this.InitializeComponent();
-
-            Map.DirectionsRenderOptions.AutoUpdateMapView = false;
-
-            Map.Children.Add(icon);
-            
-            dTimer.Interval = new TimeSpan(1000);
-            dTimer.Tick += delegate
-            {
-                MapLayer.SetPosition(icon, new Location(
-                        GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Latitude,
-                        GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude));
-                showTraversedRoute();
+        private void AddPushpin(PointOfInterest poi)
+        {
+            Pushpin pp = new Pushpin()
+            { 
+                Tag = new InfoBoxData() { Title = poi.Name, Description = poi.Information, ImagePath = poi.ImagePath } 
             };
+            SolidColorBrush brush = new SolidColorBrush();
+            brush.Color = Windows.UI.Colors.Blue;
+            pp.Background = brush;
 
-            Controller.Control.GetInstance().ThreadsToNotify.Add(this);
+            MapLayer.SetPosition(pp, new Location(poi.Latitude, poi.Longitude));
+            pp.Tapped += PinTapped;
+            layer.Children.Add(pp);
+        }
 
-            //Authentication
-            AuthenticationFlyout login = new AuthenticationFlyout();
-            login.ShowIndependent();
+        private void PinTapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            Pushpin pp = sender as Pushpin;
+            InfoBoxData ibd = (InfoBoxData)pp.Tag;
+            InfoBox box = new InfoBox();
+            box.AddData(ibd);
+            layer.Children.Add(box);
 
-            //Map locations
+            if (!String.IsNullOrEmpty(ibd.Title) || !String.IsNullOrEmpty(ibd.Description))          
+                MapLayer.SetPosition(box, MapLayer.GetPosition(pp));
+            else
+                box.Visibility = Visibility.Collapsed;
             SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
 
             standardRoute();
@@ -239,10 +292,10 @@ namespace GTec.User.View
             switch (settingsCommand.Id as string)
             {
                 case "auth":
-                    new AuthenticationFlyout().ShowIndependent();
+                    OpenAuthenticationFlyout();
                     break;
                 default:
-                    new AuthenticationFlyout().ShowIndependent();
+                    OpenAuthenticationFlyout();
                     break;
             }
         }
@@ -251,6 +304,7 @@ namespace GTec.User.View
         {
             UICommandInvokedHandler handler = new UICommandInvokedHandler(onSettingsCommand);
             SettingsCommand authenticateCommand = new SettingsCommand("auth", "Authenticatie", handler);
+            eventArgs.Request.ApplicationCommands.Clear();
             eventArgs.Request.ApplicationCommands.Add(authenticateCommand);
         }
 
@@ -291,6 +345,12 @@ namespace GTec.User.View
             Frame.Navigate(typeof(HelpPage));
         }
 
+        public struct InfoBoxData
+        {
+            public string Title;
+            public string Description;
+            public string ImagePath;
+        }
         private Bing.Maps.Directions.WaypointCollection convertToBingWaypointCollection(List<PointOfInterest> wayPoints)
         {
             Bing.Maps.Directions.WaypointCollection wayPointsCollections = new Bing.Maps.Directions.WaypointCollection();
