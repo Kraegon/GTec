@@ -20,6 +20,9 @@
     <AppxPackagedFile Include="C:\Users\Igor\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\packages\Newtonsoft.Json.5.0.8\lib\netcore45\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\debug\x86\Bing.Maps.dll">
       <PackagePath>Bing.Maps.dll</PackagePath>
     </AppxPackagedFile>
@@ -276,6 +279,9 @@
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\Assets\Netherlands_flag.png">
       <PackagePath>Assets\Netherlands_flag.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\Assets\Seattle_Image.png">
+      <PackagePath>Assets\Seattle_Image.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
@@ -291,6 +297,9 @@
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\Assets\UK_flag.png">
       <PackagePath>Assets\UK_flag.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\Assets\strings\LanguagePack.json">
+      <PackagePath>Assets\strings\LanguagePack.json</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
@@ -305,6 +314,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\User\View\HelpPage.xbf">
       <PackagePath>User\View\HelpPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\User\View\InfoBox.xbf">
+      <PackagePath>User\View\InfoBox.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\User\View\LocationIcon100m.xbf">
       <PackagePath>User\View\LocationIcon100m.xbf</PackagePath>

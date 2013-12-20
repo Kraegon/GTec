@@ -19,6 +19,31 @@
             {
                 "en" : "This will also contain help",
                 "nl" : "Hier komt ook hulp te staan"
+            },
+	"backButton" :
+            {
+                "en" : "Back",
+                "nl" : "Terug"
+            },
+	"UserScreenHelpButton" :
+            {
+                "en" : "Userscreen",
+                "nl" : "Gebruikersscherm"
+            },
+	"HistoricalKilometerHelpButton" :
+            {
+                "en" : "Historical Kilometer",
+                "nl" : "Historische Kilometer"
+            },
+	"UserNameInlogScreen" :
+            {
+                "en" : "Username",
+                "nl" : "Gebruikersnaam"
+            },
+	"PasswordInlogScreen" :
+            {
+                "en" : "Password",
+                "nl" : "Wachtwoord"
             }
    }
 }

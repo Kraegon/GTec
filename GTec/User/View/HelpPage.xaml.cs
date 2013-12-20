@@ -22,9 +22,22 @@ namespace GTec.User.View
     /// </summary>
     public sealed partial class HelpPage : Page
     {
+        public string userScreenString
+        {
+            get
+            {
+                return userScreenString;
+            }
+            set
+            {
+                //setUserScreenString();
+            }
+        }
+
         public HelpPage()
         {
             this.InitializeComponent();
+            setUserScreenString();
         }
 
         private void goBackward_Click(object sender, RoutedEventArgs e)
@@ -33,6 +46,11 @@ namespace GTec.User.View
             {
                 Frame.GoBack();
             }
+        }
+
+        public async void setUserScreenString()
+        {
+            userScreenString = await Controller.Control.GetInstance().LanguageManager.GetTextAsync("UserScreenHelpButton");
         }
     }
 }

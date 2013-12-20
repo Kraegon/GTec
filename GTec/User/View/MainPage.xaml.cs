@@ -39,9 +39,8 @@ namespace GTec.User.View
 
           public MainPage()
           {
-  
               this.InitializeComponent();
-  
+
               Map.DirectionsRenderOptions.AutoUpdateMapView = false;
   
               Map.Children.Add(icon);
@@ -79,6 +78,9 @@ namespace GTec.User.View
   
               Map.ZoomLevel = 17.0;
               dTimer.Start();
+
+              //Current Language Combobox
+              SetComboboxLanguage();
           }
 
         private void AddPointsOfInterest(Route currentRoute)
@@ -365,6 +367,30 @@ namespace GTec.User.View
             foreach(Bing.Maps.Directions.Waypoint waypoint in wayPoints)
                 poiList.Add(new PointOfInterest(waypoint.Location.Latitude, waypoint.Location.Longitude, false, "", "", ""));
             return poiList;
+        }
+
+        private void SetComboboxLanguage()
+        {
+            var currentLanguage = User.Controller.Control.GetInstance().LanguageManager.CurrentLanguage;
+            if (currentLanguage == User.Controller.Language.Dutch)
+                languageBox.SelectedItem = dutchFlag;
+            else
+                languageBox.SelectedItem = englishFlag;
+        }
+
+        private void languageBox_Select(object sender, SelectionChangedEventArgs e)
+        {
+            if ((sender as ComboBox).SelectedItem != null && dutchFlag != null)
+            {
+                if (languageBox.SelectedItem == dutchFlag)
+                {
+                    Controller.Control.GetInstance().LanguageManager.CurrentLanguage = Controller.Language.Dutch;
+                }
+                else
+                {
+                    Controller.Control.GetInstance().LanguageManager.CurrentLanguage = Controller.Language.English;
+                }
+            }
         }
     }
 }
