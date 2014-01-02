@@ -27,7 +27,8 @@ namespace GTec.User.Controller
         /// </summary>
         private Controller.LocationServiceProviderCaller locationProvider = new LocationServiceProviderCaller();
         private DatabaseConnector databaseConnector = DatabaseConnector.INSTANCE;
-        private Route currentRoute = new Route();
+        private List<PointOfInterest> pointOfInterestList = new List<PointOfInterest>();
+        private LanguageManager languageManager = new LanguageManager();
 
         /// <summary>
         /// The properties which you can bind to.
@@ -60,6 +61,17 @@ namespace GTec.User.Controller
                 if (currentRoute == value) return;
                 currentRoute = value;
                 OnPropertyChanged("CurrentRoute");
+            }
+        }
+
+        public LanguageManager LanguageManager
+        {
+            get { return languageManager; }
+            set
+            {
+                if (languageManager == value) return;
+                languageManager = value;
+                OnPropertyChanged("LanguageManager");
             }
         }
     }

@@ -48,7 +48,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <Button x:Name="infoUserWindow" Width="250" Height="50" Grid.Row="0" Grid.Column="0" Background="#333333">Gebruikersscherm</Button>
+                        <Button x:Name="infoUserWindow" Content="{Binding userScreenString}" Foreground="White" Width="250" Height="50" Grid.Row="0" Grid.Column="0" Background="#333333"></Button>
                         <Button x:Name="infoHisKm" Width="250" Height="50" Grid.Row="1" Grid.Column="0" Background="#333333">Historische km</Button>
                     </Grid>
                 </StackPanel>

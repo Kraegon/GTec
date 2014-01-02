@@ -37,51 +37,51 @@ namespace GTec.User.View
         UserIcon icon = new UserIcon();
         Bing.Maps.Directions.RouteResponse traveresedRouteResponse;
 
-        public MainPage()
-        {
+          public MainPage()
+          {
+              this.InitializeComponent();
 
-            this.InitializeComponent();
+              Map.DirectionsRenderOptions.AutoUpdateMapView = false;
+  
+              Map.Children.Add(icon);
+              
+              dTimer.Interval = new TimeSpan(1000);
+              dTimer.Tick += delegate
+              {
+                  MapLayer.SetPosition(icon, new Location(
+                      GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Latitude,
+                      GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude));
+                  showTraversedRoute();
+              };
+  
+              Controller.Control.GetInstance().ThreadsToNotify.Add(this);
+  
+              //Authentication
+              AuthenticationFlyout login = new AuthenticationFlyout();
+              login.ShowIndependent();
+  
+              //Map locations
+              SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
+             //fillMapWithPointsOfInterest(new Route("yay3", "yay.wav", new Waypoint[]{ new PointOfInterest(50,50,true,"yay","yay2","yay.png")}));
+  
+              standardRoute();
+  
+              while(GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude == 777.777)
+                  Task.Delay(5);
+  
+              //Start position and zoomlevel.
+              Map.Center = new Location(51.58458, 4.77464);
+              Map.ZoomLevel = 12.0;
+              Map.Center = new Location(
+                      GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Latitude,
+                      GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude);
+  
+              Map.ZoomLevel = 17.0;
+              dTimer.Start();
 
-            Map.DirectionsRenderOptions.AutoUpdateMapView = false;
-
-            Map.Children.Add(icon);
-
-            dTimer.Interval = new TimeSpan(1000);
-            dTimer.Tick += delegate
-            {
-                MapLayer.SetPosition(icon, new Location(
-                    GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Latitude,
-                    GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude));
-
-                showTraversedRoute();
-            };
-
-            Controller.Control.GetInstance().ThreadsToNotify.Add(this);
-
-            //Authentication
-            //AuthenticationFlyout login = new AuthenticationFlyout();
-            //login.ShowIndependent();
-
-            //Map locations
-            SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
-            //fillMapWithPointsOfInterest(new Route("yay3", "yay.wav", new Waypoint[]{ new PointOfInterest(50,50,true,"yay","yay2","yay.png")}));
-            //standardRoute();
-            showRoute();
-
-            //May none ever see this, please.
-            while (GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude == 777.777)
-                Task.Delay(5);
-
-            //Start position and zoomlevel.
-            Map.Center = new Location(51.58458, 4.77464);
-            Map.ZoomLevel = 12.0;
-            Map.Center = new Location(
-                    GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Latitude,
-                    GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude);
-
-            Map.ZoomLevel = 17.0;
-            dTimer.Start();
-        }
+              //Current Language Combobox
+              SetComboboxLanguage();
+          }
 
         private void AddPointsOfInterest(Route currentRoute)
         {
@@ -255,13 +255,6 @@ namespace GTec.User.View
 
             GTec.User.Controller.Control.GetInstance().CurrentRoute.WayPoints = convertToWaypointList(wayPoints);
             dm.Waypoints = wayPoints;
-
-            //#if DEBUG
-            //            GTec.User.Controller.Control.GetInstance().PointOfInterestList[0].Visited = true;
-            //            GTec.User.Controller.Control.GetInstance().PointOfInterestList[1].Visited = true;
-            //            GTec.User.Controller.Control.GetInstance().PointOfInterestList[2].Visited = true;
-            //#endif
-
             dm.RequestOptions.RouteMode = Bing.Maps.Directions.RouteModeOption.Walking;
             dm.RenderOptions.WaypointPushpinOptions.PushpinTemplate = new ControlTemplate();
             dm.RenderOptions.ActiveRoutePolylineOptions.LineColor = Windows.UI.Colors.Blue;
@@ -386,6 +379,30 @@ namespace GTec.User.View
             foreach (Bing.Maps.Directions.Waypoint waypoint in wayPoints)
                 poiList.Add(new Waypoint(waypoint.Location.Latitude, waypoint.Location.Longitude, false));
             return poiList;
+        }
+
+        private void SetComboboxLanguage()
+        {
+            var currentLanguage = User.Controller.Control.GetInstance().LanguageManager.CurrentLanguage;
+            if (currentLanguage == User.Controller.Language.Dutch)
+                languageBox.SelectedItem = dutchFlag;
+            else
+                languageBox.SelectedItem = englishFlag;
+        }
+
+        private void languageBox_Select(object sender, SelectionChangedEventArgs e)
+        {
+            if ((sender as ComboBox).SelectedItem != null && dutchFlag != null)
+            {
+                if (languageBox.SelectedItem == dutchFlag)
+                {
+                    Controller.Control.GetInstance().LanguageManager.CurrentLanguage = Controller.Language.Dutch;
+                }
+                else
+                {
+                    Controller.Control.GetInstance().LanguageManager.CurrentLanguage = Controller.Language.English;
+                }
+            }
         }
     }
 }
