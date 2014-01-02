@@ -1,7 +1,9 @@
-﻿using GTec.User.View;
+﻿using GTec.Admin.View;
+using GTec.User.View;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Background;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -22,7 +24,6 @@ namespace GTec
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            TestClass.RunTest();
         }
 
         /// <summary>
@@ -32,7 +33,6 @@ namespace GTec
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
@@ -54,6 +54,7 @@ namespace GTec
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
+                    //No, Microsoft. We decide to do this elsewhere.
                 }
 
                 // Place the frame in the current Window

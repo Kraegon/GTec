@@ -121,7 +121,7 @@ namespace GTec.User.Controller
         public async Task DeleteCurrentRoute()
         {
             await Database.ExecuteAsync("DELETE FROM DatabaseRoute WHERE RouteID = 999");
-            await Database.ExecuteAsync("DELETE FROM RouteBinds WHERE RouteID = 999");
+            await Database.ExecuteAsync("DELETE FORM RouteBinds WHERE RouteID = 999");
         }
 
         public async Task DeleteRouteAsync(Route route)
@@ -215,7 +215,7 @@ namespace GTec.User.Controller
             if (Database.ExecuteScalarAsync<int>("SELECT * FROM DatabaseRoute", new object[] { }) == null)
                 retVal = 1;
             else
-                retVal = Database.ExecuteScalarAsync<int>("SELECT RouteID FROM DatabaseRoute WHERE RouteID <> 999 ORDER BY RouteID DESC").Result + 1;
+                retVal = Database.ExecuteScalarAsync<int>("SELECT RouteID FROM DatabaseRoute ORDER BY RouteID DESC").Result + 1;
             if (retVal == 999)
                 retVal = 1000;
             return retVal;

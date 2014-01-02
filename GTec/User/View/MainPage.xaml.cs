@@ -59,13 +59,14 @@ namespace GTec.User.View
             Controller.Control.GetInstance().ThreadsToNotify.Add(this);
 
             //Authentication
-            AuthenticationFlyout login = new AuthenticationFlyout();
-            login.ShowIndependent();
+            //AuthenticationFlyout login = new AuthenticationFlyout();
+            //login.ShowIndependent();
 
             //Map locations
             SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
             //fillMapWithPointsOfInterest(new Route("yay3", "yay.wav", new Waypoint[]{ new PointOfInterest(50,50,true,"yay","yay2","yay.png")}));
-            standardRoute();
+            //standardRoute();
+            showRoute();
 
             //May none ever see this, please.
             while (GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude == 777.777)
@@ -206,14 +207,22 @@ namespace GTec.User.View
 
             //Route route = new Route("HKtest1", "bleh.wav", waypoints);
 
-            await Controller.DatabaseConnector.INSTANCE.SaveRouteAsync(route);
+            //await Controller.DatabaseConnector.INSTANCE.SaveRouteAsync(route);
 
             showRoute();
         }
 
         public async void showRoute()
         {
-            Route route = await Controller.DatabaseConnector.INSTANCE.GetRouteAsync("HKtest1");
+            //Route route = await Controller.DatabaseConnector.INSTANCE.GetRouteAsync("HKtest1");
+            if (Controller.Control.GetInstance().CurrentRoute == null || Controller.Control.GetInstance().CurrentRoute.Name == null)
+            {
+                Controller.Control.GetInstance().CurrentRoute = await Controller.DatabaseConnector.INSTANCE.GetCurrentRoute();
+            }
+            Route route = Controller.Control.GetInstance().CurrentRoute;
+
+            if (route == null)
+                return;
 
             List<Waypoint> waypoints = new List<Waypoint>();
 
@@ -269,7 +278,7 @@ namespace GTec.User.View
         {
             Bing.Maps.Directions.DirectionsManager dm = Map.DirectionsManager;
 
-            if (GTec.User.Controller.Control.GetInstance().CurrentRoute.WayPoints.Count <= 1)
+            if (GTec.User.Controller.Control.GetInstance().CurrentRoute == null || GTec.User.Controller.Control.GetInstance().CurrentRoute.WayPoints.Count <= 1)
                 return;
 
             Bing.Maps.Directions.WaypointCollection col = new Bing.Maps.Directions.WaypointCollection();
