@@ -17,13 +17,13 @@
     <AppXManifest Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-01-06T13:30:30.043</Modified>
+      <Modified>2014-01-06T15:33:28.922</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\GTec.exe">
       <PackagePath>GTec.exe</PackagePath>
-      <Modified>2014-01-06T14:04:24.569</Modified>
+      <Modified>2014-01-06T16:10:57.768</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
@@ -403,51 +403,51 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\Assets\strings\LanguagePack.json">
       <PackagePath>Assets\strings\LanguagePack.json</PackagePath>
-      <Modified>2014-01-06T14:02:00.456</Modified>
+      <Modified>2014-01-06T14:32:26.620</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2014-01-06T13:30:28.104</Modified>
+      <Modified>2014-01-06T15:33:26.660</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\Admin\View\AdminPage.xbf">
       <PackagePath>Admin\View\AdminPage.xbf</PackagePath>
-      <Modified>2014-01-06T14:04:24.112</Modified>
+      <Modified>2014-01-06T15:33:26.660</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\Admin\View\AuthenticationFlyout.xbf">
       <PackagePath>Admin\View\AuthenticationFlyout.xbf</PackagePath>
-      <Modified>2014-01-06T14:04:24.112</Modified>
+      <Modified>2014-01-06T15:33:26.660</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\User\View\UserIcon.xbf">
       <PackagePath>User\View\UserIcon.xbf</PackagePath>
-      <Modified>2014-01-06T13:30:28.104</Modified>
+      <Modified>2014-01-06T15:33:26.660</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\User\View\HelpPage.xbf">
       <PackagePath>User\View\HelpPage.xbf</PackagePath>
-      <Modified>2014-01-06T14:04:24.112</Modified>
+      <Modified>2014-01-06T15:33:26.660</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\User\View\InfoBox.xbf">
       <PackagePath>User\View\InfoBox.xbf</PackagePath>
-      <Modified>2014-01-06T13:30:28.105</Modified>
+      <Modified>2014-01-06T15:33:26.660</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\User\View\LocationIcon100m.xbf">
       <PackagePath>User\View\LocationIcon100m.xbf</PackagePath>
-      <Modified>2014-01-06T13:30:28.105</Modified>
+      <Modified>2014-01-06T15:33:26.661</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\User\View\LocationIcon10m.xbf">
       <PackagePath>User\View\LocationIcon10m.xbf</PackagePath>
-      <Modified>2014-01-06T13:30:28.105</Modified>
+      <Modified>2014-01-06T15:33:26.661</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\User\View\MainPage.xbf">
       <PackagePath>User\View\MainPage.xbf</PackagePath>
-      <Modified>2014-01-06T14:04:24.112</Modified>
+      <Modified>2014-01-06T15:50:29.395</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf">
       <PackagePath>Bing.Maps\Themes\Generic.xbf</PackagePath>
-      <Modified>2014-01-06T14:04:24.191</Modified>
+      <Modified>2014-01-06T16:10:57.394</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Igor\Documents\School Technische Informatica\Schooljaar 2\Kwartaal 2\Proftaak\Project\GTec\GTec\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-01-06T13:30:29.327</Modified>
+      <Modified>2014-01-06T15:33:28.117</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

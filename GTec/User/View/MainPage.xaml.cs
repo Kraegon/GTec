@@ -39,6 +39,7 @@ namespace GTec.User.View
         DispatcherTimer dTimer = new DispatcherTimer();
         UserIcon icon = new UserIcon();
         Bing.Maps.Directions.RouteResponse traveresedRouteResponse;
+
           public MainPage()
           {
               this.InitializeComponent();
@@ -46,7 +47,7 @@ namespace GTec.User.View
               Map.DirectionsRenderOptions.AutoUpdateMapView = false;
               GeofenceMonitor.Current.GeofenceStateChanged += OnGeofenceStateChanged;
               GeofenceMonitor.Current.Geofences.Clear();
-  
+
               Map.Children.Add(icon);
               Map.Children.Add(layer);
               
@@ -440,7 +441,7 @@ namespace GTec.User.View
             var currentLanguage = User.Controller.Control.GetInstance().LanguageManager.CurrentLanguage;
             if (currentLanguage == User.Controller.Language.Dutch)
                 languageBox.SelectedItem = dutchFlag;
-            else
+            else if(currentLanguage == User.Controller.Language.English)
                 languageBox.SelectedItem = englishFlag;
         }
 
@@ -448,15 +449,36 @@ namespace GTec.User.View
         {
             if ((sender as ComboBox).SelectedItem != null && dutchFlag != null)
             {
-                if ((sender as ComboBox).SelectedItem as Image == dutchFlag)//TODO: This does not work, fix later. FIXME
+                System.Diagnostics.Debug.WriteLine("ToString van het plaatje: " + languageBox.SelectedIndex);
+                if ((sender as ComboBox).SelectedIndex == 0)//TODO: This does not work, fix later. FIXME
                 {
                     Controller.Control.GetInstance().LanguageManager.CurrentLanguage = Controller.Language.Dutch;
+                    languageBox.SelectedItem = dutchFlag;
                 }
-                else
+                else if ((sender as ComboBox).SelectedIndex == 1)
                 {
                     Controller.Control.GetInstance().LanguageManager.CurrentLanguage = Controller.Language.English;
+                    languageBox.SelectedItem = englishFlag;
                 }
             }
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            // De huidige content van de applicatie opslaan alvorens het naar de andere pagina gaat....
+            saveContent(e.Content);
+            base.OnNavigatedFrom(e);
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            // Hier een link naar een manier om de toestand van de applicatie terug te halen zoals het toen was....
+            base.OnNavigatedTo(e);
+        }
+
+        private void saveContent(Object o)
+        {
+            // Een manier verzinnen om de huidige content van de applicatie hier op te slaan...
         }
     }
 }

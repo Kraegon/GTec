@@ -66,12 +66,12 @@
                     <ComboBox x:Name="languageBox" SelectedIndex="0" Grid.Row="0" Grid.Column="0" Width="225" Height="100" SelectionChanged="languageBox_Select">
                         <ComboBoxItem>
                             <StackPanel Orientation="Horizontal">
-                                <Image x:Name="dutchFlag" Stretch="Fill" Source="/Assets/Netherlands_flag.png" Width="200" Height="100"/>
+                                <Image x:Name="dutchFlag" x:Uid="1" Stretch="Fill" Source="/Assets/Netherlands_flag.png" Width="200" Height="100"/>
                             </StackPanel>
                         </ComboBoxItem>
                         <ComboBoxItem>
                             <StackPanel Orientation="Horizontal">
-                                <Image x:Name="englishFlag" Stretch="Fill" Source="/Assets/UK_flag.png" Width="200" Height="100"/>
+                                <Image x:Name="englishFlag" x:Uid="2" Stretch="Fill" Source="/Assets/UK_flag.png" Width="200" Height="100"/>
                             </StackPanel>
                         </ComboBoxItem>
                     </ComboBox>
