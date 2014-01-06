@@ -30,11 +30,19 @@ namespace GTec.User.View
             Infobox.Visibility = Visibility.Collapsed;
         }
 
-        public void AddData(MainPage.InfoBoxData ibd)
+        public async void AddData(MainPage.InfoBoxData ibd)
         {
             TitleBlock.Text = ibd.Title;
-            DescriptionBlock.Text = ibd.Description;
-            BitmapImage image = new BitmapImage(new Uri(ibd.ImagePath, UriKind.Absolute));
+            //Let's make the unsafe assumption that every description in the database will be a valid tag in the JSon file
+            DescriptionBlock.Text = await User.Controller.Control.GetInstance().LanguageManager.GetTextAsync(ibd.Description);
+            BitmapImage image = null;
+            try {
+                image = new BitmapImage(new Uri(ibd.ImagePath, UriKind.Absolute));
+            }
+            catch
+            {
+                image = new BitmapImage(new Uri("ms-appx:///Assets/AGS_logo.png.png", UriKind.Absolute));
+            }
             ImageBlock.Source = image;
         }
     }

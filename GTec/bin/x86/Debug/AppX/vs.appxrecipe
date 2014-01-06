@@ -17,13 +17,13 @@
     <AppXManifest Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-01-06T15:32:17.834</Modified>
+      <Modified>2014-01-06T19:02:33.210</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\bin\x86\Debug\GTec.exe">
       <PackagePath>GTec.exe</PackagePath>
-      <Modified>2014-01-06T16:11:53.344</Modified>
+      <Modified>2014-01-06T19:02:32.046</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kraegon\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
@@ -403,51 +403,51 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\Assets\strings\LanguagePack.json">
       <PackagePath>Assets\strings\LanguagePack.json</PackagePath>
-      <Modified>2014-01-05T16:29:58.000</Modified>
+      <Modified>2014-01-06T18:55:18.431</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2014-01-06T14:42:44.878</Modified>
+      <Modified>2014-01-06T19:02:31.558</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\bin\x86\Debug\Admin\View\AdminPage.xbf">
       <PackagePath>Admin\View\AdminPage.xbf</PackagePath>
-      <Modified>2014-01-06T14:42:44.880</Modified>
+      <Modified>2014-01-06T19:02:31.560</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\bin\x86\Debug\Admin\View\AuthenticationFlyout.xbf">
       <PackagePath>Admin\View\AuthenticationFlyout.xbf</PackagePath>
-      <Modified>2014-01-06T14:42:44.880</Modified>
+      <Modified>2014-01-06T19:02:31.561</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\bin\x86\Debug\User\View\UserIcon.xbf">
       <PackagePath>User\View\UserIcon.xbf</PackagePath>
-      <Modified>2014-01-06T14:42:44.881</Modified>
+      <Modified>2014-01-06T19:02:31.561</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\bin\x86\Debug\User\View\HelpPage.xbf">
       <PackagePath>User\View\HelpPage.xbf</PackagePath>
-      <Modified>2014-01-06T14:42:44.881</Modified>
+      <Modified>2014-01-06T19:02:31.562</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\bin\x86\Debug\User\View\InfoBox.xbf">
       <PackagePath>User\View\InfoBox.xbf</PackagePath>
-      <Modified>2014-01-06T15:17:21.426</Modified>
+      <Modified>2014-01-06T19:02:31.562</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\bin\x86\Debug\User\View\LocationIcon100m.xbf">
       <PackagePath>User\View\LocationIcon100m.xbf</PackagePath>
-      <Modified>2014-01-06T14:42:44.885</Modified>
+      <Modified>2014-01-06T19:02:31.564</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\bin\x86\Debug\User\View\LocationIcon10m.xbf">
       <PackagePath>User\View\LocationIcon10m.xbf</PackagePath>
-      <Modified>2014-01-06T14:42:44.885</Modified>
+      <Modified>2014-01-06T19:02:31.566</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\bin\x86\Debug\User\View\MainPage.xbf">
       <PackagePath>User\View\MainPage.xbf</PackagePath>
-      <Modified>2014-01-06T14:42:44.885</Modified>
+      <Modified>2014-01-06T19:02:31.566</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf">
       <PackagePath>Bing.Maps\Themes\Generic.xbf</PackagePath>
-      <Modified>2014-01-06T16:11:52.960</Modified>
+      <Modified>2014-01-06T19:02:31.648</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Users\Kraegon\Documents\[School]\Gtec\GTec\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-01-06T15:32:15.181</Modified>
+      <Modified>2014-01-06T19:02:32.692</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

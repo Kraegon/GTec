@@ -101,7 +101,7 @@ namespace GTec.User.View
           {
               var reports = sender.ReadReports();
 
-              await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+              await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
               {
                   foreach (GeofenceStateChangeReport report in reports)
                   {
@@ -214,26 +214,26 @@ namespace GTec.User.View
 
             if (!found)
             {
-                waypoints.Add(new PointOfInterest(51.59380, 4.77963, false, "Naam", "Info", "img.jpg", "sound.jpg"));
-                waypoints.Add(new PointOfInterest(51.59307, 4.77969, false, "Naam1", "Info", "img.jpg", "sound.jpg"));
+                waypoints.Add(new PointOfInterest(51.59380, 4.77963, false, "VVV", "VVV", "ms-appx:///Assets/Seattle_Image.png", "sound.wav"));
+                waypoints.Add(new Waypoint(51.59307, 4.77969));
                 waypoints.Add(new Waypoint(51.59250, 4.77969));
-                waypoints.Add(new Waypoint(51.59250, 4.77968));
-                waypoints.Add(new Waypoint(51.59256, 4.77889));
-                waypoints.Add(new Waypoint(51.59265, 4.77844));
+                waypoints.Add(new PointOfInterest(51.59250, 4.77968, false, "Nassau monument", "NassauMonument", " ", " "));
+                waypoints.Add(new PointOfInterest(51.59256, 4.77889, false, "Valkenberg", "Valkenberg", " ", " "));
+                waypoints.Add(new PointOfInterest(51.59265, 4.77844, false, "Kasteel", "Kasteel", " ", " "));
                 waypoints.Add(new Waypoint(51.59258, 4.77806));
                 waypoints.Add(new Waypoint(51.59059, 4.77707));
                 waypoints.Add(new Waypoint(51.59061, 4.77624));
-                waypoints.Add(new Waypoint(51.58992, 4.77634));
-                waypoints.Add(new Waypoint(51.59033, 4.77623));
+                waypoints.Add(new PointOfInterest(51.58992, 4.77634, false, "Vishal", "Vishal", " ", " "));
+                waypoints.Add(new PointOfInterest(51.59033, 4.77623, false, "Torenstraat", "Torenstraat", " ", " "));
                 waypoints.Add(new Waypoint(51.59043, 4.77518));
                 waypoints.Add(new Waypoint(51.59000, 4.77429));
                 waypoints.Add(new Waypoint(51.59010, 4.77336));
                 waypoints.Add(new Waypoint(51.58982, 4.77321));
                 waypoints.Add(new Waypoint(51.58932, 4.77444));
-                waypoints.Add(new Waypoint(51.58872, 4.77501));
-                waypoints.Add(new Waypoint(51.58878, 4.77549));
-                waypoints.Add(new Waypoint(51.58864, 4.77501));
-                waypoints.Add(new Waypoint(51.58822, 4.77525));
+                waypoints.Add(new PointOfInterest(51.58872, 4.77501, false, "Stadhuis", "Stadhuis", " ", " "));
+                waypoints.Add(new PointOfInterest(51.58878, 4.77549, false, "Antoniuskerk", "Antoniuskerk", " ", " "));
+                waypoints.Add(new PointOfInterest(51.58864, 4.77501, false, "Bibliotheek", "bibliotheek", " ", " "));
+                waypoints.Add(new PointOfInterest(51.58822, 4.77525, false, "Kloosterkazerne", "Kloosterkazerne", " ", " "));
                 waypoints.Add(new Waypoint(51.58716, 4.77582));
                 waypoints.Add(new Waypoint(51.58747, 4.77662));
                 waypoints.Add(new Waypoint(51.58771, 4.77652));
