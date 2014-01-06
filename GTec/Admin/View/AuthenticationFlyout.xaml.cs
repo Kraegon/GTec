@@ -30,6 +30,14 @@ namespace GTec.Admin.View
                 //OKLoginButton.IsEnabled = false;
                 //MessageTextBlock.Text = "Already logged in as " + User.Controller.Control.GetInstance().DatabaseConnnector.CurrentUser.Gebruikersnaam + "!";
             //}
+            loadStrings();
+        }
+
+        private async void loadStrings()
+        {
+            UserNameTextTextBlock.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("UserNameInlogScreen");
+            PassWordTextTextBlock.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("PasswordInlogScreen");
+            AuthenticationFlyoutText.Title = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("AuthenticationTitle");
         }
 
         private async void OKLoginButton_Click(object sender, RoutedEventArgs e)

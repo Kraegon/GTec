@@ -17,7 +17,7 @@
                 <Maps:MapLayer Name="MainLayer"/>
             </Maps:Map.Children>
         </Maps:Map>
-        
+
         <!--Logo-->
         <Image HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" Stretch="Uniform" Source="/Assets/ags_logo.png" Margin="10,10,0,0" Grid.RowSpan="2"/>
 
@@ -66,16 +66,18 @@
                     <ComboBox x:Name="languageBox" SelectedIndex="0" Grid.Row="0" Grid.Column="0" Width="225" Height="100" SelectionChanged="languageBox_Select">
                         <ComboBoxItem>
                             <StackPanel Orientation="Horizontal">
-                                <Image x:Name="dutchFlag" Stretch="Fill" Source="/Assets/Netherlands_flag.png" Width="200" Height="100"/>
+                                <Image x:Name="dutchFlag" x:Uid="1" Stretch="Fill" Source="/Assets/Netherlands_flag.png" Width="200" Height="100"/>
                             </StackPanel>
                         </ComboBoxItem>
                         <ComboBoxItem>
                             <StackPanel Orientation="Horizontal">
-                                <Image x:Name="englishFlag" Stretch="Fill" Source="/Assets/UK_flag.png" Width="200" Height="100"/>
+                                <Image x:Name="englishFlag" x:Uid="2" Stretch="Fill" Source="/Assets/UK_flag.png" Width="200" Height="100"/>
                             </StackPanel>
                         </ComboBoxItem>
                     </ComboBox>
-                    <Button x:Name="help" Grid.Row="1" Grid.Column="0" Width="225" Height="100" Background="Black" FontSize="40" Click="Help_Click">Help</Button>
+                    <Frame Grid.Row="1" Grid.Column="0" Width="225" Height="100" Background="Black">
+                        <Button x:Name="help" FontSize="40" Background="Black" Click="Help_Click" Margin="-3" Width="231" Height="106">Help</Button>
+                    </Frame>
                 </Grid>
             </StackPanel>
 

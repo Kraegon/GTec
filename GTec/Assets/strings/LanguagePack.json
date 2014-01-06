@@ -1,5 +1,65 @@
 { "stringRef" :
    {
+    "back" :
+			{
+				"en" : "Back",
+				"nl" : "Terug"
+			},
+    "save" :
+			{
+				"en" : "Save",
+				"nl" : "Opslaan"
+			},
+    "active" :
+			{
+				"en" : "Active",
+				"nl" : "Actief"
+			},
+    "playSound" :
+			{
+				"en" : "Play Sound",
+				"nl" : "Speel Geluid Af"
+			},
+    "image" :
+			{
+				"en" : "Image",
+				"nl" : "Plaatje"
+			},
+    "PickExistingWaypoint" :
+			{
+				"en" : "Pick Waypoint",
+				"nl" : "Kies waypoint"
+			},
+    "name" :
+			{
+				"en" : "Name",
+				"nl" : "Naam"
+			},
+    "longitude" :
+			{
+				"en" : "Longitude",
+				"nl" : "Lengtegraad"
+			},
+    "latitude" :
+			{
+				"en" : "Latitude",
+				"nl" : "Breedtegraad"
+			},
+    "imagepath" :
+			{
+				"en" : "Image Path",
+				"nl" : "Padnaam Afbeelding"
+			},
+    "soundpath" :
+			{
+				"en" : "Sound Path",
+				"nl" : "Padnaam Muziek"
+			},
+    "toevoegen" :
+			{
+				"en" : "Add",
+				"nl" : "Toevoegen"
+			},
     "helpButton" :
             {
                 "en" : "help",
@@ -44,6 +104,11 @@
             {
                 "en" : "Password",
                 "nl" : "Wachtwoord"
+            },
+	"AuthenticationTitle" :
+            {
+                "en" : "Authentication",
+                "nl" : "Authenticatie"
             }
 	"VVV" : 
 	{
