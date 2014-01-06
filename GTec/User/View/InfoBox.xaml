@@ -21,11 +21,9 @@
                 <ColumnDefinition Width="8*"/>
                 <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
-            <Viewbox Grid.Row="1" Margin="10" MaxHeight="200" MaxWidth="400">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock x:Name="DescriptionBlock" VerticalAlignment="Top" Foreground="Black" FontSize="12" Width="290" TextWrapping="Wrap" Height="Auto"/>
-                </StackPanel>
-            </Viewbox>
+            <ScrollViewer VerticalAlignment="Top" Foreground="Black" Width="Auto" Height="Auto" MaxWidth="700">
+                <TextBlock x:Name="DescriptionBlock" TextWrapping="WrapWholeWords" FontSize="16" Margin="10,0,0,0" />
+            </ScrollViewer>
             <Image x:Name="ImageBlock" Grid.Column="1" Margin="10" MaxWidth="120" MaxHeight="120" Stretch="Fill"/>
         </Grid>
     </Grid>

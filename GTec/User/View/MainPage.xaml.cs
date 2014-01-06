@@ -48,15 +48,6 @@ namespace GTec.User.View
   
               Map.Children.Add(icon);
               Map.Children.Add(layer);
-              
-              dTimer.Interval = new TimeSpan(1000);
-              dTimer.Tick += delegate
-              {
-                  MapLayer.SetPosition(icon, new Location(
-                      GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Latitude,
-                      GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude));
-                  showTraversedRoute();
-              };
 
               Controller.Control.GetInstance().ThreadsToNotify.Add(this);
   
@@ -67,11 +58,33 @@ namespace GTec.User.View
               //Map locations
               SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
              //fillMapWithPointsOfInterest(new Route("yay3", "yay.wav", new Waypoint[]{ new PointOfInterest(50,50,true,"yay","yay2","yay.png")}));
-  
-              while(GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude == 777.777)
-                  Task.Delay(5);
+
+              
 
               standardRoute();
+
+
+
+              //Current Language Combobox
+              SetComboboxLanguage();
+              initLocationServ();
+          }
+          private async void initLocationServ()
+          {
+              while (GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude == 777.777)
+              {
+                  await Task.Delay(10);
+                  //GTec.User.Controller.Control.GetInstance().LocationProvider = new LocationServiceProviderCaller(GTec.User.Controller.Control.GetInstance().ThreadsToNotify);
+              }
+
+              dTimer.Interval = new TimeSpan(1000);
+              dTimer.Tick += delegate
+              {
+                  MapLayer.SetPosition(icon, new Location(
+                      GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Latitude,
+                      GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude));
+                  showTraversedRoute();
+              };
 
               //Start position and zoomlevel.
               Map.Center = new Location(51.58458, 4.77464);
@@ -79,13 +92,11 @@ namespace GTec.User.View
               Map.Center = new Location(
                       GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Latitude,
                       GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude);
-  
+
               Map.ZoomLevel = 17.0;
               dTimer.Start();
-
-              //Current Language Combobox
-              SetComboboxLanguage();
           }
+
           public async void OnGeofenceStateChanged(GeofenceMonitor sender, object e)
           {
               var reports = sender.ReadReports();
@@ -104,8 +115,21 @@ namespace GTec.User.View
                           {
                               Waypoint waypoint = GTec.User.Controller.Control.GetInstance().CurrentRoute.WayPoints[int.Parse(geofence.Id)];
                               waypoint.Visited = true;
-                              MessageDialog msgDialog = new MessageDialog("You are near a point of interest", "Warning!");
-                              await msgDialog.ShowAsync();
+                              try
+                              {
+                                  foreach (UIElement element in layer.Children)
+                                  {
+                                      if ((((InfoBoxData)(element as Pushpin).Tag)).Title == (waypoint as PointOfInterest).Name)
+                                      {
+                                          PinTapped(element, new TappedRoutedEventArgs());
+                                          break;
+                                      }
+                                  }
+                              }
+                              catch
+                              {
+                                  //YAY
+                              }
                           }
                           catch
                           {
@@ -121,13 +145,7 @@ namespace GTec.User.View
             GeofenceMonitor.Current.Geofences.Clear();
             for (int i = 0; i < currentRoute.WayPoints.Count; ++i)
             {
-                Waypoint waypoint = currentRoute.WayPoints[i];
-               // PointOfInterest pointOfInterest = null;
-                //if (waypoint is PointOfInterest)
-                {
-                    //pointOfInterest = waypoint as PointOfInterest;
-                    AddPushpin(waypoint, i);
-                }
+                AddPushpin(currentRoute.WayPoints[i], i);
             }
         }
 
@@ -196,8 +214,8 @@ namespace GTec.User.View
 
             if (!found)
             {
-                waypoints.Add(new Waypoint(51.59380, 4.77963));
-                waypoints.Add(new Waypoint(51.59307, 4.77969));
+                waypoints.Add(new PointOfInterest(51.59380, 4.77963, false, "Naam", "Info", "img.jpg", "sound.jpg"));
+                waypoints.Add(new PointOfInterest(51.59307, 4.77969, false, "Naam1", "Info", "img.jpg", "sound.jpg"));
                 waypoints.Add(new Waypoint(51.59250, 4.77969));
                 waypoints.Add(new Waypoint(51.59250, 4.77968));
                 waypoints.Add(new Waypoint(51.59256, 4.77889));
@@ -304,7 +322,7 @@ namespace GTec.User.View
                 }
             }
 
-            GTec.User.Controller.Control.GetInstance().CurrentRoute.WayPoints = convertToWaypointList(wayPoints);
+            //GTec.User.Controller.Control.GetInstance().CurrentRoute.WayPoints = convertToWaypointList(wayPoints);
             dm.Waypoints = wayPoints;
             dm.RequestOptions.RouteMode = Bing.Maps.Directions.RouteModeOption.Walking;
             dm.RenderOptions.WaypointPushpinOptions.PushpinTemplate = new ControlTemplate();
