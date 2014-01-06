@@ -175,7 +175,7 @@
             <TextBox x:Name="RouteSoundPath" Margin="230,-30,0,0" FontSize="18" HorizontalAlignment="Left"/>
             <TextBlock Margin="300,-25,0,0" HorizontalAlignment="Left" FontSize="18" Text="Active"/>
             <CheckBox x:Name="SetAsCurrentRouteCheckBox" HorizontalAlignment="Left" Margin="350,-30,0,0"/>
-            <ComboBox x:Name="CurrentRoute" HorizontalAlignment="Left" Margin="400,-30,0,0"/>
+            <ComboBox x:Name="CurrentRoute" HorizontalAlignment="Left" Margin="399,-30,0,0" Width="280"/>
             <Button Margin="0,-40,0,0" Click="SaveRoute_Button_Click" FontSize="18" HorizontalAlignment="Right">Route opslaan</Button>
         </StackPanel>
 

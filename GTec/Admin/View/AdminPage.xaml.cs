@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -69,10 +70,10 @@ namespace GTec.Admin.View
 
         private void AddExistingWayPointToRoute_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (((PointOfInterest)ExistingWayPointsBox.SelectedItem) == null)
+            if (ExistingWayPointsBox.SelectedItem == null)
                 return;
 
-            WayPoints.Add(ExistingWayPointsBox.SelectedItem as PointOfInterest);
+            WayPoints.Add(ExistingWayPointsBox.SelectedItem is PointOfInterest ? ExistingWayPointsBox.SelectedItem as PointOfInterest : new PointOfInterest((ExistingWayPointsBox.SelectedItem as Waypoint).Latitude, (ExistingWayPointsBox.SelectedItem as Waypoint).Longitude, false, "", "", "", ""));
             officeListBox.ItemsSource = null;
             officeListBox.ItemsSource = WayPoints;
         }
@@ -93,12 +94,22 @@ namespace GTec.Admin.View
 
         private async void SaveRoute_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (WayPoints.Count == 0 || RouteName.Text == "" || RouteSoundPath.Text == "")
+            if (WayPoints.Count == 0 || RouteName.Text == "" || RouteSoundPath.Text == "" || WayPoints.Count < 2)
             {
                 if (CurrentRoute.SelectedItem != null)
                 {
-                    await GTec.User.Controller.DatabaseConnector.INSTANCE.SaveCurrentRouteAsync(
-                            await GTec.User.Controller.DatabaseConnector.INSTANCE.GetRouteAsync(CurrentRoute.SelectedItem as string));
+                    MessageDialog msgDialog = new MessageDialog("Please wait a second, while we take a few seconds to set things up for you.", "Please be patient!");
+                    IAsyncOperation<IUICommand> asyncCommand = msgDialog.ShowAsync();  //No need to wait for this.
+
+                    Route r = await GTec.User.Controller.DatabaseConnector.INSTANCE.GetRouteAsync(CurrentRoute.SelectedItem as string);
+                    await GTec.User.Controller.DatabaseConnector.INSTANCE.SaveCurrentRouteAsync(r);
+                    GTec.User.Controller.Control.GetInstance().CurrentRoute = r;
+
+                    asyncCommand.Cancel();
+                    if (Frame.CanGoBack)
+                    {
+                        Frame.GoBack();
+                    }
                 }
                 return;
             }

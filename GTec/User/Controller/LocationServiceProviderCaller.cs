@@ -3,6 +3,9 @@ using GTec.User.Model;
 using System;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
+using System.Threading;
+using Windows.UI.Xaml;
+using Windows.UI.Core;
 
 namespace GTec.User.Controller
 {
@@ -58,12 +61,20 @@ namespace GTec.User.Controller
         private Geolocator geoLocation = new Geolocator();
         private TimeSpan delay = TimeSpan.FromSeconds(1);
 
-        public LocationServiceProviderCaller()
+        public LocationServiceProviderCaller(System.Collections.Generic.List<UIElement> ThreadsToNotif)
         {
             geoLocation.DesiredAccuracy = PositionAccuracy.High;
-            getLocation();
+            getConsent();
+            //getLocation();
+            //Task.Delay(1000);
             new TaskFactory().StartNew(updateLocationLoop);
         }
+
+        private async void getConsent()
+        {
+            await ((UIElement)Control.GetInstance().ThreadsToNotify[0]).Dispatcher.RunAsync(CoreDispatcherPriority.High, () => getLocation());
+        }
+
         private async void updateLocationLoop()
         {
             while (true)

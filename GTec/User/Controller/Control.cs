@@ -1,16 +1,19 @@
 ﻿using GTec.User.Model;
 using GTec.User.View;
 using System.Collections.Generic;
+using Windows.Devices.Geolocation.Geofencing;
 using Windows.UI.Xaml;
 
 namespace GTec.User.Controller
 {
     public class Control : BaseClassForBindableProperties
     {
-        private static Control Instance = new Control();
+        private static Control Instance;
 
         public static Control GetInstance()
         {
+            if (Instance == null)
+                Instance = new Control();
             return Instance;
         }
 
@@ -25,17 +28,18 @@ namespace GTec.User.Controller
         /// <summary>
         /// The backing for the properties.
         /// </summary>
-        private Controller.LocationServiceProviderCaller locationProvider = new LocationServiceProviderCaller();
+        private Controller.LocationServiceProviderCaller locationProvider;
         private DatabaseConnector databaseConnector = DatabaseConnector.INSTANCE;
         private List<PointOfInterest> pointOfInterestList = new List<PointOfInterest>();
         private LanguageManager languageManager = new LanguageManager();
+        private Route currentRoute;
 
         /// <summary>
         /// The properties which you can bind to.
         /// </summary>
         public Controller.LocationServiceProviderCaller LocationProvider
         {
-            get { return locationProvider; }
+            get { if (locationProvider == null) locationProvider = new LocationServiceProviderCaller(ThreadsToNotify); return locationProvider; }
             set
             {
                 if (locationProvider == value) return;
@@ -59,8 +63,15 @@ namespace GTec.User.Controller
             set
             {
                 if (currentRoute == value) return;
+
+                if(currentRoute != null)
+                    if(currentRoute.Name != value.Name)
+                        GeofenceMonitor.Current.Geofences.Clear();
+
                 currentRoute = value;
                 OnPropertyChanged("CurrentRoute");
+
+
             }
         }
 

@@ -22,6 +22,8 @@ using GTec.User.View;
 using Windows.UI.ApplicationSettings;
 using Windows.UI.Popups;
 using GTec.Admin.View;
+using Windows.Devices.Geolocation.Geofencing;
+using Windows.UI.Core;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -32,18 +34,20 @@ namespace GTec.User.View
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        MapLayer layer;
+        MapLayer layer = new MapLayer();
         DispatcherTimer dTimer = new DispatcherTimer();
         UserIcon icon = new UserIcon();
         Bing.Maps.Directions.RouteResponse traveresedRouteResponse;
-
           public MainPage()
           {
               this.InitializeComponent();
-
+              //GTec.User.Controller.Control.GetInstance();
               Map.DirectionsRenderOptions.AutoUpdateMapView = false;
+              GeofenceMonitor.Current.GeofenceStateChanged += OnGeofenceStateChanged;
+              GeofenceMonitor.Current.Geofences.Clear();
   
               Map.Children.Add(icon);
+              Map.Children.Add(layer);
               
               dTimer.Interval = new TimeSpan(1000);
               dTimer.Tick += delegate
@@ -53,22 +57,22 @@ namespace GTec.User.View
                       GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude));
                   showTraversedRoute();
               };
-  
+
               Controller.Control.GetInstance().ThreadsToNotify.Add(this);
   
               //Authentication
-              AuthenticationFlyout login = new AuthenticationFlyout();
-              login.ShowIndependent();
+              //AuthenticationFlyout login = new AuthenticationFlyout();
+              //login.ShowIndependent();
   
               //Map locations
               SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
              //fillMapWithPointsOfInterest(new Route("yay3", "yay.wav", new Waypoint[]{ new PointOfInterest(50,50,true,"yay","yay2","yay.png")}));
   
-              standardRoute();
-  
               while(GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude == 777.777)
                   Task.Delay(5);
-  
+
+              standardRoute();
+
               //Start position and zoomlevel.
               Map.Center = new Location(51.58458, 4.77464);
               Map.ZoomLevel = 12.0;
@@ -82,26 +86,66 @@ namespace GTec.User.View
               //Current Language Combobox
               SetComboboxLanguage();
           }
+          public async void OnGeofenceStateChanged(GeofenceMonitor sender, object e)
+          {
+              var reports = sender.ReadReports();
+
+              await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+              {
+                  foreach (GeofenceStateChangeReport report in reports)
+                  {
+                      GeofenceState state = report.NewState;
+
+                      Geofence geofence = report.Geofence;
+
+                      if (state == GeofenceState.Entered)
+                      {
+                          try
+                          {
+                              Waypoint waypoint = GTec.User.Controller.Control.GetInstance().CurrentRoute.WayPoints[int.Parse(geofence.Id)];
+                              waypoint.Visited = true;
+                              MessageDialog msgDialog = new MessageDialog("You are near a point of interest", "Warning!");
+                              await msgDialog.ShowAsync();
+                          }
+                          catch
+                          {
+                              System.Diagnostics.Debug.WriteLine("Mate, your OnGeofenceStateChanged? It sucks, look at this?! THIS IS CALLED AN EERRRROOORRRR!!!!");
+                          }
+                      }
+                  }
+              });
+          }
 
         private void AddPointsOfInterest(Route currentRoute)
         {
-            foreach (Waypoint waypoint in currentRoute.WayPoints)
+            GeofenceMonitor.Current.Geofences.Clear();
+            for (int i = 0; i < currentRoute.WayPoints.Count; ++i)
             {
-                PointOfInterest pointOfInterest = null;
-                if (waypoint is PointOfInterest)
+                Waypoint waypoint = currentRoute.WayPoints[i];
+               // PointOfInterest pointOfInterest = null;
+                //if (waypoint is PointOfInterest)
                 {
-                    pointOfInterest = waypoint as PointOfInterest;
-                    AddPushpin(pointOfInterest);
+                    //pointOfInterest = waypoint as PointOfInterest;
+                    AddPushpin(waypoint, i);
                 }
             }
         }
 
-        private void AddPushpin(PointOfInterest poi)
+        private void AddPushpin(Waypoint poi, int ID)
         {
-            Pushpin pp = new Pushpin()
+            Pushpin pp = null;
+            if (poi is PointOfInterest)
             {
-                Tag = new InfoBoxData() { Title = poi.Name, Description = poi.Information, ImagePath = poi.ImagePath }
-            };
+                PointOfInterest poii = poi as PointOfInterest;
+                pp = new Pushpin()
+                {
+                    Tag = new InfoBoxData() { Title = poii.Name, Description = poii.Information, ImagePath = poii.ImagePath }
+                };
+            }
+            else
+            {
+                pp = new Pushpin();
+            }
             SolidColorBrush brush = new SolidColorBrush();
             brush.Color = Windows.UI.Colors.Blue;
             pp.Background = brush;
@@ -109,34 +153,31 @@ namespace GTec.User.View
             MapLayer.SetPosition(pp, new Location(poi.Latitude, poi.Longitude));
             pp.Tapped += PinTapped;
             layer.Children.Add(pp);
+
+            Geocircle circle = new Geocircle(new BasicGeoposition() { Latitude = poi.Latitude, Longitude = poi.Longitude, Altitude=0 }, 15);
+            Geofence fence = new Geofence(""+ID, circle, MonitoredGeofenceStates.Entered, false, new TimeSpan(10));
+            
+            GeofenceMonitor.Current.Geofences.Add(fence);
         }
 
         private void PinTapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             Pushpin pp = sender as Pushpin;
-            InfoBoxData ibd = (InfoBoxData)pp.Tag;
-            InfoBox box = new InfoBox();
-            box.AddData(ibd);
-            layer.Children.Add(box);
 
-            if (!String.IsNullOrEmpty(ibd.Title) || !String.IsNullOrEmpty(ibd.Description))
-                MapLayer.SetPosition(box, MapLayer.GetPosition(pp));
-            else
-                box.Visibility = Visibility.Collapsed;
-            SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
+            try
+            {
+                InfoBoxData ibd = (InfoBoxData)pp.Tag;
+                InfoBox box = new InfoBox();
+                box.AddData(ibd);
+                layer.Children.Add(box);
 
-            //standardRoute();
-
-            //while (GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude == 777.777)
-            //    Task.Delay(5);
-
-            ////Start position and zoomlevel.
-            //Map.Center = new Location(
-            //        GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Latitude,
-            //        GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude);
-
-            //Map.ZoomLevel = 17.0;
-            //dTimer.Start();
+                if (!String.IsNullOrEmpty(ibd.Title) || !String.IsNullOrEmpty(ibd.Description))
+                    MapLayer.SetPosition(box, MapLayer.GetPosition(pp));
+                else
+                    box.Visibility = Visibility.Collapsed;
+                SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
+            }
+            catch { }
         }
 
         public async void standardRoute()
@@ -145,69 +186,79 @@ namespace GTec.User.View
 
             GTec.User.Model.Route route = await GTec.User.Controller.Control.GetInstance().DatabaseConnnector.GetCurrentRoute();
 
-            if (route == null)
-            {
-                MessageDialog makeAdminWork = new MessageDialog("Admin, work.", "Make admin work.");
-                await makeAdminWork.ShowAsync();
-                return;
-            }
-
             #region hard-coded waypoints
-            //waypoints.Add(new Waypoint(51.59380, 4.77963));
-            //waypoints.Add(new Waypoint(51.59307, 4.77969));
-            //waypoints.Add(new Waypoint(51.59250, 4.77969));
-            //waypoints.Add(new Waypoint(51.59250, 4.77968));
-            //waypoints.Add(new Waypoint(51.59256, 4.77889));
-            //waypoints.Add(new Waypoint(51.59265, 4.77844));
-            //waypoints.Add(new Waypoint(51.59258, 4.77806));
-            //waypoints.Add(new Waypoint(51.59059, 4.77707));
-            //waypoints.Add(new Waypoint(51.59061, 4.77624));
-            //waypoints.Add(new Waypoint(51.58992, 4.77634));
-            //waypoints.Add(new Waypoint(51.59033, 4.77623));
-            //waypoints.Add(new Waypoint(51.59043, 4.77518));
-            //waypoints.Add(new Waypoint(51.59000, 4.77429));
-            //waypoints.Add(new Waypoint(51.59010, 4.77336));
-            //waypoints.Add(new Waypoint(51.58982, 4.77321));
-            //waypoints.Add(new Waypoint(51.58932, 4.77444));
-            //waypoints.Add(new Waypoint(51.58872, 4.77501));
-            //waypoints.Add(new Waypoint(51.58878, 4.77549));
-            //waypoints.Add(new Waypoint(51.58864, 4.77501));
-            //waypoints.Add(new Waypoint(51.58822, 4.77525));
-            //waypoints.Add(new Waypoint(51.58716, 4.77582));
-            //waypoints.Add(new Waypoint(51.58747, 4.77662));
-            //waypoints.Add(new Waypoint(51.58771, 4.77652));
-            //waypoints.Add(new Waypoint(51.58797, 4.77638));
-            //waypoints.Add(new Waypoint(51.58885, 4.77616));
-            //waypoints.Add(new Waypoint(51.58883, 4.77617));
-            //waypoints.Add(new Waypoint(51.58889, 4.77659));
-            //waypoints.Add(new Waypoint(51.58883, 4.77618));
-            //waypoints.Add(new Waypoint(51.58747, 4.77663));
-            //waypoints.Add(new Waypoint(51.58761, 4.77712));
-            //waypoints.Add(new Waypoint(51.58828, 4.77858));
-            //waypoints.Add(new Waypoint(51.58773, 4.77948));
-            //waypoints.Add(new Waypoint(51.58752, 4.77994));
-            //waypoints.Add(new Waypoint(51.58794, 4.78105));
-            //waypoints.Add(new Waypoint(51.58794, 4.78218));
-            //waypoints.Add(new Waypoint(51.58794, 4.78106));
-            //waypoints.Add(new Waypoint(51.58862, 4.78079));
-            //waypoints.Add(new Waypoint(51.58955, 4.78038));
-            //waypoints.Add(new Waypoint(51.58966, 4.78076));
-            //waypoints.Add(new Waypoint(51.58939, 4.77982));
-            //waypoints.Add(new Waypoint(51.58905, 4.77981));
-            //waypoints.Add(new Waypoint(51.58846, 4.77830));
-            //waypoints.Add(new Waypoint(51.58905, 4.77801));
-            //waypoints.Add(new Waypoint(51.58918, 4.77841));
-            //waypoints.Add(new Waypoint(51.58905, 4.77802));
-            //waypoints.Add(new Waypoint(51.58960, 4.77770));
-            //waypoints.Add(new Waypoint(51.58965, 4.77830));
-            //waypoints.Add(new Waypoint(51.58997, 4.77810));
-            //waypoints.Add(new Waypoint(51.58965, 4.77831));
-            //waypoints.Add(new Waypoint(51.58950, 4.77649));
+            List<string> routeNameList = await GTec.User.Controller.DatabaseConnector.INSTANCE.GetRouteNamesAsync();
+
+            bool found = false;
+            foreach (string str in routeNameList)
+                if (str == "HKtest1")
+                    found = true;
+
+            if (!found)
+            {
+                waypoints.Add(new Waypoint(51.59380, 4.77963));
+                waypoints.Add(new Waypoint(51.59307, 4.77969));
+                waypoints.Add(new Waypoint(51.59250, 4.77969));
+                waypoints.Add(new Waypoint(51.59250, 4.77968));
+                waypoints.Add(new Waypoint(51.59256, 4.77889));
+                waypoints.Add(new Waypoint(51.59265, 4.77844));
+                waypoints.Add(new Waypoint(51.59258, 4.77806));
+                waypoints.Add(new Waypoint(51.59059, 4.77707));
+                waypoints.Add(new Waypoint(51.59061, 4.77624));
+                waypoints.Add(new Waypoint(51.58992, 4.77634));
+                waypoints.Add(new Waypoint(51.59033, 4.77623));
+                waypoints.Add(new Waypoint(51.59043, 4.77518));
+                waypoints.Add(new Waypoint(51.59000, 4.77429));
+                waypoints.Add(new Waypoint(51.59010, 4.77336));
+                waypoints.Add(new Waypoint(51.58982, 4.77321));
+                waypoints.Add(new Waypoint(51.58932, 4.77444));
+                waypoints.Add(new Waypoint(51.58872, 4.77501));
+                waypoints.Add(new Waypoint(51.58878, 4.77549));
+                waypoints.Add(new Waypoint(51.58864, 4.77501));
+                waypoints.Add(new Waypoint(51.58822, 4.77525));
+                waypoints.Add(new Waypoint(51.58716, 4.77582));
+                waypoints.Add(new Waypoint(51.58747, 4.77662));
+                waypoints.Add(new Waypoint(51.58771, 4.77652));
+                waypoints.Add(new Waypoint(51.58797, 4.77638));
+                waypoints.Add(new Waypoint(51.58885, 4.77616));
+                waypoints.Add(new Waypoint(51.58883, 4.77617));
+                waypoints.Add(new Waypoint(51.58889, 4.77659));
+                waypoints.Add(new Waypoint(51.58883, 4.77618));
+                waypoints.Add(new Waypoint(51.58747, 4.77663));
+                waypoints.Add(new Waypoint(51.58761, 4.77712));
+                waypoints.Add(new Waypoint(51.58828, 4.77858));
+                waypoints.Add(new Waypoint(51.58773, 4.77948));
+                waypoints.Add(new Waypoint(51.58752, 4.77994));
+                waypoints.Add(new Waypoint(51.58794, 4.78105));
+                waypoints.Add(new Waypoint(51.58794, 4.78218));
+                waypoints.Add(new Waypoint(51.58794, 4.78106));
+                waypoints.Add(new Waypoint(51.58862, 4.78079));
+                waypoints.Add(new Waypoint(51.58955, 4.78038));
+                waypoints.Add(new Waypoint(51.58966, 4.78076));
+                waypoints.Add(new Waypoint(51.58939, 4.77982));
+                waypoints.Add(new Waypoint(51.58905, 4.77981));
+                waypoints.Add(new Waypoint(51.58846, 4.77830));
+                waypoints.Add(new Waypoint(51.58905, 4.77801));
+                waypoints.Add(new Waypoint(51.58918, 4.77841));
+                waypoints.Add(new Waypoint(51.58905, 4.77802));
+                waypoints.Add(new Waypoint(51.58960, 4.77770));
+                waypoints.Add(new Waypoint(51.58965, 4.77830));
+                waypoints.Add(new Waypoint(51.58997, 4.77810));
+                waypoints.Add(new Waypoint(51.58965, 4.77831));
+                waypoints.Add(new Waypoint(51.58950, 4.77649));
+
+                Route route1 = new Route("HKtest1", "bleh.wav", waypoints);
+
+                await Controller.DatabaseConnector.INSTANCE.SaveRouteAsync(route1);
+            }
             #endregion
 
-            //Route route = new Route("HKtest1", "bleh.wav", waypoints);
-
-            //await Controller.DatabaseConnector.INSTANCE.SaveRouteAsync(route);
+            //if (route == null)
+            //{
+            //    MessageDialog makeAdminWork = new MessageDialog("Admin, work.", "Make admin work.");
+            //    await makeAdminWork.ShowAsync();
+            //    return;
+            //}
 
             showRoute();
         }
@@ -260,11 +311,13 @@ namespace GTec.User.View
             dm.RenderOptions.ActiveRoutePolylineOptions.LineColor = Windows.UI.Colors.Blue;
 
             Bing.Maps.Directions.RouteResponse response = await dm.CalculateDirectionsAsync();
+            if (response.Routes.Count > 0)
+            {
+                dm.ShowRoutePath(response.Routes[0]);
+                dm.ActiveRoute.RoutePath.LineWidth = 10;
 
-            dm.ShowRoutePath(response.Routes[0]);
-            dm.ActiveRoute.RoutePath.LineWidth = 10;
-
-            AddPointsOfInterest(GTec.User.Controller.Control.GetInstance().CurrentRoute);
+                AddPointsOfInterest(GTec.User.Controller.Control.GetInstance().CurrentRoute);
+            }
         }
 
         public async void showTraversedRoute()
