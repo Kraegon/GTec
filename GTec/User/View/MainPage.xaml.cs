@@ -24,6 +24,7 @@ using Windows.UI.Popups;
 using GTec.Admin.View;
 using Windows.Devices.Geolocation.Geofencing;
 using Windows.UI.Core;
+using Windows.UI;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -447,7 +448,7 @@ namespace GTec.User.View
         {
             if ((sender as ComboBox).SelectedItem != null && dutchFlag != null)
             {
-                if (languageBox.SelectedItem == dutchFlag)
+                if ((sender as ComboBox).SelectedItem as Image == dutchFlag)//TODO: This does not work, fix later. FIXME
                 {
                     Controller.Control.GetInstance().LanguageManager.CurrentLanguage = Controller.Language.Dutch;
                 }

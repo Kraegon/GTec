@@ -22,18 +22,6 @@ namespace GTec.User.View
     /// </summary>
     public sealed partial class HelpPage : Page
     {
-        public string userScreenString
-        {
-            get
-            {
-                return userScreenString;
-            }
-            set
-            {
-                //setUserScreenString();
-            }
-        }
-
         public HelpPage()
         {
             this.InitializeComponent();
@@ -50,7 +38,8 @@ namespace GTec.User.View
 
         public async void setUserScreenString()
         {
-            userScreenString = await Controller.Control.GetInstance().LanguageManager.GetTextAsync("UserScreenHelpButton");
+            TextField.Text = await Controller.Control.GetInstance().LanguageManager.GetTextAsync("UserScreenHelpButton");
+            BackButtonHelpPage.Content = await Controller.Control.GetInstance().LanguageManager.GetTextAsync("backButton");
         }
     }
 }

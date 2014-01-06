@@ -33,6 +33,31 @@ namespace GTec.Admin.View
             officeListBox.ItemTemplate = Resources["PointOfInterestDisplay"] as DataTemplate;
             initWayPoints(); 
             initRoutes();
+            loadStrings();
+        }
+
+        private async void loadStrings()
+        {
+            goBackward.Content = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("back");
+            AddWayPointButton.Content = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("toevoegen");
+            NewWaypointNameLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("name");
+            NewWaypointLongitudeLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("longitude");
+            NewWaypointLatitudeLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("latitude");
+            NewWaypointPadnaamAfbeeldingLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("imagepath");
+            NewWaypointPadnaamGeluidLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("soundpath");
+            PickExistingWaypointPickingLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("PickExistingWaypoint");
+            PickExistingWaypointImageLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("image");
+            PickExistingWaypointNameLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("name");
+            PickExistingWaypointLongitudeLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("longitude");
+            PickExistingWaypointLatitudeLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("latitude");
+            PickExistingWaypointImagePathLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("imagepath");
+            PickExistingWaypointSoundPathLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("soundpath");
+            AddExistingWaypointButton.Content = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("toevoegen");
+            PlaySoundExistingWaypointButton.Content = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("playSound");
+            RouteNameLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("name");
+            RouteSoundPathLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("soundpath");
+            ActiveLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("active");
+            SaveRouteButton.Content = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("save");
         }
 
         public async void initWayPoints()
