@@ -182,14 +182,13 @@ namespace GTec.User.View
                 {
                     Tag = new InfoBoxData() { Title = poii.Name, Description = poii.Information, ImagePath = poii.ImagePath }
                 };
+                pp.Background = new SolidColorBrush(Windows.UI.Colors.Red);
             }
             else
             {
                 pp = new Pushpin();
+                pp.Background = new SolidColorBrush(Windows.UI.Colors.Blue);
             }
-            SolidColorBrush brush = new SolidColorBrush();
-            brush.Color = Windows.UI.Colors.Blue;
-            pp.Background = brush;
 
             MapLayer.SetPosition(pp, new Location(poi.Latitude, poi.Longitude));
             pp.Tapped += PinTapped;
