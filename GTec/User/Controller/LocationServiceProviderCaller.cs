@@ -6,6 +6,7 @@ using Windows.Devices.Geolocation;
 using System.Threading;
 using Windows.UI.Xaml;
 using Windows.UI.Core;
+using Windows.Foundation;
 
 namespace GTec.User.Controller
 {
@@ -65,9 +66,22 @@ namespace GTec.User.Controller
         {
             geoLocation.DesiredAccuracy = PositionAccuracy.High;
             getConsent();
+            geoLocation.PositionChanged +=
+                new TypedEventHandler<Geolocator,
+                    PositionChangedEventArgs>(geo_PositionChanged);
             //getLocation();
             //Task.Delay(1000);
-            new TaskFactory().StartNew(updateLocationLoop);
+            //new TaskFactory().StartNew(updateLocationLoop);
+        }        
+        
+        private async void geo_PositionChanged(Geolocator sender, PositionChangedEventArgs e)
+        {
+            await Control.GetInstance().ThreadsToNotify[0].Dispatcher.RunAsync(CoreDispatcherPriority.High, () =>
+            {
+                currentLocation.Latitude = e.Position.Coordinate.Point.Position.Latitude;
+                currentLocation.Longitude = e.Position.Coordinate.Point.Position.Longitude;
+                CurrentLocationString = currentLocation.ToString();
+            });
         }
 
         private async void getConsent()
@@ -97,7 +111,7 @@ namespace GTec.User.Controller
             }
             catch
             {
-                IsRequestingLocation = false;
+                //IsRequestingLocation = false;
             }
         }
     }

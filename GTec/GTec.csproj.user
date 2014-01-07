@@ -7,9 +7,10 @@
     <UseSimulator>True</UseSimulator>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <RemoteDebugMachine>145.102.71.107:4018</RemoteDebugMachine>
+    <RemoteDebugMachine>192.168.43.106:4019</RemoteDebugMachine>
     <UseAuthentication>False</UseAuthentication>
-    <RemoteDebugEnabled>false</RemoteDebugEnabled>
-    <UseSimulator>True</UseSimulator>
+    <RemoteDebugEnabled>true</RemoteDebugEnabled>
+    <UseSimulator>False</UseSimulator>
+    <CreateCleanLayout>True</CreateCleanLayout>
   </PropertyGroup>
 </Project>

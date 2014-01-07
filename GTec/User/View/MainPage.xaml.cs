@@ -242,10 +242,10 @@ namespace GTec.User.View
                 waypoints.Add(new Waypoint(51.59250, 4.77969));
                 waypoints.Add(new PointOfInterest(51.59250, 4.77968, false, "NassauMonument", "NassauMonument", " ", " "));
                 waypoints.Add(new PointOfInterest(51.59256, 4.77889, false, "Valkenberg", "Valkenberg", " ", " "));
-                waypoints.Add(new PointOfInterest(51.59265, 4.77844, false, "Kasteel", "Kasteel", " ", " "));
+                waypoints.Add(new Waypoint(51.59265, 4.77844));
                 waypoints.Add(new Waypoint(51.59258, 4.77806));
                 waypoints.Add(new Waypoint(51.59059, 4.77707));
-                waypoints.Add(new Waypoint(51.59061, 4.77624));
+                waypoints.Add(new PointOfInterest(51.59061, 4.77624, false, "Kasteel", "Kasteel", " ", " "));
                 waypoints.Add(new PointOfInterest(51.58992, 4.77634, false, "Vishal", "Vishal", " ", " "));
                 waypoints.Add(new Waypoint(51.59033, 4.77623));
                 waypoints.Add(new Waypoint(51.59043, 4.77518));
