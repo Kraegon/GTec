@@ -246,16 +246,16 @@ namespace GTec.User.View
                 waypoints.Add(new Waypoint(51.59258, 4.77806));
                 waypoints.Add(new Waypoint(51.59059, 4.77707));
                 waypoints.Add(new PointOfInterest(51.59061, 4.77624, false, "Kasteel", "Kasteel", " ", " "));
-                waypoints.Add(new PointOfInterest(51.58992, 4.77634, false, "Vishal", "Vishal", " ", " "));
+                waypoints.Add(new Waypoint(51.58992, 4.77634));
                 waypoints.Add(new Waypoint(51.59033, 4.77623));
                 waypoints.Add(new Waypoint(51.59043, 4.77518));
                 waypoints.Add(new Waypoint(51.59000, 4.77429));
-                waypoints.Add(new Waypoint(51.59010, 4.77336));
+                waypoints.Add(new PointOfInterest(51.59010, 4.77336, false, "Vishal", "Vishal", " ", " "));
                 waypoints.Add(new Waypoint(51.58982, 4.77321));
                 waypoints.Add(new Waypoint(51.58932, 4.77444));
                 waypoints.Add(new PointOfInterest(51.58872, 4.77501, false, "Stadhuis", "Stadhuis", " ", " "));
                 waypoints.Add(new PointOfInterest(51.58878, 4.77549, false, "AntoniusKerk", "AntoniusKerk", " ", " "));
-                waypoints.Add(new PointOfInterest(51.58864, 4.77501, false, "Bibliotheek", "Bibliotheek", " ", " "));
+                waypoints.Add(new Waypoint(51.58864, 4.77501));
                 waypoints.Add(new PointOfInterest(51.58822, 4.77525, false, "Kloosterkazerne", "Kloosterkazerne", " ", " "));
                 waypoints.Add(new Waypoint(51.58716, 4.77582));
                 waypoints.Add(new Waypoint(51.58747, 4.77662));
@@ -269,7 +269,7 @@ namespace GTec.User.View
                 waypoints.Add(new Waypoint(51.58761, 4.77712));
                 waypoints.Add(new Waypoint(51.58828, 4.77858));
                 waypoints.Add(new Waypoint(51.58773, 4.77948));
-                waypoints.Add(new Waypoint(51.58752, 4.77994));
+                waypoints.Add(new PointOfInterest(51.58752, 4.77994, false, "Bibliotheek", "Bibliotheek", " ", " "));
                 waypoints.Add(new Waypoint(51.58794, 4.78105));
                 waypoints.Add(new Waypoint(51.58794, 4.78218));
                 waypoints.Add(new Waypoint(51.58794, 4.78106));

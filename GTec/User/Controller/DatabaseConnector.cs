@@ -110,9 +110,32 @@ namespace GTec.User.Controller
             return IsSuccesful;
         }
 
+        public async Task<bool> SaveVisitedRouteAsync(Route route)
+        {
+            bool IsSuccesful = true;
+            DatabaseRoute forDatabase = DatabaseRoute.ToDatabaseRoute(route);
+            await DeleteVisitedRoute();
+            forDatabase.RouteID = 1000; //Set to reserved ID
+            await Database.InsertAsync(forDatabase);
+            foreach (Waypoint w in route.WayPoints)
+            {
+                int existingID = await Database.ExecuteScalarAsync<int>("SELECT WaypointID FROM DatabasePOI WHERE Latitude = ? AND Longitude = ?", new object[] { w.Latitude, w.Longitude });
+                await Database.ExecuteAsync("INSERT INTO RouteBinds VALUES(?, ?)", new object[] { forDatabase.RouteID, existingID });
+            }
+            return IsSuccesful;
+        }
+
         public async Task<Route> GetCurrentRoute()
         {
             List<DatabaseRoute> results = await Database.QueryAsync<DatabaseRoute>("SELECT * FROM DatabaseRoute WHERE RouteID = 999");
+            if (results.Count == 0)
+                return null;
+            else
+                return DatabaseRoute.ToRoute(results[0]);
+        }
+        public async Task<Route> GetVisitedRoute()
+        {
+            List<DatabaseRoute> results = await Database.QueryAsync<DatabaseRoute>("SELECT * FROM DatabaseRoute WHERE RouteID = 1000");
             if (results.Count == 0)
                 return null;
             else
@@ -123,7 +146,11 @@ namespace GTec.User.Controller
             await Database.ExecuteAsync("DELETE FROM DatabaseRoute WHERE RouteID = 999");
             await Database.ExecuteAsync("DELETE FROM RouteBinds WHERE RouteID = 999");
         }
-
+        public async Task DeleteVisitedRoute()
+        {
+            await Database.ExecuteAsync("DELETE FROM DatabaseRoute WHERE RouteID = 1000");
+            await Database.ExecuteAsync("DELETE FROM RouteBinds WHERE RouteID = 1000");
+        }
         public async Task DeleteRouteAsync(Route route)
         {
             await DeleteRouteAsync(route.Name);
@@ -216,8 +243,8 @@ namespace GTec.User.Controller
                 retVal = 1;
             else
                 retVal = Database.ExecuteScalarAsync<int>("SELECT RouteID FROM DatabaseRoute WHERE RouteID <> 999 ORDER BY RouteID DESC").Result + 1;
-            if (retVal == 999)
-                retVal = 1000;
+            if ((retVal == 999) || (retVal == 1000))
+                retVal = 1001;
             return retVal;
         }
 
