@@ -41,7 +41,7 @@ namespace GTec.User.View
             }
             catch
             {
-                image = new BitmapImage(new Uri("ms-appx:///Assets/AGS_logo.png.png", UriKind.Absolute));
+                image = new BitmapImage(new Uri("ms-appx:///Assets/AGS_logo.png", UriKind.Absolute));
             }
             ImageBlock.Source = image;
         }

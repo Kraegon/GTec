@@ -53,7 +53,16 @@ namespace GTec.User.Controller
             JsonObject translations = textCompilation[tag].GetObject();
             try
             {
-                retVal = translations[languageAbbreviation].GetString();
+                if (translations[languageAbbreviation].ValueType == JsonValueType.String)
+                    retVal = translations[languageAbbreviation].GetString();
+                else
+                {
+                    foreach (IJsonValue jValue in translations[languageAbbreviation].GetArray())
+                    {
+                        if (jValue.ValueType == JsonValueType.String)
+                            retVal += jValue.GetString();
+                    }
+                }
             }
             catch (KeyNotFoundException)
             {
