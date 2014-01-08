@@ -38,7 +38,8 @@ namespace GTec.User.View
 
         public async void setUserScreenString()
         {
-            TextField.Text = await Controller.Control.GetInstance().LanguageManager.GetTextAsync("UserScreenHelpButton");
+            HelpTitleText.Text = await Controller.Control.GetInstance().LanguageManager.GetTextAsync("HelpTitleText");
+            InstructionsTextBox.Text = Controller.Control.GetInstance().LanguageManager.GetTextAsync("InstructionsText").Result.Replace(@"\n",Environment.NewLine);
             BackButtonHelpPage.Content = await Controller.Control.GetInstance().LanguageManager.GetTextAsync("backButton");
         }
     }
