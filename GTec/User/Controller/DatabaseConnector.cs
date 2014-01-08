@@ -159,7 +159,7 @@ namespace GTec.User.Controller
         public async Task DeleteRouteAsync(string routeName)
         {
             List<DatabaseRoute> toDelete = Database.QueryAsync<DatabaseRoute>("SELECT \"RouteID\" FROM \"DatabaseRoute\" WHERE \"Name\" = ?", new object[] { routeName }).Result;
-            await Database.ExecuteAsync("DELETE FROM DatabaseRoute WHERE Name = ?", new object[] { routeName }); //WAYPOINTS PERSIST            
+            await Database.ExecuteAsync("DELETE FROM DatabaseRoute WHERE Name = ? AND RouteID <> 999 AND RouteID <> 1000", new object[] { routeName }); //WAYPOINTS PERSIST            
             foreach(DatabaseRoute r in toDelete)
             {
                 await Database.ExecuteAsync("DELETE FROM RouteBinds WHERE RouteID = ?", new object[] { r.RouteID }); //Destroy bindings, even though the waypoints are still there.
@@ -199,7 +199,7 @@ namespace GTec.User.Controller
             if(exists.Count != 0)
                 return exists[0].WaypointID;
             DatabasePOI forDatabase;
-            //Otherwises insert as Point Of Interest (Contains metadata)
+            //Otherwises insert as Point Of Interest (Contains at least a name)
             if(waypoint is PointOfInterest){
                forDatabase = DatabasePOI.ToDatabasePOI(waypoint as PointOfInterest);
             }
@@ -214,26 +214,77 @@ namespace GTec.User.Controller
 
         private async Task<List<Waypoint>> getAssociatedWaypointsAsync(string routeName)
         {
-            int routeID = Database.ExecuteScalarAsync<int>("SELECT \"RouteID\" FROM \"DatabaseRoute\" WHERE \"Name\" = ?", new object[] { routeName }).Result;
+            int routeID = Database.ExecuteScalarAsync<int>("SELECT \"RouteID\" FROM \"DatabaseRoute\" WHERE \"Name\" = ? AND RouteID <> 999 AND RouteID <> 1000", new object[] { routeName }).Result;
             List<RouteBind> waypointsID = Database.QueryAsync<RouteBind>("SELECT \"WaypointID\" FROM \"RouteBinds\" WHERE \"RouteID\" = ?", new object[] { routeID }).Result;
             List<Waypoint> retVal = new List<Waypoint>();
             foreach (RouteBind r in waypointsID)
             {
                 List<DatabasePOI> temp = Database.QueryAsync<DatabasePOI>("SELECT * FROM DatabasePOI WHERE WaypointID = ?", new object[] { r.WaypointID }).Result;
-/*           List<DatabaseRoute> databaseRoutes = Database.QueryAsync<DatabaseRoute>("SELECT * FROM \"DatabaseRoute\" WHERE \"Name\" = ?", new object[] { routeName }).Result;
-            int routeID = databaseRoutes[0].RouteID;
-            List<RouteBind> waypointsID = Database.QueryAsync<RouteBind>("SELECT * FROM \"RouteBinds\" WHERE \"RouteID\" = ?", new object[] { routeID }).Result;
-            List<Waypoint> retVal = new List<Waypoint>();
-            foreach (RouteBind r in waypointsID)
-            {
-                List<DatabasePOI> temp = Database.QueryAsync<DatabasePOI>("SELECT * FROM \"DatabasePOI\" WHERE \"WaypointID\" = ?", new object[] { r.WaypointID }).Result;
-*/
                 retVal.Add(DatabasePOI.ToWaypoint(temp[0]));
             }
             return retVal;
         }
 
-        
+        public async void EditRoute(string oldRouteName, Route newRoute)
+        {
+            //Remember the Database ID of the route
+            int id = Database.QueryAsync<DatabaseRoute>("SELECT * FROM \"DatabaseRoute\" WHERE \"Name\" = ? AND RouteID <> 999 AND RouteID <> 1000", new object[] { oldRouteName }).Result[0].RouteID;
+            //And remove it
+            await DeleteRouteAsync(oldRouteName);
+            //Now create & insert the new route 
+            DatabaseRoute forDatabase = DatabaseRoute.ToDatabaseRouteIDless(newRoute, id);
+            await Database.InsertAsync(forDatabase);
+            //Then bind the waypoints
+            foreach (Waypoint newWaypoint in newRoute.WayPoints)
+            {
+                int existingID = await Database.ExecuteScalarAsync<int>("SELECT WaypointID FROM DatabasePOI WHERE Latitude = ? AND Longitude = ?", new object[] { newWaypoint.Latitude, newWaypoint.Longitude });
+                if (existingID == 0)
+                {
+                    //In the case it's a new waypoint, save and bind to this route 
+                    int waypointID = await SaveWaypoint(newWaypoint);
+                    await Database.ExecuteAsync("INSERT INTO RouteBinds VALUES(?, ?)", new object[] { forDatabase.RouteID, waypointID });
+                }
+                else
+                {
+                    //But if it exists, edit waypoint if neccesary, check if the bind persisted and then insert
+                    EditWaypoint(DatabasePOI.ToWaypoint(
+                        Database.QueryAsync<DatabasePOI>("SELECT * FROM DatabasePOI WHERE Latitude = ? AND Longitude = ?", new object[] { newWaypoint.Latitude, newWaypoint.Longitude }).Result[0])
+                        , newWaypoint);
+                    List<RouteBind> binds = await Database.QueryAsync<RouteBind>("SELECT WaypointID FROM RouteBinds WHERE RouteID = ? AND WaypointID = ?", new object[] { id, existingID });
+                    if(binds.Count == 0)
+                        await Database.ExecuteAsync("INSERT INTO RouteBinds VALUES(?, ?)", new object[] { forDatabase.RouteID, existingID });
+                }
+            }
+            //In the case this is the active route, replace.
+            Route currentRoute = await GetCurrentRoute();
+            
+            if (currentRoute != null && currentRoute.Name == oldRouteName)
+                await SaveCurrentRouteAsync(newRoute);
+        }
+
+        public async void EditWaypoint(Waypoint oldWaypoint, Waypoint newWaypoint)
+        {
+            //Remember the ID
+            int id = Database.QueryAsync<DatabasePOI>("SELECT WaypointID FROM \"DatabasePOI\" WHERE \"Latitude\" = ? AND \"Longitude\" = ?", new object[] { oldWaypoint.Latitude, oldWaypoint.Longitude }).Result[0].WaypointID;
+           
+            await DeleteWaypoint(oldWaypoint);
+            //If the exact coordinates are still in use, disregard. This shouldn't happen, but you'll never be certain
+            List<DatabasePOI> exists = await Database.QueryAsync<DatabasePOI>("SELECT \"Latitude\", \"Longitude\" FROM \"DatabasePOI\" WHERE \"Latitude\" = ? AND \"Longitude\" = ?", new object[] { newWaypoint.Latitude, newWaypoint.Longitude });
+            if (exists.Count != 0)
+                return;
+            DatabasePOI forDatabase;
+            //Otherwises insert as Point Of Interest (Contains a name)
+            if (newWaypoint is PointOfInterest)
+            {
+                forDatabase = DatabasePOI.ToDatabasePOIIDless(newWaypoint as PointOfInterest, id);
+            }
+            //Or waypoint (Without metadata)
+            else
+            {
+                forDatabase = DatabasePOI.ToDatabasePOIIDless(newWaypoint, id);
+            }
+            await Database.InsertAsync(forDatabase);
+        }
 
         private int generateRouteID()
         {
@@ -242,7 +293,7 @@ namespace GTec.User.Controller
             if (Database.ExecuteScalarAsync<int>("SELECT * FROM DatabaseRoute", new object[] { }) == null)
                 retVal = 1;
             else
-                retVal = Database.ExecuteScalarAsync<int>("SELECT RouteID FROM DatabaseRoute WHERE RouteID <> 999 ORDER BY RouteID DESC").Result + 1;
+                retVal = Database.ExecuteScalarAsync<int>("SELECT RouteID FROM DatabaseRoute WHERE (RouteID <> 999) AND (RouteID <> 1000) ORDER BY RouteID DESC").Result + 1;
             if ((retVal == 999) || (retVal == 1000))
                 retVal = 1001;
             return retVal;
@@ -280,6 +331,10 @@ namespace GTec.User.Controller
             public static DatabaseRoute ToDatabaseRoute(Route toConvert)
             {
                 return new DatabaseRoute(toConvert.Name, toConvert.SystemSoundPath, DatabaseConnector.INSTANCE.generateRouteID());
+            }
+            public static DatabaseRoute ToDatabaseRouteIDless(Route toConvert, int id)
+            {
+                return new DatabaseRoute(toConvert.Name, toConvert.SystemSoundPath, id);
             }
             public static Route ToRoute(DatabaseRoute toConvert)
             {
@@ -326,6 +381,15 @@ namespace GTec.User.Controller
             public static DatabasePOI ToDatabasePOI(PointOfInterest toConvert)
             {
                 return new DatabasePOI(toConvert.Latitude, toConvert.Longitude, DatabaseConnector.INSTANCE.generateWaypointID(),
+                                        toConvert.Name, toConvert.Information, toConvert.ImagePath, toConvert.SoundPath);
+            }
+            public static DatabasePOI ToDatabasePOIIDless(Waypoint toConvert, int id)
+            {
+                return new DatabasePOI(toConvert.Latitude, toConvert.Longitude, id);
+            }
+            public static DatabasePOI ToDatabasePOIIDless(PointOfInterest toConvert, int id)
+            {
+                return new DatabasePOI(toConvert.Latitude, toConvert.Longitude, id,
                                         toConvert.Name, toConvert.Information, toConvert.ImagePath, toConvert.SoundPath);
             }
             public static Waypoint ToWaypoint(DatabasePOI toConvert)

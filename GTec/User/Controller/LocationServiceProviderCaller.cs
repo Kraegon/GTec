@@ -82,6 +82,7 @@ namespace GTec.User.Controller
                 currentLocation.Longitude = e.Position.Coordinate.Point.Position.Longitude;
                 CurrentLocationString = currentLocation.ToString();
             });
+            Control.GetInstance().MainPage.ChangeUserIconPosition();
         }
 
         private async void getConsent()

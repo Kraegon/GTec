@@ -69,6 +69,7 @@ namespace GTec.User.View
 
               //Current Language Combobox
               SetComboboxLanguage();
+              Controller.Control.GetInstance().MainPage = this;
               initLocationServ();
           }
           private async void initLocationServ()
@@ -79,15 +80,6 @@ namespace GTec.User.View
                   //GTec.User.Controller.Control.GetInstance().LocationProvider = new LocationServiceProviderCaller(GTec.User.Controller.Control.GetInstance().ThreadsToNotify);
               }
 
-              dTimer.Interval = new TimeSpan(1000);
-              dTimer.Tick += delegate
-              {
-                  MapLayer.SetPosition(icon, new Location(
-                      GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Latitude,
-                      GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude));
-                  showTraversedRoute();
-              };
-
               //Start position and zoomlevel.
               Map.Center = new Location(51.58458, 4.77464);
               Map.ZoomLevel = 12.0;
@@ -96,8 +88,20 @@ namespace GTec.User.View
                       GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude);
 
               Map.ZoomLevel = 17.0;
-              dTimer.Start();
+
+              ChangeUserIconPosition();
+              GTec.User.Controller.Control.GetInstance().MainPage = this;
           }
+
+        public async void ChangeUserIconPosition()
+        {
+            await Dispatcher.RunAsync(CoreDispatcherPriority.High, () =>
+              {
+                  MapLayer.SetPosition(icon, new Location(
+                      GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Latitude,
+                      GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude));
+              });
+        }
 
           public async void OnGeofenceStateChanged(GeofenceMonitor sender, object e)
           {
@@ -158,6 +162,7 @@ namespace GTec.User.View
                           {
                               System.Diagnostics.Debug.WriteLine("Mate, your OnGeofenceStateChanged? It sucks, look at this?! THIS IS CALLED AN EERRRROOORRRR!!!!");
                           }
+                          showTraversedRoute();
                       }
                   }
               });
@@ -202,6 +207,20 @@ namespace GTec.User.View
 
         private void PinTapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
+            foreach (UIElement element in layer.Children)
+            {
+                try
+                {
+                    if (!(element is InfoBox))
+                        continue;
+
+                    if ((element as InfoBox).Tag == "Popup")
+                        (element as InfoBox).Visibility = Visibility.Collapsed;
+                }
+                catch
+                { }
+            }
+
             Pushpin pp = sender as Pushpin;
 
             try
@@ -210,6 +229,7 @@ namespace GTec.User.View
                 InfoBox box = new InfoBox();
                 box.AddData(ibd);
                 layer.Children.Add(box);
+                box.Tag = "Popup";
 
                 if (!String.IsNullOrEmpty(ibd.Title) || !String.IsNullOrEmpty(ibd.Description))
                     MapLayer.SetPosition(box, MapLayer.GetPosition(pp));

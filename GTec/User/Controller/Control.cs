@@ -33,6 +33,7 @@ namespace GTec.User.Controller
         private List<PointOfInterest> pointOfInterestList = new List<PointOfInterest>();
         private LanguageManager languageManager = new LanguageManager();
         private Route currentRoute;
+        private MainPage mainPage;
 
         /// <summary>
         /// The properties which you can bind to.
@@ -45,6 +46,16 @@ namespace GTec.User.Controller
                 if (locationProvider == value) return;
                 locationProvider = value;
                 OnPropertyChanged("LocationProvider");
+            }
+        }
+        public MainPage MainPage
+        {
+            get { return mainPage; }
+            set
+            {
+                if (mainPage == value) return;
+                mainPage = value;
+                OnPropertyChanged("MainPage");
             }
         }
         public DatabaseConnector DatabaseConnnector
