@@ -9,7 +9,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <RemoteDebugMachine>192.168.43.106:4019</RemoteDebugMachine>
     <UseAuthentication>False</UseAuthentication>
-    <RemoteDebugEnabled>true</RemoteDebugEnabled>
+    <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <UseSimulator>False</UseSimulator>
     <CreateCleanLayout>True</CreateCleanLayout>
   </PropertyGroup>
