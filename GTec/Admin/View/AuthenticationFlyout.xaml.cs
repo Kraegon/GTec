@@ -42,20 +42,24 @@ namespace GTec.Admin.View
 
         private async void OKLoginButton_Click(object sender, RoutedEventArgs e)
         {
+            var currentLanguage = User.Controller.Control.GetInstance().LanguageManager.CurrentLanguage;
             Tuple<string, string> authentication = new Tuple<string, string>(UsernameText.Text, PasswordText.Password);
             List<User.Model.Account> accounts = await User.Controller.DatabaseConnector.INSTANCE.GetAccountsAsync();
             foreach (User.Model.Account a in accounts)
             {
-                //if (a.Gebruikersnaam.Equals(authentication.Item1) && a.Password.Equals(authentication.Item2))
-                //{
-                    //User.Controller.Control.GetInstance().DatabaseConnnector.CurrentUser = a;
+                if (currentLanguage == User.Controller.Language.English)
                     await new MessageDialog("Succesfully logged in as " + a.Gebruikersnaam + "!").ShowAsync();
-                    this.Hide();
-                    (GTec.User.Controller.Control.GetInstance().ThreadsToNotify[0] as User.View.MainPage).Frame.Navigate(typeof(AdminPage));
-                    return;
+                else if (currentLanguage == User.Controller.Language.Dutch)
+                    await new MessageDialog("Succesvol ingelogd als " + a.Gebruikersnaam + "!").ShowAsync();
+                this.Hide();
+                (GTec.User.Controller.Control.GetInstance().ThreadsToNotify[0] as User.View.MainPage).Frame.Navigate(typeof(AdminPage));
+                return;
                 //}
             }
-            MessageTextBlock.Text = "Incorrect credentials!";
+            if (currentLanguage == User.Controller.Language.English)
+                MessageTextBlock.Text = "Incorrect credentials!";
+            else if (currentLanguage == User.Controller.Language.Dutch)
+                MessageTextBlock.Text = "Verkeerd Wachtwoord of Gebruikersnaam!";
         }
     }
 }
