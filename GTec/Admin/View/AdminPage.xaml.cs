@@ -24,13 +24,16 @@ namespace GTec.Admin.View
     /// </summary>
     public sealed partial class AdminPage : Page
     {
-        List<PointOfInterest> WayPoints = new List<PointOfInterest>();
+        List<Waypoint> WayPoints = new List<Waypoint>();
+        List<Waypoint> EditedRouteWayPoints = new List<Waypoint>();
 
         public AdminPage()
         {
             this.InitializeComponent();
             officeListBox.ItemsSource = WayPoints;
             officeListBox.ItemTemplate = Resources["PointOfInterestDisplay"] as DataTemplate;
+            officeListBox2.ItemsSource = EditedRouteWayPoints;
+            officeListBox2.ItemTemplate = Resources["EditedPointOfInterestDisplay"] as DataTemplate;
             initWayPoints(); 
             initRoutes();
             loadStrings();
@@ -44,14 +47,12 @@ namespace GTec.Admin.View
             NewWaypointLongitudeLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("longitude");
             NewWaypointLatitudeLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("latitude");
             NewWaypointPadnaamAfbeeldingLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("imagepath");
-            NewWaypointPadnaamGeluidLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("soundpath");
             PickExistingWaypointPickingLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("PickExistingWaypoint");
             PickExistingWaypointImageLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("image");
             PickExistingWaypointNameLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("name");
             PickExistingWaypointLongitudeLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("longitude");
             PickExistingWaypointLatitudeLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("latitude");
             PickExistingWaypointImagePathLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("imagepath");
-            PickExistingWaypointSoundPathLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("soundpath");
             AddExistingWaypointButton.Content = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("toevoegen");
             PlaySoundExistingWaypointButton.Content = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("playSound");
             RouteNameLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("name");
@@ -62,12 +63,16 @@ namespace GTec.Admin.View
 
         public async void initWayPoints()
         {
-            ExistingWayPointsBox.ItemsSource = await GTec.User.Controller.Control.GetInstance().DatabaseConnnector.GetAllWaypoints();
+            List<Waypoint> temp = await GTec.User.Controller.Control.GetInstance().DatabaseConnnector.GetAllWaypoints();
+            ExistingWayPointsBox.ItemsSource = temp;
+            ExistingWayPointsBox2.ItemsSource = temp;
         }
 
         public async void initRoutes()
         {
-            CurrentRoute.ItemsSource = await GTec.User.Controller.Control.GetInstance().DatabaseConnnector.GetRouteNamesAsync();
+            List<string> temp =  await GTec.User.Controller.Control.GetInstance().DatabaseConnnector.GetRouteNamesAsync();
+            CurrentRoute.ItemsSource = temp;
+            CurrentRoute2.ItemsSource = temp;
         }
 
         private void goBackward_Click(object sender, RoutedEventArgs e)
@@ -80,17 +85,28 @@ namespace GTec.Admin.View
 
         private void AddNewWayPointToRoute_Button_Click(object sender, RoutedEventArgs e)
         {
-            if(Latitude.Text == "" || Longitude.Text == "" || Name.Text == "" || ImagePath.Text == "" || SoundPath.Text == "")
+            if (Latitude.Text == "" || Longitude.Text == "")
                 return;
-
-            try
+            if (Name.Text == "" || ImagePath.Text == "")
             {
-                WayPoints.Add(new PointOfInterest(Double.Parse(Latitude.Text), Double.Parse(Longitude.Text), false, Name.Text, "", ImagePath.Text, SoundPath.Text));
-            }
-            catch { return; }
+                try
+                {
+                    WayPoints.Add(new Waypoint(Double.Parse(Latitude.Text), Double.Parse(Longitude.Text)));
+                }
+                catch { return; }
+            }    //Add as waypoint
+            else
+            {
+                try
+                {
+                    WayPoints.Add(new PointOfInterest(Double.Parse(Latitude.Text), Double.Parse(Longitude.Text), false, Name.Text, "", ImagePath.Text, ""));
+                }
+                catch { return; }
+            }    //Add as PoI
 
-            officeListBox.ItemsSource = null;
-            officeListBox.ItemsSource = WayPoints;
+
+            officeListBox2.ItemsSource = null;
+            officeListBox2.ItemsSource = EditedRouteWayPoints;
         }
 
         private void AddExistingWayPointToRoute_Button_Click(object sender, RoutedEventArgs e)
@@ -105,13 +121,13 @@ namespace GTec.Admin.View
 
         private void DeleteItem_Button_Click(object sender, RoutedEventArgs e)
         {
-            foreach(PointOfInterest poi in WayPoints)
+            foreach (Waypoint waypoint in WayPoints)
             {
-                if (((string)((sender as Button).Tag)) == poi.Name)
+                if (((string)((sender as Button).Tag)) == waypoint.StringRep)
                 {
-                    WayPoints.Remove(poi);
-                    officeListBox.ItemsSource = null;
-                    officeListBox.ItemsSource = WayPoints;
+                    EditedRouteWayPoints.Remove(waypoint);
+                    officeListBox2.ItemsSource = null;
+                    officeListBox2.ItemsSource = WayPoints;
                     break;
                 }
             }
@@ -180,20 +196,167 @@ namespace GTec.Admin.View
 
         private void ExistingWayPointsBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            PointOfInterest poi = ExistingWayPointsBox.SelectedItem as PointOfInterest;
-            Windows.UI.Xaml.Media.Imaging.BitmapImage icon = new Windows.UI.Xaml.Media.Imaging.BitmapImage();
-            try
+            Waypoint waypoint = ExistingWayPointsBox2.SelectedItem as Waypoint;
+            if (waypoint is PointOfInterest)
             {
-                icon.UriSource = new Uri(poi.ImagePath);
-                ImageExistingWayPoint.Source = icon;
-            }
-            catch { }
+                PointOfInterest poi = waypoint as PointOfInterest;
+                Windows.UI.Xaml.Media.Imaging.BitmapImage icon = new Windows.UI.Xaml.Media.Imaging.BitmapImage();
+                try
+                {
+                    icon.UriSource = new Uri(poi.ImagePath);
+                    ImageExistingWayPoint.Source = icon;
+                }
+                catch { }
+                LatitudeExistingWayPoint.Text = poi.Latitude.ToString();
+                LongitudeExistingWayPoint.Text = poi.Longitude.ToString();
+                NameExistingWayPoint.Text = poi.Name;
+                ImagePathExistingWayPoint.Text = poi.ImagePath.ToString();
 
-            NameExistingWayPoint.Text = poi.Name;
-            LatitudeExistingWayPoint.Text = poi.Latitude.ToString();
-            LongitudeExistingWayPoint.Text = poi.Longitude.ToString();
-            SoundPathExistingWayPoint.Text = poi.SoundPath.ToString();
-            ImagePathExistingWayPoint.Text = poi.ImagePath.ToString();
+            }
+            else
+            {
+                ImageExistingWayPoint.Source = null;
+                LatitudeExistingWayPoint.Text = waypoint.Latitude.ToString();
+                LongitudeExistingWayPoint.Text = waypoint.Longitude.ToString();
+                NameExistingWayPoint.Text = "";
+                ImagePathExistingWayPoint.Text = "";
+            }
+        }
+        private async void CurrentRoute_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Route currentSelection = await User.Controller.Control.GetInstance().DatabaseConnnector.GetRouteAsync(CurrentRoute.SelectedItem as string);
+            WayPoints = currentSelection.WayPoints;
+            RouteName.Text = currentSelection.Name;
+            officeListBox.ItemsSource = null;
+            officeListBox.ItemsSource = WayPoints;
+        }
+        /// <summary>
+        /// NEW
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddNewWayPointToEditedRoute_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Latitude2.Text == "" || Longitude2.Text == "")
+                return;
+            if (Name2.Text == "")
+            {
+                try
+                {
+                    EditedRouteWayPoints.Add(new PointOfInterest(Double.Parse(Latitude2.Text), Double.Parse(Longitude2.Text), false, "", "", "", ""));
+                }
+                catch { return; }
+            }    //Add as waypoint
+            else
+            {
+                try
+                {
+                    EditedRouteWayPoints.Add(new PointOfInterest(Double.Parse(Latitude2.Text), Double.Parse(Longitude2.Text), false, Name2.Text, "", ImagePath2.Text, ""));
+                }
+                catch { return; }
+            }    //Add as PoI
+
+
+            officeListBox2.ItemsSource = null;
+            officeListBox2.ItemsSource = EditedRouteWayPoints;
+        }
+
+        private void AddExistingWayPointToEditedRoute_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (ExistingWayPointsBox2.SelectedItem == null)
+                return;
+
+            EditedRouteWayPoints.Add(ExistingWayPointsBox2.SelectedItem is PointOfInterest ? ExistingWayPointsBox2.SelectedItem as PointOfInterest : new PointOfInterest((ExistingWayPointsBox2.SelectedItem as Waypoint).Latitude, (ExistingWayPointsBox2.SelectedItem as Waypoint).Longitude, false, "", "", "", ""));
+            officeListBox2.ItemsSource = null;
+            officeListBox2.ItemsSource = EditedRouteWayPoints;
+        }
+
+        private void DeleteItemFromEditedRoute_Button_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Waypoint waypoint in EditedRouteWayPoints)
+            {
+                if (((string)((sender as Button).Tag)) == waypoint.StringRep)
+                {
+                    EditedRouteWayPoints.Remove(waypoint);
+                    officeListBox2.ItemsSource = null;
+                    officeListBox2.ItemsSource = EditedRouteWayPoints;
+                    break;
+                }
+            }
+        }
+
+        private async void SaveEditedRoute_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (EditedRouteWayPoints.Count == 0 || RouteName2.Text == "" || EditedRouteWayPoints.Count < 2)
+                return;
+            if (CurrentRoute.SelectedItem != null)
+                return;
+            var currentLanguage = User.Controller.Control.GetInstance().LanguageManager.CurrentLanguage;
+            MessageDialog msgDialog = new MessageDialog("bleh");
+            if (currentLanguage == User.Controller.Language.English)
+            {
+                msgDialog.Content = "Please wait a second, while we take a few seconds to set things up for you.";
+                msgDialog.Title = "Please be patient!";
+            }
+            else if (currentLanguage == User.Controller.Language.Dutch)
+            {
+                msgDialog.Content = "Graag een moment geduld, terwijl alles in gereedheid wordt gebracht";
+                msgDialog.Title = "Een moment geduld aub!";
+            }
+            IAsyncOperation<IUICommand> asyncCommand = msgDialog.ShowAsync();  //No need to wait for this.
+
+            Route oldRoute = await GTec.User.Controller.DatabaseConnector.INSTANCE.GetRouteAsync(CurrentRoute2.SelectedItem as string);      
+
+            List<Waypoint> waypoints = new List<Waypoint>();
+            foreach (PointOfInterest poi in EditedRouteWayPoints)
+            {
+                if(poi.Name == String.Empty)
+                    waypoints.Add(poi as Waypoint);
+                else
+                    waypoints.Add(poi);
+            }
+            Route newRoute = new Route(RouteName2.Text, RouteSoundPath2.Text, waypoints);
+
+            await GTec.User.Controller.Control.GetInstance().DatabaseConnnector.EditRouteAsync(oldRoute.Name, newRoute);
+            asyncCommand.Cancel();
+        }
+
+        private void EditedRouteExistingWayPointsBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Waypoint waypoint = ExistingWayPointsBox2.SelectedItem as Waypoint;
+            if (waypoint is PointOfInterest)
+            {
+                PointOfInterest poi = waypoint as PointOfInterest;
+                Windows.UI.Xaml.Media.Imaging.BitmapImage icon = new Windows.UI.Xaml.Media.Imaging.BitmapImage();
+                try
+                {
+                    icon.UriSource = new Uri(poi.ImagePath);
+                    ImageExistingWayPoint2.Source = icon;
+                }
+                catch { }
+                LatitudeExistingWayPoint2.Text = poi.Latitude.ToString();
+                LongitudeExistingWayPoint2.Text = poi.Longitude.ToString();
+                NameExistingWayPoint2.Text = poi.Name;
+                ImagePathExistingWayPoint2.Text = poi.ImagePath.ToString();
+
+            }
+            else
+            {
+                ImageExistingWayPoint2.Source = null;
+                LatitudeExistingWayPoint2.Text = waypoint.Latitude.ToString();
+                LongitudeExistingWayPoint2.Text = waypoint.Longitude.ToString();
+                NameExistingWayPoint2.Text = "";
+                ImagePathExistingWayPoint2.Text = "";
+            }
+        }
+
+        private async void CurrentRoute2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Route toEdit = await User.Controller.Control.GetInstance().DatabaseConnnector.GetRouteAsync(CurrentRoute2.SelectedItem as string);
+            EditedRouteWayPoints = toEdit.WayPoints;
+            RouteName2.Text = toEdit.Name;
+            officeListBox2.ItemsSource = null;
+            officeListBox2.ItemsSource = EditedRouteWayPoints;
         }
     }
 }

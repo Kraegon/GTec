@@ -225,7 +225,7 @@ namespace GTec.User.Controller
             return retVal;
         }
 
-        public async void EditRoute(string oldRouteName, Route newRoute)
+        public async Task EditRouteAsync(string oldRouteName, Route newRoute)
         {
             //Remember the Database ID of the route
             int id = Database.QueryAsync<DatabaseRoute>("SELECT * FROM \"DatabaseRoute\" WHERE \"Name\" = ? AND RouteID <> 999 AND RouteID <> 1000", new object[] { oldRouteName }).Result[0].RouteID;
@@ -247,7 +247,7 @@ namespace GTec.User.Controller
                 else
                 {
                     //But if it exists, edit waypoint if neccesary, check if the bind persisted and then insert
-                    EditWaypoint(DatabasePOI.ToWaypoint(
+                    await EditWaypointAsync(DatabasePOI.ToWaypoint(
                         Database.QueryAsync<DatabasePOI>("SELECT * FROM DatabasePOI WHERE Latitude = ? AND Longitude = ?", new object[] { newWaypoint.Latitude, newWaypoint.Longitude }).Result[0])
                         , newWaypoint);
                     List<RouteBind> binds = await Database.QueryAsync<RouteBind>("SELECT WaypointID FROM RouteBinds WHERE RouteID = ? AND WaypointID = ?", new object[] { id, existingID });
@@ -262,7 +262,7 @@ namespace GTec.User.Controller
                 await SaveCurrentRouteAsync(newRoute);
         }
 
-        public async void EditWaypoint(Waypoint oldWaypoint, Waypoint newWaypoint)
+        public async Task EditWaypointAsync(Waypoint oldWaypoint, Waypoint newWaypoint)
         {
             //Remember the ID
             int id = Database.QueryAsync<DatabasePOI>("SELECT WaypointID FROM \"DatabasePOI\" WHERE \"Latitude\" = ? AND \"Longitude\" = ?", new object[] { oldWaypoint.Latitude, oldWaypoint.Longitude }).Result[0].WaypointID;
