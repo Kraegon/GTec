@@ -47,14 +47,16 @@ namespace GTec.Admin.View
             List<User.Model.Account> accounts = await User.Controller.DatabaseConnector.INSTANCE.GetAccountsAsync();
             foreach (User.Model.Account a in accounts)
             {
-                if (currentLanguage == User.Controller.Language.English)
-                    await new MessageDialog("Succesfully logged in as " + a.Gebruikersnaam + "!").ShowAsync();
-                else if (currentLanguage == User.Controller.Language.Dutch)
-                    await new MessageDialog("Succesvol ingelogd als " + a.Gebruikersnaam + "!").ShowAsync();
-                this.Hide();
-                (GTec.User.Controller.Control.GetInstance().ThreadsToNotify[0] as User.View.MainPage).Frame.Navigate(typeof(AdminPage));
-                return;
-                //}
+                if ((authentication.Item1 == a.Gebruikersnaam) && (authentication.Item2 == a.Password))
+                {
+                    if (currentLanguage == User.Controller.Language.English)
+                        await new MessageDialog("Succesfully logged in as " + a.Gebruikersnaam + "!").ShowAsync();
+                    else if (currentLanguage == User.Controller.Language.Dutch)
+                        await new MessageDialog("Succesvol ingelogd als " + a.Gebruikersnaam + "!").ShowAsync();
+                    this.Hide();
+                    (GTec.User.Controller.Control.GetInstance().ThreadsToNotify[0] as User.View.MainPage).Frame.Navigate(typeof(AdminPage));
+                    return;
+                }
             }
             if (currentLanguage == User.Controller.Language.English)
                 MessageTextBlock.Text = "Incorrect credentials!";
