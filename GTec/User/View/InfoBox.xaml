@@ -6,23 +6,23 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="200"
-    d:DesignWidth="400">
+    d:DesignHeight="240"
+    d:DesignWidth="500">
 
-    <Grid x:Name="Infobox" Background="White">
+    <Grid x:Name="Infobox" Background="White" MaxWidth="500" MaxHeight="240">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="TitleBlock" Foreground="Black" Grid.Row="0" Margin="10" FontSize="24" Width="300" HorizontalAlignment="Left" />
+        <TextBlock x:Name="TitleBlock" Foreground="Black" Grid.Row="0" Margin="10" FontSize="32" Width="300" HorizontalAlignment="Left" />
         <Button Grid.Row="0" Foreground="Black" Background="LightGray"  Content="X" Margin="10" Tapped="CloseInfobox_Tapped" HorizontalAlignment="Right" VerticalAlignment="Top"/>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="8*"/>
                 <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
-            <ScrollViewer VerticalAlignment="Top" Foreground="Black" Width="Auto" Height="Auto" MaxWidth="700">
-                <TextBlock x:Name="DescriptionBlock" TextWrapping="WrapWholeWords" FontSize="16" Margin="10,0,0,0" />
+            <ScrollViewer VerticalAlignment="Top" Foreground="Black" Width="Auto" Height="Auto" Margin="10">
+                <TextBlock x:Name="DescriptionBlock" TextWrapping="Wrap" FontSize="14"/>
             </ScrollViewer>
             <Image x:Name="ImageBlock" Grid.Column="1" Margin="10" MaxWidth="120" MaxHeight="120" Stretch="Fill"/>
         </Grid>
