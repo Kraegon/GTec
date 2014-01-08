@@ -123,7 +123,18 @@ namespace GTec.Admin.View
             {
                 if (CurrentRoute.SelectedItem != null)
                 {
-                    MessageDialog msgDialog = new MessageDialog("Please wait a second, while we take a few seconds to set things up for you.", "Please be patient!");
+                    var currentLanguage = User.Controller.Control.GetInstance().LanguageManager.CurrentLanguage;
+                    MessageDialog msgDialog = new MessageDialog("bleh");
+                    if (currentLanguage == User.Controller.Language.English)
+                    {
+                        msgDialog.Content = "Please wait a second, while we take a few seconds to set things up for you.";
+                        msgDialog.Title = "Please be patient!";
+                    }
+                    else if (currentLanguage == User.Controller.Language.Dutch)
+                    {
+                        msgDialog.Content = "Graag een moment geduld, terwijl alles in gereedheid wordt gebracht";
+                        msgDialog.Title = "Een moment geduld aub!";
+                    }
                     IAsyncOperation<IUICommand> asyncCommand = msgDialog.ShowAsync();  //No need to wait for this.
 
                     Route r = await GTec.User.Controller.DatabaseConnector.INSTANCE.GetRouteAsync(CurrentRoute.SelectedItem as string);

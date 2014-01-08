@@ -165,6 +165,13 @@
     <Content Include="Assets\background.png" />
     <Content Include="Assets\background2.png" />
     <Content Include="Assets\BadgeLogo.scale-100.png" />
+    <Content Include="Assets\images\bibliotheek.jpg" />
+    <Content Include="Assets\images\kasteel.jpg" />
+    <Content Include="Assets\images\kloosterKazerne.jpg" />
+    <Content Include="Assets\images\NassauMonument.jpg" />
+    <Content Include="Assets\images\stadhuis.jpg" />
+    <Content Include="Assets\images\stAntoniuskerk.jpg" />
+    <Content Include="Assets\images\Vishal.jpg" />
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\Max.png" />
     <Content Include="Assets\Min.png" />
@@ -218,9 +225,7 @@
     <None Include="GTec_TemporaryKey.pfx" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\netcore45\Newtonsoft.Json.dll</HintPath>
