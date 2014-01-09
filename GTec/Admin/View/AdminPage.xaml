@@ -48,13 +48,13 @@
                         <TextBlock Grid.Row="1" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Longitude:</TextBlock>
                         <TextBlock Grid.Row="2" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Latitude:</TextBlock>
                         <TextBlock Grid.Row="3" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam afbeelding:</TextBlock>
-                        <TextBlock Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam geluid:</TextBlock>
+                        <TextBlock Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Omschrijving:</TextBlock>
 
                         <TextBlock Grid.Row="0" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5" Text="{Binding Name}"></TextBlock>
                         <TextBlock Grid.Row="1" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5" Text="{Binding Longitude}"></TextBlock>
                         <TextBlock Grid.Row="2" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5" Text="{Binding Latitude}"></TextBlock>
                         <TextBlock Grid.Row="3" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5" Text="{Binding ImagePath}"></TextBlock>
-                        <TextBlock Grid.Row="4" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5" Text="{Binding SoundPath}"></TextBlock>
+                        <TextBlock Grid.Row="4" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5" Text="{Binding Information}"></TextBlock>
                     </Grid>
 
                     <!--Remove-->
@@ -105,13 +105,13 @@
                         <TextBlock Grid.Row="1" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Longitude:</TextBlock>
                         <TextBlock Grid.Row="2" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Latitude:</TextBlock>
                         <TextBlock Grid.Row="3" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam afbeelding:</TextBlock>
-                        <TextBlock Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam geluid:</TextBlock>
+                        <TextBlock Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Omschrijving:</TextBlock>
 
                         <TextBlock Grid.Row="0" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5" Text="{Binding Name}"></TextBlock>
                         <TextBlock Grid.Row="1" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5" Text="{Binding Longitude}"></TextBlock>
                         <TextBlock Grid.Row="2" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5" Text="{Binding Latitude}"></TextBlock>
                         <TextBlock Grid.Row="3" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5" Text="{Binding ImagePath}"></TextBlock>
-                        <TextBlock Grid.Row="4" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5" Text="{Binding SoundPath}"></TextBlock>
+                        <TextBlock Grid.Row="4" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5" Text="{Binding Information}"></TextBlock>
                     </Grid>
 
                     <!--Remove-->
@@ -292,7 +292,7 @@
                         <TextBox x:Name="Longitude2" Grid.Row="2" Grid.Column="1" Width="260" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
                         <TextBox x:Name="Latitude2" Grid.Row="3" Grid.Column="1" Width="260" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
                         <TextBox x:Name="ImagePath2" Grid.Row="4" Grid.Column="1" Width="260" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
-                        <TextBox x:Name="Text2" Grid.Row="5" Grid.Column="1" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
+                        <TextBox x:Name="Text2" Grid.Row="5" Grid.Column="1" Width="260" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
                         <Button x:Name="AddWayPointButton2" Grid.Row="6" Grid.Column="1" FontSize="18" Click="AddNewWayPointToEditedRoute_Button_Click" HorizontalAlignment="Left">Waypoint aanpassen</Button>
                     </Grid>
                 </ScrollViewer>

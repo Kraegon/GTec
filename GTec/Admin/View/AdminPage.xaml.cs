@@ -99,7 +99,7 @@ namespace GTec.Admin.View
             {
                 try
                 {
-                    WayPoints.Add(new PointOfInterest(Double.Parse(Latitude.Text), Double.Parse(Longitude.Text), false, Name.Text, "", ImagePath.Text, ""));
+                    WayPoints.Add(new PointOfInterest(Double.Parse(Latitude.Text), Double.Parse(Longitude.Text), false, Name.Text, Text.Text, ImagePath.Text, ""));
                 }
                 catch { return; }
             }    //Add as PoI
@@ -211,6 +211,7 @@ namespace GTec.Admin.View
                 LatitudeExistingWayPoint.Text = poi.Latitude.ToString();
                 LongitudeExistingWayPoint.Text = poi.Longitude.ToString();
                 NameExistingWayPoint.Text = poi.Name;
+                Text.Text = poi.Information;
                 ImagePathExistingWayPoint.Text = poi.ImagePath.ToString();
 
             }
@@ -244,7 +245,7 @@ namespace GTec.Admin.View
             {
                 try
                 {
-                    EditedRouteWayPoints.Add(new PointOfInterest(Double.Parse(Latitude2.Text), Double.Parse(Longitude2.Text), false, "", "", "", ""));
+                    EditedRouteWayPoints.Add(new Waypoint(Double.Parse(Latitude2.Text), Double.Parse(Longitude2.Text)));
                 }
                 catch { return; }
             }    //Add as waypoint
@@ -252,7 +253,7 @@ namespace GTec.Admin.View
             {
                 try
                 {
-                    EditedRouteWayPoints.Add(new PointOfInterest(Double.Parse(Latitude2.Text), Double.Parse(Longitude2.Text), false, Name2.Text, "", ImagePath2.Text, ""));
+                    EditedRouteWayPoints.Add(new PointOfInterest(Double.Parse(Latitude2.Text), Double.Parse(Longitude2.Text), false, Name2.Text, Text2.Text, ImagePath2.Text, ""));
                 }
                 catch { return; }
             }    //Add as PoI
@@ -338,6 +339,7 @@ namespace GTec.Admin.View
                 LatitudeExistingWayPoint2.Text = poi.Latitude.ToString();
                 LongitudeExistingWayPoint2.Text = poi.Longitude.ToString();
                 NameExistingWayPoint2.Text = poi.Name;
+                Text2.Text = poi.Information;
                 ImagePathExistingWayPoint2.Text = poi.ImagePath.ToString();
 
             }
