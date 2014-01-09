@@ -5,7 +5,7 @@
     xmlns:local="using:GTec.Admin.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Width="2741">
+    mc:Ignorable="d" Width="4115">
 
     <Page.Resources>
         <DataTemplate x:Key="PointOfInterestDisplay">
@@ -186,7 +186,7 @@
             </StackPanel>
 
             <!--Choose route-->
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="380" Margin="10,360,10,10">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="340" Margin="10,360,10,10">
                 <!--Stackpanel background-->
                 <StackPanel.Background>
                     <SolidColorBrush Color="#006993" Opacity=".6"/>
@@ -223,8 +223,10 @@
 
                     <Button x:Name="PlaySoundExistingWaypointButton" Grid.Row="7" Grid.Column="0" FontSize="18" HorizontalAlignment="Left" Visibility="Collapsed">Geluid afspelen</Button>
                     <Button x:Name="AddExistingWaypointButton" Click="AddExistingWayPointToRoute_Button_Click" Grid.Row="7" Grid.Column="1" FontSize="18" HorizontalAlignment="Left">Toevoegen</Button>
+                    
                 </Grid>
             </StackPanel>
+            <Button x:Name="RemoveWaypointButton" Click="RemoveWayPointToRoute_Button_Click" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="Red" Margin="10,25">Wandelroute wissen</Button>
 
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="835" Height="730" Margin="520,10,10,10">
                 <!--Stackpanel background-->
