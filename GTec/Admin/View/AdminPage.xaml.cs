@@ -87,7 +87,7 @@ namespace GTec.Admin.View
         {
             if (Latitude.Text == "" || Longitude.Text == "")
                 return;
-            if (Name.Text == "" || ImagePath.Text == "")
+            if (Name.Text == "")
             {
                 try
                 {
@@ -103,10 +103,8 @@ namespace GTec.Admin.View
                 }
                 catch { return; }
             }    //Add as PoI
-
-
-            officeListBox2.ItemsSource = null;
-            officeListBox2.ItemsSource = EditedRouteWayPoints;
+            officeListBox.ItemsSource = null;
+            officeListBox.ItemsSource = WayPoints;
         }
 
         private void AddExistingWayPointToRoute_Button_Click(object sender, RoutedEventArgs e)
@@ -125,9 +123,9 @@ namespace GTec.Admin.View
             {
                 if (((string)((sender as Button).Tag)) == waypoint.StringRep)
                 {
-                    EditedRouteWayPoints.Remove(waypoint);
-                    officeListBox2.ItemsSource = null;
-                    officeListBox2.ItemsSource = WayPoints;
+                    WayPoints.Remove(waypoint);
+                    officeListBox.ItemsSource = null;
+                    officeListBox.ItemsSource = WayPoints;
                     break;
                 }
             }
@@ -135,7 +133,7 @@ namespace GTec.Admin.View
 
         private async void SaveRoute_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (WayPoints.Count == 0 || RouteName.Text == "" || RouteSoundPath.Text == "" || WayPoints.Count < 2)
+            if (WayPoints.Count == 0 || RouteName.Text == "" || WayPoints.Count < 2)
             {
                 if (CurrentRoute.SelectedItem != null)
                 {
@@ -167,9 +165,12 @@ namespace GTec.Admin.View
             }
 
             List<Waypoint> waypoints = new List<Waypoint>();
-            foreach (PointOfInterest poi in WayPoints)
+            foreach (Waypoint waypoint in WayPoints)
             {
-                waypoints.Add(poi as Waypoint);
+                if(waypoint is PointOfInterest)
+                    waypoints.Add(waypoint as PointOfInterest);
+                else
+                    waypoints.Add(waypoint as Waypoint);               
             }
             Route route = new Route(RouteName.Text, RouteSoundPath.Text, waypoints);
 
@@ -196,7 +197,7 @@ namespace GTec.Admin.View
 
         private void ExistingWayPointsBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Waypoint waypoint = ExistingWayPointsBox2.SelectedItem as Waypoint;
+            Waypoint waypoint = ExistingWayPointsBox.SelectedItem as Waypoint;
             if (waypoint is PointOfInterest)
             {
                 PointOfInterest poi = waypoint as PointOfInterest;
