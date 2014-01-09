@@ -491,7 +491,7 @@ namespace GTec.User.View
         void onCommandsRequested(SettingsPane settingsPane, SettingsPaneCommandsRequestedEventArgs eventArgs)
         {
             UICommandInvokedHandler handler = new UICommandInvokedHandler(onSettingsCommand);
-            SettingsCommand authenticateCommand = new SettingsCommand("auth", "Authenticatie", handler);
+            SettingsCommand authenticateCommand = new SettingsCommand("auth", "Create/edit routes", handler);
             eventArgs.Request.ApplicationCommands.Clear();
             eventArgs.Request.ApplicationCommands.Add(authenticateCommand);
         }

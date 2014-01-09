@@ -44,7 +44,10 @@ namespace GTec.User.Model
                 OnPropertyChanged("Visited");
             }
         }
-
+        public string StringRep
+        {
+            get { return ToString(); }
+        }
         public Waypoint(double Latitude, double longitude, bool Visited)
         {
             this.latitude = Latitude;
