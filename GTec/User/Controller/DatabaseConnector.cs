@@ -216,7 +216,7 @@ namespace GTec.User.Controller
 
         private async Task<List<Waypoint>> getAssociatedWaypointsAsync(string routeName)
         {
-            int routeID = Database.ExecuteScalarAsync<int>("SELECT \"RouteID\" FROM \"DatabaseRoute\" WHERE \"Name\" = ? AND RouteID <> 999 AND RouteID <> 998", new object[] { routeName }).Result;
+            int routeID = Database.ExecuteScalarAsync<int>("SELECT \"RouteID\" FROM \"DatabaseRoute\" WHERE \"Name\" = ?", new object[] { routeName }).Result;
             List<RouteBind> waypointsID = Database.QueryAsync<RouteBind>("SELECT \"WaypointID\" FROM \"RouteBinds\" WHERE \"RouteID\" = ?", new object[] { routeID }).Result;
             List<Waypoint> retVal = new List<Waypoint>();
             foreach (RouteBind r in waypointsID)
