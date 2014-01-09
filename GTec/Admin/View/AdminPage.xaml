@@ -186,11 +186,7 @@
             </StackPanel>
 
             <!--Choose route-->
-<<<<<<< HEAD
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="340" Margin="10,360,10,10">
-=======
-                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="338" Margin="10,360,0,0">
-                    >>>>>>> View
                     <!--Stackpanel background-->
                     <StackPanel.Background>
                         <SolidColorBrush Color="#006993" Opacity=".6"/>
