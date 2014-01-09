@@ -186,7 +186,7 @@
             </StackPanel>
 
             <!--Choose route-->
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="380" Margin="10,360,10,10">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="338" Margin="10,360,0,0">
                 <!--Stackpanel background-->
                 <StackPanel.Background>
                     <SolidColorBrush Color="#006993" Opacity=".6"/>
@@ -225,6 +225,8 @@
                     <Button x:Name="AddExistingWaypointButton" Click="AddExistingWayPointToRoute_Button_Click" Grid.Row="7" Grid.Column="1" FontSize="18" HorizontalAlignment="Left">Toevoegen</Button>
                 </Grid>
             </StackPanel>
+            
+            <Button FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="Red" Margin="10,25">Wandelroute verwijderen</Button>
 
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="835" Height="730" Margin="520,10,10,10">
                 <!--Stackpanel background-->
