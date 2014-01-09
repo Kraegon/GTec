@@ -34,7 +34,7 @@ namespace GTec.User.View
         {
             TitleBlock.Text = ibd.Title;
             //Let's make the unsafe assumption that every description in the database will be a valid tag in the JSon file
-            if (DescriptionBlock.Text != String.Empty)
+            if (DescriptionBlock.Text == String.Empty)
                 DescriptionBlock.Text = await User.Controller.Control.GetInstance().LanguageManager.GetTextAsync(ibd.Description);
             BitmapImage image = null;
             try {
