@@ -5,7 +5,7 @@
     xmlns:local="using:GTec.Admin.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Width="2741">
+    mc:Ignorable="d" Width="4115">
 
     <Page.Resources>
         <DataTemplate x:Key="PointOfInterestDisplay">
@@ -186,47 +186,50 @@
             </StackPanel>
 
             <!--Choose route-->
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="380" Margin="10,360,10,10">
-                <!--Stackpanel background-->
-                <StackPanel.Background>
-                    <SolidColorBrush Color="#006993" Opacity=".6"/>
-                </StackPanel.Background>
-                <Grid Margin="10,20">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <TextBlock x:Name="PickExistingWaypointPickingLabel" Grid.Row="0" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Kies Waypoint:</TextBlock>
-                    <TextBlock x:Name="PickExistingWaypointImageLabel" Grid.Row="1" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Afbeelding:</TextBlock>
-                    <TextBlock x:Name="PickExistingWaypointNameLabel" Grid.Row="2" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Naam:</TextBlock>
-                    <TextBlock x:Name="PickExistingWaypointLongitudeLabel" Grid.Row="3" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Longitude:</TextBlock>
-                    <TextBlock x:Name="PickExistingWaypointLatitudeLabel" Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Latitude:</TextBlock>
-                    <TextBlock x:Name="PickExistingWaypointImagePathLabel" Grid.Row="5" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam afbeelding:</TextBlock>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="340" Margin="10,360,10,10">
+                    <!--Stackpanel background-->
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="#006993" Opacity=".6"/>
+                    </StackPanel.Background>
+                    <Grid Margin="10,20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="PickExistingWaypointPickingLabel" Grid.Row="0" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Kies Waypoint:</TextBlock>
+                        <TextBlock x:Name="PickExistingWaypointImageLabel" Grid.Row="1" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Afbeelding:</TextBlock>
+                        <TextBlock x:Name="PickExistingWaypointNameLabel" Grid.Row="2" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Naam:</TextBlock>
+                        <TextBlock x:Name="PickExistingWaypointLongitudeLabel" Grid.Row="3" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Longitude:</TextBlock>
+                        <TextBlock x:Name="PickExistingWaypointLatitudeLabel" Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Latitude:</TextBlock>
+                        <TextBlock x:Name="PickExistingWaypointImagePathLabel" Grid.Row="5" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam afbeelding:</TextBlock>
 
-                    <ComboBox SelectionChanged="ExistingWayPointsBox_SelectionChanged" x:Name="ExistingWayPointsBox" Grid.Row="0" Grid.Column="1" Width="260" Height="30" HorizontalAlignment="Left" Margin="5"></ComboBox>
-                    <Image x:Name="ImageExistingWayPoint" Grid.Row="1" Grid.Column="1" Width="80" Height="80" HorizontalAlignment="Left" Margin="5"></Image>
-                    <TextBlock x:Name="NameExistingWayPoint" Grid.Row="2" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
-                    <TextBlock x:Name="LongitudeExistingWayPoint" Grid.Row="3" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
-                    <TextBlock x:Name="LatitudeExistingWayPoint" Grid.Row="4" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
-                    <TextBlock x:Name="ImagePathExistingWayPoint" Grid.Row="5" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                        <ComboBox SelectionChanged="ExistingWayPointsBox_SelectionChanged" x:Name="ExistingWayPointsBox" Grid.Row="0" Grid.Column="1" Width="260" Height="30" HorizontalAlignment="Left" Margin="5"></ComboBox>
+                        <Image x:Name="ImageExistingWayPoint" Grid.Row="1" Grid.Column="1" Width="80" Height="80" HorizontalAlignment="Left" Margin="5"></Image>
+                        <TextBlock x:Name="NameExistingWayPoint" Grid.Row="2" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                        <TextBlock x:Name="LongitudeExistingWayPoint" Grid.Row="3" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                        <TextBlock x:Name="LatitudeExistingWayPoint" Grid.Row="4" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
+                        <TextBlock x:Name="ImagePathExistingWayPoint" Grid.Row="5" Grid.Column="1" Width="260" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5"></TextBlock>
 
-                    <Button x:Name="PlaySoundExistingWaypointButton" Grid.Row="7" Grid.Column="0" FontSize="18" HorizontalAlignment="Left" Visibility="Collapsed">Geluid afspelen</Button>
-                    <Button x:Name="AddExistingWaypointButton" Click="AddExistingWayPointToRoute_Button_Click" Grid.Row="7" Grid.Column="1" FontSize="18" HorizontalAlignment="Left">Toevoegen</Button>
-                </Grid>
-            </StackPanel>
+                        <Button x:Name="PlaySoundExistingWaypointButton" Grid.Row="7" Grid.Column="0" FontSize="18" HorizontalAlignment="Left" Visibility="Collapsed">Geluid afspelen</Button>
+                        <Button x:Name="AddExistingWaypointButton" Click="AddExistingWayPointToRoute_Button_Click" Grid.Row="7" Grid.Column="1" FontSize="18" HorizontalAlignment="Left">Toevoegen</Button>
 
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="835" Height="730" Margin="520,10,10,10">
+                    </Grid>
+                </StackPanel>
+                
+                <Button x:Name="RemoveWaypointButton" Click="RemoveWayPointToRoute_Button_Click" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="Red" Margin="10,25">Wandelroute wissen</Button>
+
+                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="835" Height="730" Margin="520,10,10,10">
                 <!--Stackpanel background-->
                 <StackPanel.Background>
                     <SolidColorBrush Color="#006993" Opacity=".4"/>
