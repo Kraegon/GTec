@@ -9,7 +9,7 @@
 
     <Page.Resources>
         <DataTemplate x:Key="PointOfInterestDisplay">
-                <StackPanel Width="770" Height="200" Margin="10">
+            <StackPanel Width="770" Height="200" Margin="10">
 
                 <!--Stackpanel background-->
                 <StackPanel.Background>
@@ -161,7 +161,7 @@
                     </Grid.RowDefinitions>
                     <Button x:Name="goBackward" Grid.Row="0" Grid.Column="0" Click="goBackward_Click" Margin="5"/>
                     <TextBlock Margin="5" Grid.Row="0" Grid.Column="1" Text="Nieuw" FontSize="28" FontWeight="Bold"/>
-                    
+
                     <TextBlock x:Name="NewWaypointNameLabel" Grid.Row="1" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Naam:</TextBlock>
                     <TextBlock x:Name="NewWaypointLongitudeLabel" Grid.Row="2" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">
                 	<Run Text="Longitude"/>
@@ -174,12 +174,13 @@
                 	<Run Text=":"/>
                     </TextBlock>
                     <TextBlock x:Name="NewWaypointPadnaamAfbeeldingLabel" Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam afbeelding:</TextBlock>
+                    <TextBlock x:Name="NewWaypointTextLabel" Grid.Row="5" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Omschrijving:</TextBlock>
 
                     <TextBox x:Name="Name" Grid.Row="1" Grid.Column="1" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
-                    <TextBox x:Name="Longitude" Grid.Row="2" Grid.Column="2" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
-                    <TextBox x:Name="Latitude" Grid.Row="3" Grid.Column="2" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
-                    <TextBox x:Name="ImagePath" Grid.Row="4" Grid.Column="2" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
-
+                    <TextBox x:Name="Longitude" Grid.Row="2" Grid.Column="1" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
+                    <TextBox x:Name="Latitude" Grid.Row="3" Grid.Column="1" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
+                    <TextBox x:Name="ImagePath" Grid.Row="4" Grid.Column="1" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
+                    <TextBox x:Name="Text" Grid.Row="5" Grid.Column="1" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
                     <Button x:Name="AddWayPointButton" Grid.Row="6" Grid.Column="1" FontSize="18" Click="AddNewWayPointToRoute_Button_Click" HorizontalAlignment="Left"/>
                 </Grid>
             </StackPanel>
@@ -238,7 +239,7 @@
                 <TextBlock x:Name="ActiveLabel" Margin="377,-25,0,0" HorizontalAlignment="Left" FontSize="18" Text="Active:"/>
                 <CheckBox x:Name="SetAsCurrentRouteCheckBox" HorizontalAlignment="Left" Margin="441,-30,0,0"/>
                 <ComboBox SelectionChanged="CurrentRoute_SelectionChanged" x:Name="CurrentRoute" HorizontalAlignment="Left" Margin="476,-30,0,0" Width="183"/>
-                <Button x:Name="SaveRouteButton" Margin="0,-35,20,0" Click="SaveRoute_Button_Click" FontSize="18" HorizontalAlignment="Right">Opslaan</Button>
+                <Button x:Name="SaveRouteButton" Margin="0,-35,20,0" Click="SaveRoute_Button_Click" FontSize="18" HorizontalAlignment="Right" Content="Opslaan"/>
             </StackPanel>
 
             <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
@@ -257,11 +258,11 @@
                 </StackPanel.Background>
                 <TextBlock Margin="180,15,0,10" Text="Aanpassen" FontSize="28" FontWeight="Bold"/>
                 <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Hidden" Width="500" Height="280">
-                <Grid Margin="10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
@@ -274,26 +275,27 @@
                         </Grid.RowDefinitions>
 
                         <TextBlock x:Name="NewWaypointNameLabel2" Grid.Row="1" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Naam:</TextBlock>
-                    <TextBlock x:Name="NewWaypointLongitudeLabel2" Grid.Row="2" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">
+                        <TextBlock x:Name="NewWaypointLongitudeLabel2" Grid.Row="2" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">
                 	<Run Text="Longitude"/>
                 	<Run Text="*"/>
                 	<Run Text=":"/>
-                    </TextBlock>
-                    <TextBlock x:Name="NewWaypointLatitudeLabel2" Grid.Row="3" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">
+                        </TextBlock>
+                        <TextBlock x:Name="NewWaypointLatitudeLabel2" Grid.Row="3" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">
                 	<Run Text="Latitude"/>
                 	<Run Text="*"/>
                 	<Run Text=":"/>
-                    </TextBlock>
-                    <TextBlock x:Name="NewWaypointPadnaamAfbeeldingLabel2" Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam afbeelding:</TextBlock>
+                        </TextBlock>
+                        <TextBlock x:Name="NewWaypointPadnaamAfbeeldingLabel2" Grid.Row="4" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Padnaam afbeelding:</TextBlock>
+                        <TextBlock x:Name="NewWaypointTextLabel2" Grid.Row="5" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Omschrijving:</TextBlock>
 
                         <TextBox x:Name="Name2" Grid.Row="1" Grid.Column="1" Width="260" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
-                    <TextBox x:Name="Longitude2" Grid.Row="2" Grid.Column="1" Width="260" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
-                    <TextBox x:Name="Latitude2" Grid.Row="3" Grid.Column="1" Width="260" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
-                    <TextBox x:Name="ImagePath2" Grid.Row="4" Grid.Column="1" Width="260" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
-
+                        <TextBox x:Name="Longitude2" Grid.Row="2" Grid.Column="1" Width="260" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
+                        <TextBox x:Name="Latitude2" Grid.Row="3" Grid.Column="1" Width="260" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
+                        <TextBox x:Name="ImagePath2" Grid.Row="4" Grid.Column="1" Width="260" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
+                        <TextBox x:Name="Text2" Grid.Row="5" Grid.Column="1" Width="280" Height="25" HorizontalAlignment="Left" Margin="5"></TextBox>
                         <Button x:Name="AddWayPointButton2" Grid.Row="6" Grid.Column="1" FontSize="18" Click="AddNewWayPointToEditedRoute_Button_Click" HorizontalAlignment="Left">Waypoint aanpassen</Button>
-                </Grid>
-            </ScrollViewer>
+                    </Grid>
+                </ScrollViewer>
             </StackPanel>
 
             <!--Choose route-->

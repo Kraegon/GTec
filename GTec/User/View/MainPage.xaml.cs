@@ -36,13 +36,12 @@ namespace GTec.User.View
     public sealed partial class MainPage : Page
     {
         MapLayer layer = new MapLayer();
-        DispatcherTimer dTimer = new DispatcherTimer();
         UserIcon icon = new UserIcon();
         Bing.Maps.Directions.RouteResponse traveresedRouteResponse;
 
-          public MainPage()
-          {
-              this.InitializeComponent();
+        public MainPage()
+        {
+                this.InitializeComponent();
               //GTec.User.Controller.Control.GetInstance();
               Map.DirectionsRenderOptions.AutoUpdateMapView = false;
               GeofenceMonitor.Current.GeofenceStateChanged += OnGeofenceStateChanged;
@@ -69,11 +68,21 @@ namespace GTec.User.View
 
               //Current Language Combobox
               SetComboboxLanguage();
-              Controller.Control.GetInstance().MainPage = this;
+              //Controller.Control.GetInstance().MainPage = this;
               initLocationServ();
           }
+
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            base.OnNavigatingFrom(e);
+            GeofenceMonitor.Current.Geofences.Clear();
+            GeofenceMonitor.Current.GeofenceStateChanged -= OnGeofenceStateChanged;
+        }
+
           private async void initLocationServ()
           {
+              GTec.User.Controller.Control.GetInstance().MainPage = this;
+
               while (GTec.User.Controller.Control.GetInstance().LocationProvider.CurrentLocation.Longitude == 777.777)
               {
                   await Task.Delay(10);
@@ -90,7 +99,6 @@ namespace GTec.User.View
               Map.ZoomLevel = 17.0;
 
               ChangeUserIconPosition();
-              GTec.User.Controller.Control.GetInstance().MainPage = this;
           }
 
         public async void ChangeUserIconPosition()
@@ -163,9 +171,23 @@ namespace GTec.User.View
                               System.Diagnostics.Debug.WriteLine("Mate, your OnGeofenceStateChanged? It sucks, look at this?! THIS IS CALLED AN EERRRROOORRRR!!!!");
                           }
                           showTraversedRoute();
+                          saveTraversedRoute();
                       }
                   }
               });
+          }
+
+          private async void saveTraversedRoute()
+          {
+                Route traversedRoute = new Route(Controller.Control.GetInstance().CurrentRoute.Name,
+                                                 Controller.Control.GetInstance().CurrentRoute.SystemSoundPath,
+                                                 new List<Waypoint>());
+                foreach(Waypoint wp in Controller.Control.GetInstance().CurrentRoute.WayPoints)
+                {
+                    if (wp.Visited)
+                        traversedRoute.WayPoints.Add(wp);
+                }
+                await Controller.Control.GetInstance().DatabaseConnnector.SaveVisitedRouteAsync(traversedRoute);
           }
 
         private void AddPointsOfInterest(Route currentRoute)
@@ -329,6 +351,28 @@ namespace GTec.User.View
             if (Controller.Control.GetInstance().CurrentRoute == null || Controller.Control.GetInstance().CurrentRoute.Name == null)
             {
                 Controller.Control.GetInstance().CurrentRoute = await Controller.DatabaseConnector.INSTANCE.GetCurrentRoute();
+                Route r = await Controller.DatabaseConnector.INSTANCE.GetVisitedRoute();
+                
+
+                if (r != null && Controller.Control.GetInstance().CurrentRoute != null)
+                {
+                    MessageDialog msg = new MessageDialog(r.WayPoints.Count + "", "If this is not 2, Julian fucked up.");
+                    await msg.ShowAsync();
+
+                    foreach (Waypoint wp in r.WayPoints)
+                    {
+                        foreach (Waypoint rwp in Controller.Control.GetInstance().CurrentRoute.WayPoints)
+                        {
+                            if (wp.Equals(rwp))
+                            {
+                                rwp.Visited = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+                else
+                    System.Diagnostics.Debug.WriteLine("TraversedRoute in DB is null");
             }
             Route route = Controller.Control.GetInstance().CurrentRoute;
 
@@ -378,6 +422,8 @@ namespace GTec.User.View
 
                 AddPointsOfInterest(GTec.User.Controller.Control.GetInstance().CurrentRoute);
             }
+
+            showTraversedRoute();
         }
 
         public async void showTraversedRoute()

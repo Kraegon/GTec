@@ -51,7 +51,7 @@ namespace GTec.User.Controller
 
         public async Task<List<string>> GetRouteNamesAsync()
         {
-            List<DatabaseRoute> result = await Database.QueryAsync<DatabaseRoute>("SELECT Name FROM DatabaseRoute WHERE RouteID <> 999");
+            List<DatabaseRoute> result = await Database.QueryAsync<DatabaseRoute>("SELECT Name FROM DatabaseRoute WHERE RouteID <> 999 AND RouteID <> 998");
             return result.Select(x => x.Name).ToList();
         }
 
@@ -62,7 +62,7 @@ namespace GTec.User.Controller
 
         public async Task<Route> GetRouteAsync(String routeName)
         {
-            List<DatabaseRoute> results = await Database.QueryAsync<DatabaseRoute>("SELECT * FROM DatabaseRoute WHERE Name = ?", new object[] { routeName });
+            List<DatabaseRoute> results = await Database.QueryAsync<DatabaseRoute>("SELECT * FROM DatabaseRoute WHERE Name = ? AND RouteID <> 999 AND RouteID <> 998", new object[] { routeName });
             if (results.Count == 0)
                 return null;
             else
@@ -115,7 +115,7 @@ namespace GTec.User.Controller
             bool IsSuccesful = true;
             DatabaseRoute forDatabase = DatabaseRoute.ToDatabaseRoute(route);
             await DeleteVisitedRoute();
-            forDatabase.RouteID = 1000; //Set to reserved ID
+            forDatabase.RouteID = 998; //Set to reserved ID
             await Database.InsertAsync(forDatabase);
             foreach (Waypoint w in route.WayPoints)
             {
@@ -135,7 +135,7 @@ namespace GTec.User.Controller
         }
         public async Task<Route> GetVisitedRoute()
         {
-            List<DatabaseRoute> results = await Database.QueryAsync<DatabaseRoute>("SELECT * FROM DatabaseRoute WHERE RouteID = 1000");
+            List<DatabaseRoute> results = await Database.QueryAsync<DatabaseRoute>("SELECT * FROM DatabaseRoute WHERE RouteID = 998");
             if (results.Count == 0)
                 return null;
             else
@@ -148,8 +148,8 @@ namespace GTec.User.Controller
         }
         public async Task DeleteVisitedRoute()
         {
-            await Database.ExecuteAsync("DELETE FROM DatabaseRoute WHERE RouteID = 1000");
-            await Database.ExecuteAsync("DELETE FROM RouteBinds WHERE RouteID = 1000");
+            await Database.ExecuteAsync("DELETE FROM DatabaseRoute WHERE RouteID = 998");
+            await Database.ExecuteAsync("DELETE FROM RouteBinds WHERE RouteID = 998");
         }
         public async Task DeleteRouteAsync(Route route)
         {
@@ -159,10 +159,10 @@ namespace GTec.User.Controller
         public async Task DeleteRouteAsync(string routeName)
         {
             List<DatabaseRoute> toDelete = Database.QueryAsync<DatabaseRoute>("SELECT \"RouteID\" FROM \"DatabaseRoute\" WHERE \"Name\" = ?", new object[] { routeName }).Result;
-            await Database.ExecuteAsync("DELETE FROM DatabaseRoute WHERE Name = ? AND RouteID <> 999 AND RouteID <> 1000", new object[] { routeName }); //WAYPOINTS PERSIST            
+            await Database.ExecuteAsync("DELETE FROM DatabaseRoute WHERE Name = ? AND RouteID <> 999 AND RouteID <> 998", new object[] { routeName }); //WAYPOINTS PERSIST            
             foreach(DatabaseRoute r in toDelete)
             {
-                await Database.ExecuteAsync("DELETE FROM RouteBinds WHERE RouteID = ?", new object[] { r.RouteID }); //Destroy bindings, even though the waypoints are still there.
+                await Database.ExecuteAsync("DELETE FROM RouteBinds WHERE RouteID = ? AND RouteID <> 999 AND RouteID <> 998", new object[] { r.RouteID }); //Destroy bindings, even though the waypoints are still there.
             }
         }
         public async Task DeleteWaypoint(Waypoint waypoint)
@@ -214,7 +214,7 @@ namespace GTec.User.Controller
 
         private async Task<List<Waypoint>> getAssociatedWaypointsAsync(string routeName)
         {
-            int routeID = Database.ExecuteScalarAsync<int>("SELECT \"RouteID\" FROM \"DatabaseRoute\" WHERE \"Name\" = ? AND RouteID <> 999 AND RouteID <> 1000", new object[] { routeName }).Result;
+            int routeID = Database.ExecuteScalarAsync<int>("SELECT \"RouteID\" FROM \"DatabaseRoute\" WHERE \"Name\" = ? AND RouteID <> 999 AND RouteID <> 998", new object[] { routeName }).Result;
             List<RouteBind> waypointsID = Database.QueryAsync<RouteBind>("SELECT \"WaypointID\" FROM \"RouteBinds\" WHERE \"RouteID\" = ?", new object[] { routeID }).Result;
             List<Waypoint> retVal = new List<Waypoint>();
             foreach (RouteBind r in waypointsID)
@@ -228,7 +228,7 @@ namespace GTec.User.Controller
         public async Task EditRouteAsync(string oldRouteName, Route newRoute)
         {
             //Remember the Database ID of the route
-            int id = Database.QueryAsync<DatabaseRoute>("SELECT * FROM \"DatabaseRoute\" WHERE \"Name\" = ? AND RouteID <> 999 AND RouteID <> 1000", new object[] { oldRouteName }).Result[0].RouteID;
+            int id = Database.QueryAsync<DatabaseRoute>("SELECT * FROM \"DatabaseRoute\" WHERE \"Name\" = ? AND RouteID <> 999 AND RouteID <> 998", new object[] { oldRouteName }).Result[0].RouteID;
             //And remove it
             await DeleteRouteAsync(oldRouteName);
             //Now create & insert the new route 
@@ -250,7 +250,7 @@ namespace GTec.User.Controller
                     await EditWaypointAsync(DatabasePOI.ToWaypoint(
                         Database.QueryAsync<DatabasePOI>("SELECT * FROM DatabasePOI WHERE Latitude = ? AND Longitude = ?", new object[] { newWaypoint.Latitude, newWaypoint.Longitude }).Result[0])
                         , newWaypoint);
-                    List<RouteBind> binds = await Database.QueryAsync<RouteBind>("SELECT WaypointID FROM RouteBinds WHERE RouteID = ? AND WaypointID = ?", new object[] { id, existingID });
+                    List<RouteBind> binds = await Database.QueryAsync<RouteBind>("SELECT WaypointID FROM RouteBinds WHERE RouteID = ? AND RouteID <> 999 AND RouteID <> 998 AND WaypointID = ?", new object[] { id, existingID });
                     if(binds.Count == 0)
                         await Database.ExecuteAsync("INSERT INTO RouteBinds VALUES(?, ?)", new object[] { forDatabase.RouteID, existingID });
                 }
@@ -293,8 +293,8 @@ namespace GTec.User.Controller
             if (Database.ExecuteScalarAsync<int>("SELECT * FROM DatabaseRoute", new object[] { }) == null)
                 retVal = 1;
             else
-                retVal = Database.ExecuteScalarAsync<int>("SELECT RouteID FROM DatabaseRoute WHERE (RouteID <> 999) AND (RouteID <> 1000) ORDER BY RouteID DESC").Result + 1;
-            if ((retVal == 999) || (retVal == 1000))
+                retVal = Database.ExecuteScalarAsync<int>("SELECT RouteID FROM DatabaseRoute WHERE (RouteID <> 999) AND (RouteID <> 998) ORDER BY RouteID DESC").Result + 1;
+            if ((retVal == 999) || (retVal == 998))
                 retVal = 1001;
             return retVal;
         }
