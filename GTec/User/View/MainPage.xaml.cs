@@ -410,6 +410,9 @@ namespace GTec.User.View
             dm.RequestOptions.RouteMode = Bing.Maps.Directions.RouteModeOption.Walking;
             dm.RenderOptions.WaypointPushpinOptions.PushpinTemplate = new ControlTemplate();
             dm.RenderOptions.ActiveRoutePolylineOptions.LineColor = Windows.UI.Colors.Orange;
+            dm.RenderOptions.WalkingPolylineOptions.LineColor = Windows.UI.Colors.Orange;
+            dm.RenderOptions.TransitPolylineOptions.LineColor = Windows.UI.Colors.Orange;
+            dm.RenderOptions.DrivingPolylineOptions.LineColor = Windows.UI.Colors.Orange;
 
             Bing.Maps.Directions.RouteResponse response = await dm.CalculateDirectionsAsync();
             if (response.Routes.Count > 0)

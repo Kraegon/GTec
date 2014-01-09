@@ -57,7 +57,6 @@ namespace GTec.Admin.View
             AddExistingWaypointButton.Content = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("toevoegen");
             PlaySoundExistingWaypointButton.Content = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("playSound");
             RouteNameLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("name");
-            RouteSoundPathLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("soundpath");
             ActiveLabel.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("active");
             SaveRouteButton.Content = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("save");
             RemoveWaypointButton.Content = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("removeRoute");
@@ -78,7 +77,6 @@ namespace GTec.Admin.View
             PickExistingWaypointImagePathLabel2.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("imagepath");
             AddExistingWaypointButton2.Content = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("edit");
             RouteNameLabel2.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("name");
-            RouteSoundPathLabel2.Text = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("playSound");
             SaveRouteButton2.Content = await GTec.User.Controller.Control.GetInstance().LanguageManager.GetTextAsync("save");
         }
 
@@ -193,7 +191,7 @@ namespace GTec.Admin.View
                 else
                     waypoints.Add(waypoint as Waypoint);               
             }
-            Route route = new Route(RouteName.Text, RouteSoundPath.Text, waypoints);
+            Route route = new Route(RouteName.Text, "", waypoints);
 
             await GTec.User.Controller.Control.GetInstance().DatabaseConnnector.SaveRouteAsync(route);
 
@@ -338,7 +336,7 @@ namespace GTec.Admin.View
                 else
                     waypoints.Add(poi);
             }
-            Route newRoute = new Route(RouteName2.Text, RouteSoundPath2.Text, waypoints);
+            Route newRoute = new Route(RouteName2.Text, "", waypoints);
 
             await GTec.User.Controller.Control.GetInstance().DatabaseConnnector.EditRouteAsync(oldRoute.Name, newRoute);
             asyncCommand.Cancel();
@@ -386,6 +384,9 @@ namespace GTec.Admin.View
         private async void RemoveWaypointButton_Click(object sender, RoutedEventArgs e)
         {
             await GTec.User.Controller.Control.GetInstance().DatabaseConnnector.DeleteVisitedRoute();
+
+            foreach (Waypoint wp in GTec.User.Controller.Control.GetInstance().CurrentRoute.WayPoints)
+                wp.Visited = false;
 
             if (Frame.CanGoBack)
             {
