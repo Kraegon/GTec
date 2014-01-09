@@ -574,6 +574,7 @@ namespace GTec.User.View
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             // Hier een link naar een manier om de toestand van de applicatie terug te halen zoals het toen was....
+            //Nee
             base.OnNavigatedTo(e);
         }
 
