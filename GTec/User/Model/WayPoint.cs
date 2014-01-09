@@ -68,5 +68,14 @@ namespace GTec.User.Model
         {
             return "Waypoint> Latitude = " + latitude + ", " + "Longitude = " + longitude;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Waypoint || obj is PointOfInterest))
+                return false;
+
+            Waypoint wp = obj as Waypoint;
+            return (wp.latitude == this.latitude && wp.longitude == this.longitude);
+        }
     }
 }
