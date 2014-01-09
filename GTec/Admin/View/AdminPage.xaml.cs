@@ -361,5 +361,15 @@ namespace GTec.Admin.View
             officeListBox2.ItemsSource = null;
             officeListBox2.ItemsSource = EditedRouteWayPoints;
         }
+
+        private async void RemoveWaypointButton_Click(object sender, RoutedEventArgs e)
+        {
+            await GTec.User.Controller.Control.GetInstance().DatabaseConnnector.DeleteVisitedRoute();
+
+            if (Frame.CanGoBack)
+            {
+                Frame.GoBack();
+            }
+        }
     }
 }

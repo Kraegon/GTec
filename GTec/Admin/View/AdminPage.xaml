@@ -124,7 +124,7 @@
         </DataTemplate>
     </Page.Resources>
 
-    <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" Margin="0,0,1376,0">
+    <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" Margin="0,0,2748,0">
         <!--Background image-->
         <ScrollViewer.Background>
             <ImageBrush ImageSource="/Assets/background.png" AlignmentY="Top" AlignmentX="Center"/>
@@ -227,7 +227,7 @@
                     </Grid>
                 </StackPanel>
                 
-                <Button x:Name="RemoveWaypointButton" Click="RemoveWayPointToRoute_Button_Click" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="Red" Margin="10,25">Wandelroute wissen</Button>
+                <Button x:Name="RemoveWaypointButton" Click="RemoveWaypointButton_Click" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="Red" Margin="10,25">Wandelroute wissen</Button>
 
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="835" Height="730" Margin="520,10,10,10">
                 <!--Stackpanel background-->
