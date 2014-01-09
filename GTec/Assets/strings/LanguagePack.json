@@ -92,6 +92,26 @@
 			"en": "Authentication",
 			"nl": "Authenticatie"
 		},
+		"description": {
+			"en": "Description",
+			"nl": "Omschrijving"
+		},
+		"editWaypoint": {
+			"en": "Edit Waypoint",
+			"nl": "Waypoint Aanpassen"
+		},
+		"edit": {
+			"en": "Edit",
+			"nl": "Aanpassen"
+		},
+		"removeRoute": {
+			"en": "Remove Route",
+			"nl": "Route Wissen"
+		},
+		"newRoute": {
+			"en": "New",
+			"nl": "Nieuw"
+		},
 		"VVV": {
 			"en": "This is the tourist information center of Breda, near the station.",
 			"nl": "Dit is het VVV kantoor van Breda bij het station."

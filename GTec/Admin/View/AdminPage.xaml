@@ -160,7 +160,7 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Button x:Name="goBackward" Grid.Row="0" Grid.Column="0" Click="goBackward_Click" Margin="5"/>
-                    <TextBlock Margin="5" Grid.Row="0" Grid.Column="1" Text="Nieuw" FontSize="28" FontWeight="Bold"/>
+                    <TextBlock x:Name="NewRouteHeader" Margin="5" Grid.Row="0" Grid.Column="1" Text="Nieuw" FontSize="28" FontWeight="Bold"/>
 
                     <TextBlock x:Name="NewWaypointNameLabel" Grid.Row="1" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">Naam:</TextBlock>
                     <TextBlock x:Name="NewWaypointLongitudeLabel" Grid.Row="2" Grid.Column="0" Width="180" Height="25" FontSize="18" HorizontalAlignment="Left" Margin="5">
@@ -259,7 +259,7 @@
                 <StackPanel.Background>
                     <SolidColorBrush Color="#FF8300" Opacity=".5"/>
                 </StackPanel.Background>
-                <TextBlock Margin="180,15,0,10" Text="Aanpassen" FontSize="28" FontWeight="Bold"/>
+                <TextBlock x:Name="EditHeaderTextBlock" Margin="180,15,0,10" Text="Aanpassen" FontSize="28" FontWeight="Bold"/>
                 <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Hidden" Width="500" Height="280">
                     <Grid Margin="10">
                         <Grid.ColumnDefinitions>

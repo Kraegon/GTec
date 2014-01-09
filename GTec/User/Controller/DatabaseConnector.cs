@@ -99,6 +99,7 @@ namespace GTec.User.Controller
         {
             bool IsSuccesful = true;
             DatabaseRoute forDatabase = DatabaseRoute.ToDatabaseRoute(route);
+            forDatabase.Name = "DF%Yyw54ye54yfw5u6ujtrhjw6hw45w4%HW$%HWT$GFWt4hft4th4wvhwtrg";
             await DeleteCurrentRoute();
             forDatabase.RouteID = 999; //Set to reserved ID
             await Database.InsertAsync(forDatabase);
@@ -114,6 +115,7 @@ namespace GTec.User.Controller
         {
             bool IsSuccesful = true;
             DatabaseRoute forDatabase = DatabaseRoute.ToDatabaseRoute(route);
+            forDatabase.Name = "FWGFETY^Rufw4r6ue6fyue46YGE^GU#EÛE6gue6guef6ug6eg6gue46gue6EU^GUE^FUEG%Ê";
             await DeleteVisitedRoute();
             forDatabase.RouteID = 998; //Set to reserved ID
             await Database.InsertAsync(forDatabase);

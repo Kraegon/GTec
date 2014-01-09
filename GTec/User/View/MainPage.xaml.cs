@@ -356,9 +356,6 @@ namespace GTec.User.View
 
                 if (r != null && Controller.Control.GetInstance().CurrentRoute != null)
                 {
-                    MessageDialog msg = new MessageDialog(r.WayPoints.Count + "", "If this is not 2, Julian fucked up.");
-                    await msg.ShowAsync();
-
                     foreach (Waypoint wp in r.WayPoints)
                     {
                         foreach (Waypoint rwp in Controller.Control.GetInstance().CurrentRoute.WayPoints)
@@ -412,7 +409,7 @@ namespace GTec.User.View
             dm.Waypoints = wayPoints;
             dm.RequestOptions.RouteMode = Bing.Maps.Directions.RouteModeOption.Walking;
             dm.RenderOptions.WaypointPushpinOptions.PushpinTemplate = new ControlTemplate();
-            dm.RenderOptions.ActiveRoutePolylineOptions.LineColor = Windows.UI.Colors.Blue;
+            dm.RenderOptions.ActiveRoutePolylineOptions.LineColor = Windows.UI.Colors.Orange;
 
             Bing.Maps.Directions.RouteResponse response = await dm.CalculateDirectionsAsync();
             if (response.Routes.Count > 0)
@@ -467,7 +464,7 @@ namespace GTec.User.View
                 }
             }
 
-            dm.RenderOptions.ActiveRoutePolylineOptions.LineColor = Windows.UI.Colors.Red;
+            dm.RenderOptions.ActiveRoutePolylineOptions.LineColor = Windows.UI.Colors.Gray;
 
             traveresedRouteResponse = await dm.CalculateDirectionsAsync();
 
